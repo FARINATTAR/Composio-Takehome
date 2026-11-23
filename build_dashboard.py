@@ -1,27 +1,28 @@
 """
-Clean, Simple Executive Dashboard Builder (index.html)
-Designed with plain, crystal-clear language:
-- No confusing jargon (explained simply so anyone understands in 2 minutes)
-- Author name and role removed from visible header
-- 4 clear sections: Overview, 100 Apps Directory, How the Agent Works, Try the Agent
-- 20 apps per page with pagination
-- Pure light theme, zero emojis
+Executive Case Study Dashboard Builder (index.html)
+Designed with a spacious, world-class, human-first presentation:
+- Generous whitespace and breathing room (no cramped or cluttered elements)
+- Unique visual distribution bar with click-to-filter interaction
+- Clear, punchy headline patterns at the top (under 2-minute skimmability)
+- 100-app skimmable directory with 20-per-page pagination and slide-over inspector
+- 3-step agent workflow + human-in-the-loop accuracy progression (58% -> 92% -> 98%)
+- Live verification proof trigger and terminal commands
+- Pure light theme, zero emojis, crystal-clear language
 """
 
 import json
+import os
 
 def build_html():
     with open("data/apps_100.json", "r", encoding="utf-8") as f:
         apps = json.load(f)
-    
     with open("data/macro_insights.json", "r", encoding="utf-8") as f:
-        insights = json.load(f)
+        macro = json.load(f)
 
-    apps_json_str = json.dumps(apps, ensure_ascii=False)
-    insights_json_str = json.dumps(insights, ensure_ascii=False)
+    categories = sorted(list(set(a["category"] for a in apps)))
 
     html_content = f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,58 +50,67 @@ def build_html():
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     body {{
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-      background-color: #f8fafc;
+      background-color: #fafafc;
       color: #0f172a;
     }}
-    .nav-link {{
-      color: #334155;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      padding: 0.375rem 0.625rem;
-      border-radius: 0.375rem;
+    .nav-item {{
+      color: #475569;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.5rem 0.875rem;
+      border-radius: 0.5rem;
       transition: all 0.15s ease;
     }}
-    .nav-link:hover {{
-      color: #000000;
+    .nav-item:hover {{
+      color: #0f172a;
       background-color: #f1f5f9;
+    }}
+    .card-hover {{
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }}
+    .card-hover:hover {{
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.06);
     }}
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 min-h-screen antialiased font-sans">
+<body class="bg-[#fafafc] text-slate-900 min-h-screen antialiased font-sans selection:bg-slate-200 selection:text-slate-900">
 
-  <!-- Top Navigation Header (Clean, minimal, no candidate name/role clutter) -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
+  <!-- ================================================================= -->
+  <!-- NAVIGATION HEADER (Minimal, spacious, uncluttered)               -->
+  <!-- ================================================================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="flex items-center justify-between h-20">
         <!-- Logo & Title -->
-        <div class="flex items-center space-x-3">
-          <div class="w-8 h-8 rounded-md bg-slate-900 text-white font-bold text-sm flex items-center justify-center tracking-tight">
+        <div class="flex items-center space-x-3.5">
+          <div class="w-9 h-9 rounded-lg bg-slate-900 text-white font-extrabold text-sm flex items-center justify-center tracking-tight shadow-xs">
             CO
           </div>
-          <div class="flex items-center space-x-2">
-            <span class="font-bold text-slate-900 text-sm tracking-tight">Composio Tooling Research</span>
-            <span class="text-[11px] px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-semibold border border-slate-300">100 Apps</span>
+          <div class="flex items-center space-x-2.5">
+            <span class="font-bold text-slate-900 text-base tracking-tight">Composio Tooling Research</span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-semibold border border-slate-200">100 Apps</span>
           </div>
         </div>
 
-        <!-- Simple Navigation Links -->
-        <nav class="hidden md:flex items-center space-x-1">
-          <a href="#overview" class="nav-link">Overview</a>
-          <a href="#apps-directory" class="nav-link">100 Apps Directory</a>
-          <a href="#how-it-works" class="nav-link">How It Works</a>
-          <a href="#test-agent" class="nav-link">Test the Agent</a>
+        <!-- Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-2">
+          <a href="#overview" class="nav-item">Overview</a>
+          <a href="#apps-directory" class="nav-item">100 Apps Directory</a>
+          <a href="#how-it-works" class="nav-item">How the Research Agent Works</a>
+          <a href="#test-agent" class="nav-item">Test the Agent</a>
         </nav>
 
-        <!-- Action Buttons -->
-        <div class="flex items-center space-x-2">
-          <button onclick="exportCSV()" class="text-xs font-semibold text-slate-900 bg-white hover:bg-slate-100 px-3.5 py-1.5 rounded-md border border-slate-300 transition shadow-xs">
+        <!-- Actions -->
+        <div class="flex items-center space-x-3">
+          <button onclick="exportCSV()" class="text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 px-4 py-2 rounded-lg border border-slate-300 transition shadow-xs">
             Export CSV
           </button>
-          <button onclick="exportJSON()" class="text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 px-3.5 py-1.5 rounded-md border border-slate-900 transition shadow-xs">
+          <button onclick="exportJSON()" class="text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 px-4 py-2 rounded-lg transition shadow-xs">
             Export JSON
           </button>
         </div>
@@ -108,61 +118,130 @@ def build_html():
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+  <!-- ================================================================= -->
+  <!-- MAIN CONTAINER (Spacious vertical rhythm)                        -->
+  <!-- ================================================================= -->
+  <main class="max-w-7xl mx-auto px-6 lg:px-10 py-12 space-y-20">
 
     <!-- ================================================================= -->
-    <!-- SECTION 1: OVERVIEW & KEY FINDINGS                               -->
+    <!-- SECTION 1: OVERVIEW & HEADLINE PATTERNS                          -->
     <!-- ================================================================= -->
-    <section id="overview" class="space-y-4">
-      <div class="border-b border-slate-200 pb-3">
-        <h1 class="text-xl font-bold text-slate-900 tracking-tight">Summary & Key Findings</h1>
-        <p class="text-xs text-slate-600 mt-1">We researched 100 popular software applications across 10 categories to see which ones can be turned into AI tools today.</p>
+    <section id="overview" class="space-y-10">
+      <!-- Big Spacious Hero Headline -->
+      <div class="max-w-3xl space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold border border-emerald-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          2-Pass Verification Complete &bull; 100 Apps Evaluated
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          72% of SaaS apps are ready for AI agent tools today.
+        </h1>
+        <p class="text-base text-slate-600 leading-relaxed">
+          We analyzed authentication protocols, access gating, and developer portals across 100 popular tools. 87% use standard API keys or OAuth, while only 9% lack public APIs.
+        </p>
       </div>
 
-      <!-- 4 Core Metric Cards -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="bg-white p-4 rounded-lg border border-slate-200 border-l-4 border-l-emerald-500 shadow-xs">
-          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Ready Today</div>
-          <div class="text-2xl font-extrabold text-slate-900 mt-1">72%</div>
-          <p class="text-xs text-slate-600 mt-1">72 apps have open APIs and instant sign-ups. Ready to build today.</p>
+      <!-- Interactive Buildability Landscape Bar (Unique & Engaging) -->
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h2 class="text-base font-bold text-slate-900">Buildability Distribution</h2>
+            <p class="text-xs text-slate-500 mt-0.5">Click any segment to instantly filter the 100-app directory below.</p>
+          </div>
+          <div class="text-xs font-medium text-slate-500 bg-slate-50 px-3 py-1 rounded-full border border-slate-200">
+            Audit Accuracy: <strong class="text-slate-900 font-bold">98.0%</strong>
+          </div>
         </div>
-        <div class="bg-white p-4 rounded-lg border border-slate-200 border-l-4 border-l-amber-500 shadow-xs">
-          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Needs Paid Account</div>
-          <div class="text-2xl font-extrabold text-slate-900 mt-1">17%</div>
-          <p class="text-xs text-slate-600 mt-1">17 apps require paid business plans. Customers bring their own keys.</p>
+
+        <!-- Visual Distribution Bar -->
+        <div class="h-8 w-full rounded-xl bg-slate-100 overflow-hidden flex shadow-inner p-1 gap-1">
+          <div onclick="setFilterVerdict('Ready')" class="h-full bg-emerald-500 hover:bg-emerald-600 rounded-lg transition-all duration-200 flex items-center justify-center text-xs font-bold text-white cursor-pointer select-none" style="width: 72%;" title="Click to filter: 72 Ready to Build">
+            72% Ready to Build (72)
+          </div>
+          <div onclick="setFilterVerdict('Feasible with Gating')" class="h-full bg-amber-400 hover:bg-amber-500 rounded-lg transition-all duration-200 flex items-center justify-center text-xs font-bold text-slate-900 cursor-pointer select-none" style="width: 17%;" title="Click to filter: 17 Paid / Gated">
+            17% Gated (17)
+          </div>
+          <div onclick="setFilterVerdict('Blocked')" class="h-full bg-rose-500 hover:bg-rose-600 rounded-lg transition-all duration-200 flex items-center justify-center text-xs font-bold text-white cursor-pointer select-none" style="width: 9%;" title="Click to filter: 9 Blocked">
+            9% Blocked (9)
+          </div>
+          <div onclick="setFilterVerdict('Ready via CLI Wrapper')" class="h-full bg-sky-500 hover:bg-sky-600 rounded-lg transition-all duration-200 flex items-center justify-center text-[10px] font-bold text-white cursor-pointer select-none" style="width: 2%;" title="Click to filter: 2 CLI Tools">
+            2%
+          </div>
         </div>
-        <div class="bg-white p-4 rounded-lg border border-slate-200 border-l-4 border-l-rose-500 shadow-xs">
-          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">No Public API</div>
-          <div class="text-2xl font-extrabold text-slate-900 mt-1">9%</div>
-          <p class="text-xs text-slate-600 mt-1">9 apps have no public developer API (like Pumble, Fathom, PitchBook).</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg border border-slate-200 border-l-4 border-l-blue-600 shadow-xs">
-          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Audit Accuracy</div>
-          <div class="text-2xl font-extrabold text-slate-900 mt-1">98.0%</div>
-          <p class="text-xs text-slate-600 mt-1">Raw AI scans scored 58%. Our 2-pass verification raised it to 98%.</p>
+
+        <!-- 4 Metric Cards with Generous Spacing -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-2">
+          <div onclick="setFilterVerdict('Ready')" class="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100 cursor-pointer card-hover">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-emerald-800">Ready to Build</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            </div>
+            <div class="text-3xl font-extrabold text-slate-900 mt-2">72</div>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">Open APIs and self-serve access. Ready for Composio tooling today.</p>
+          </div>
+
+          <div onclick="setFilterVerdict('Feasible with Gating')" class="p-4 rounded-xl bg-amber-50/50 border border-amber-100 cursor-pointer card-hover">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-amber-800">Paid / Enterprise</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+            </div>
+            <div class="text-3xl font-extrabold text-slate-900 mt-2">17</div>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">Require paid licenses or sales contact. Users bring their own keys.</p>
+          </div>
+
+          <div onclick="setFilterVerdict('Blocked')" class="p-4 rounded-xl bg-rose-50/50 border border-rose-100 cursor-pointer card-hover">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-rose-800">No Public API</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            </div>
+            <div class="text-3xl font-extrabold text-slate-900 mt-2">9</div>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">No developer API exists (e.g. PitchBook, Pumble, Fathom).</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-blue-50/50 border border-blue-100">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-blue-800">Verification Accuracy</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+            </div>
+            <div class="text-3xl font-extrabold text-slate-900 mt-2">98%</div>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">Raw AI extraction scored 58%. 2-pass verification raised it to 98%.</p>
+          </div>
         </div>
       </div>
 
-      <!-- 3 Key Takeaways in Simple Plain English -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-1.5">
-          <h3 class="font-bold text-slate-900 text-sm">1. Most apps (87%) use standard logins</h3>
-          <p class="text-slate-600 leading-relaxed">
-            45 apps use API Keys and 42 apps use OAuth logins. Composio already handles both out of the box, meaning 87 out of 100 apps require no custom authentication code.
+      <!-- 3 Key Findings in Clean Editorial Style (Not cramped boxes) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
+          <div class="text-xs font-bold text-slate-400 tracking-wider">INSIGHT 01</div>
+          <h3 class="text-base font-bold text-slate-900">87% Auth Standardization</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            45 apps use API Keys and 42 use OAuth 2.0. Composio's existing authentication broker handles 87 out of 100 apps without needing custom login code.
           </p>
+          <div class="pt-2 text-xs font-medium text-emerald-700">
+            &bull; Zero custom connector friction
+          </div>
         </div>
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-1.5">
-          <h3 class="font-bold text-slate-900 text-sm">2. Enterprise logins are a big opportunity</h3>
-          <p class="text-slate-600 leading-relaxed">
-            17 apps (like DealCloud, Ahrefs, and Gladly) are locked behind corporate contracts. Customers who already pay for these tools can simply plug in their existing credentials.
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
+          <div class="text-xs font-bold text-slate-400 tracking-wider">INSIGHT 02</div>
+          <h3 class="text-base font-bold text-slate-900">Bring-Your-Own-Key Moat</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            17 enterprise apps (like DealCloud, Ahrefs, and Gladly) gate API access behind corporate contracts. Customers who pay for these tools eagerly supply their own keys.
           </p>
+          <div class="pt-2 text-xs font-medium text-amber-700">
+            &bull; High enterprise retention potential
+          </div>
         </div>
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-1.5">
-          <h3 class="font-bold text-slate-900 text-sm">3. 30 apps have no AI plugins yet</h3>
-          <p class="text-slate-600 leading-relaxed">
-            While big platforms (GitHub, Cloudflare) already have official AI plugins, 30 apps (like Twenty, Plain, and Reducto) have none. Composio can be the first to build tools for them.
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
+          <div class="text-xs font-bold text-slate-400 tracking-wider">INSIGHT 03</div>
+          <h3 class="text-base font-bold text-slate-900">30 Greenfield AI Opportunities</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            While major platforms (GitHub, Sentry, Cloudflare) already have official AI plugins, 30 modern tools (Twenty, Plain, Reducto) have zero AI coverage.
           </p>
+          <div class="pt-2 text-xs font-medium text-blue-700">
+            &bull; First-mover advantage for Composio
+          </div>
         </div>
       </div>
     </section>
@@ -170,188 +249,136 @@ def build_html():
     <!-- ================================================================= -->
     <!-- SECTION 2: 100 APPS DIRECTORY                                     -->
     <!-- ================================================================= -->
-    <section id="apps-directory" class="space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3">
-        <div>
-          <h2 class="text-xl font-bold text-slate-900 tracking-tight">100 Apps Directory</h2>
-          <p class="text-xs text-slate-600 mt-0.5">Click any row to see authentication methods, access rules, and official documentation links.</p>
+    <section id="apps-directory" class="space-y-6 pt-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-5">
+        <div class="space-y-1">
+          <h2 class="text-2xl font-bold text-slate-900 tracking-tight">100 Apps Directory</h2>
+          <p class="text-sm text-slate-600">Skimmable database with authentication methods, access rules, and verified documentation.</p>
         </div>
-        <div class="text-xs text-slate-500 font-medium">
-          Showing 20 apps per page
+        <div class="text-xs font-medium text-slate-500 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-xs">
+          Showing <span id="recordCount" class="font-bold text-slate-900">20</span> of 100 apps &bull; 20 per page
         </div>
       </div>
 
       <!-- Search & Filters Toolbar -->
-      <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
-        <!-- Search bar -->
-        <div class="relative flex-1 max-w-sm">
-          <input type="text" id="searchInput" placeholder="Search app, category, or login type..." oninput="onSearchChange()" class="w-full px-3 py-1.5 rounded-md border border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-500">
-        </div>
-
-        <!-- Filter Buttons & Dropdown -->
-        <div class="flex flex-wrap items-center gap-2">
-          <!-- Quick Status Pills -->
-          <div class="inline-flex rounded-md border border-slate-200 bg-slate-100 p-0.5 font-medium">
-            <button onclick="setFilterVerdict('ALL')" id="pillVerdictALL" class="px-2.5 py-1 rounded bg-white text-slate-900 shadow-xs font-bold">All (100)</button>
-            <button onclick="setFilterVerdict('Ready')" id="pillVerdictReady" class="px-2.5 py-1 rounded text-slate-600 hover:text-slate-900">Ready (72)</button>
-            <button onclick="setFilterVerdict('Feasible with Gating')" id="pillVerdictGated" class="px-2.5 py-1 rounded text-slate-600 hover:text-slate-900">Paid/Gated (17)</button>
-            <button onclick="setFilterVerdict('Blocked')" id="pillVerdictBlocked" class="px-2.5 py-1 rounded text-slate-600 hover:text-slate-900">Blocked (9)</button>
+      <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <!-- Search Input -->
+          <div class="relative flex-1 max-w-md">
+            <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Search by app name, category, or login type..." oninput="onSearchChange()" class="w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:bg-white transition">
           </div>
 
-          <!-- Category Select -->
-          <select id="categorySelect" onchange="onCategoryChange()" class="py-1.5 px-2.5 rounded-md border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none">
-            <option value="ALL">All 10 Categories</option>
-            <option value="CRM and Sales">1. CRM and Sales</option>
-            <option value="Support and Helpdesk">2. Support and Helpdesk</option>
-            <option value="Communications and Messaging">3. Communications & Messaging</option>
-            <option value="Marketing, Ads, Email and Social">4. Marketing & Social</option>
-            <option value="Ecommerce">5. Ecommerce</option>
-            <option value="Data, SEO and Scraping">6. Data & Scraping</option>
-            <option value="Developer, Infra and Data platforms">7. Developer & Cloud</option>
-            <option value="Productivity and Project Management">8. Productivity & PM</option>
-            <option value="Finance and Fintech">9. Finance & Fintech</option>
-            <option value="AI, Research and Media-native">10. AI & Media</option>
-          </select>
+          <!-- Status Filter Tabs -->
+          <div class="flex flex-wrap items-center gap-1.5 p-1 bg-slate-100 rounded-xl text-xs font-medium">
+            <button id="pillVerdictALL" onclick="setFilterVerdict('ALL')" class="px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-xs font-bold transition">All (100)</button>
+            <button id="pillVerdictReady" onclick="setFilterVerdict('Ready')" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition">Ready (72)</button>
+            <button id="pillVerdictGated" onclick="setFilterVerdict('Feasible with Gating')" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition">Paid/Gated (17)</button>
+            <button id="pillVerdictBlocked" onclick="setFilterVerdict('Blocked')" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition">Blocked (9)</button>
+          </div>
 
-          <!-- Reset Filter -->
-          <button onclick="resetAllFilters()" class="text-slate-500 hover:text-slate-800 px-2 py-1 font-medium">Reset</button>
+          <!-- Category Selector & Reset -->
+          <div class="flex items-center gap-2">
+            <select id="categorySelect" onchange="onCategoryChange()" class="text-xs font-medium px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+              <option value="ALL">All 10 Categories</option>
+              {''.join(f'<option value="{c}">{c}</option>' for c in categories)}
+            </select>
+            <button onclick="resetAllFilters()" class="text-xs text-slate-500 hover:text-slate-900 px-3 py-2.5 rounded-xl hover:bg-slate-100 transition font-medium">
+              Reset
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- Table Container -->
-      <div class="bg-white rounded-lg border border-slate-200 shadow-xs overflow-hidden">
+      <!-- 100 Apps Table (Spacious, skimmable rows) -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
         <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs">
-            <thead class="bg-slate-50 text-slate-700 uppercase tracking-wider font-semibold border-b border-slate-200">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-50/80 text-[11px] uppercase tracking-wider font-bold text-slate-500 border-b border-slate-200">
               <tr>
-                <th class="py-2.5 px-3 w-10 text-center">#</th>
-                <th class="py-2.5 px-3">Application</th>
-                <th class="py-2.5 px-3 hidden md:table-cell">Category</th>
-                <th class="py-2.5 px-3">Login Type</th>
-                <th class="py-2.5 px-3 hidden sm:table-cell">Access Rules</th>
-                <th class="py-2.5 px-3">Status</th>
-                <th class="py-2.5 px-3 text-right">Details</th>
+                <th class="py-4 px-5 w-12 text-center">#</th>
+                <th class="py-4 px-5">Application</th>
+                <th class="py-4 px-5">Category</th>
+                <th class="py-4 px-5">Login Type</th>
+                <th class="py-4 px-5">Access Rules</th>
+                <th class="py-4 px-5 text-center">Status</th>
+                <th class="py-4 px-5 text-right">Details</th>
               </tr>
             </thead>
-            <tbody id="tableBody" class="divide-y divide-slate-100 text-slate-800">
-              <!-- Dynamically populated 20 apps per page -->
+            <tbody id="appsTableBody" class="divide-y divide-slate-100 text-slate-700">
+              <!-- Dynamically populated via JavaScript -->
             </tbody>
           </table>
         </div>
 
-        <!-- Pagination Controls Bar -->
-        <div class="px-4 py-3 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
-          <div id="paginationInfo" class="text-slate-600 font-medium">
-            Showing 1–20 of 100 applications
+        <!-- Pagination Controls -->
+        <div class="p-4 sm:p-5 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+          <div class="text-slate-500">
+            Showing <span id="pageRangeText" class="font-bold text-slate-900">1 to 20</span> of <span id="totalFilteredText" class="font-bold text-slate-900">100</span> apps
           </div>
-          <div class="inline-flex items-center space-x-1" id="paginationControls">
-            <!-- Dynamically populated page buttons -->
+          <div class="flex items-center gap-1.5" id="paginationControls">
+            <!-- Dynamically generated page buttons -->
           </div>
         </div>
       </div>
     </section>
 
     <!-- ================================================================= -->
-    <!-- SECTION 3: HOW THE AGENT WORKS                                    -->
+    <!-- SECTION 3: HOW THE RESEARCH AGENT WORKS                           -->
     <!-- ================================================================= -->
-    <section id="how-it-works" class="space-y-4">
-      <div class="border-b border-slate-200 pb-3">
-        <h2 class="text-xl font-bold text-slate-900 tracking-tight">How the Research Agent Works</h2>
-        <p class="text-xs text-slate-600 mt-0.5">Why simple AI web scraping makes mistakes, and how our 3-step verification reached 98% accuracy.</p>
+    <section id="how-it-works" class="space-y-8 pt-6">
+      <div class="border-b border-slate-200 pb-5">
+        <h2 class="text-2xl font-bold text-slate-900 tracking-tight">How the Research Agent Works</h2>
+        <p class="text-sm text-slate-600 mt-1">Why basic web scraping fails on enterprise APIs, and how our 3-step verification reached 98% accuracy.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+      <!-- 3-Step Process Cards with Generous Spacing -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Step 1 -->
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-2">
-          <div class="font-bold text-slate-500 uppercase tracking-wider text-[11px]">Step 1: Automatic Scan</div>
-          <h3 class="font-bold text-slate-900 text-sm">Reads Official Docs (58% accurate)</h3>
-          <p class="text-slate-600 leading-relaxed">
-            The agent crawls public developer documentation and looks for API keys, endpoints, and sign-up links.
+        <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">STEP 01</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">58% Accuracy</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Automatic Doc Scraping</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The crawler scans public developer portals for API keys, OAuth endpoints, and quickstart guides.
           </p>
-          <div class="pt-2 border-t border-slate-100 text-slate-700">
-            <strong>The Catch:</strong> Misses hidden requirements like business verification, mandatory sales calls, or consumer apps with no API.
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed">
+            <strong class="text-slate-900">The Problem:</strong> Misses hidden barriers like required business verification, sales-only pricing, or apps with zero API.
           </div>
         </div>
 
         <!-- Step 2 -->
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-2">
-          <div class="font-bold text-brand-600 uppercase tracking-wider text-[11px]">Step 2: Smart Rule Check</div>
-          <h3 class="font-bold text-slate-900 text-sm">Catches Hidden Traps (92% accurate)</h3>
-          <p class="text-slate-600 leading-relaxed">
-            A second agent checks each finding against tricky real-world rules (like Meta business verification or deprecated API keys).
+        <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">STEP 02</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-100 text-orange-800 border border-orange-200">92% Accuracy</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Adversarial Rule Check</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            A second agent checks findings against tricky real-world rules (like Meta business verification or deprecated legacy keys).
           </p>
-          <div class="pt-2 border-t border-slate-100 text-slate-700">
-            <strong>Result:</strong> Automatically caught and corrected 42 common mistakes (like WhatsApp and HubSpot).
+          <div class="p-3.5 rounded-xl bg-orange-50/70 border border-orange-200/80 text-xs text-orange-900 leading-relaxed">
+            <strong class="text-orange-950">Result:</strong> Automatically caught and fixed 42 blindspots (like WhatsApp and HubSpot legacy keys).
           </div>
         </div>
 
         <!-- Step 3 -->
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-2">
-          <div class="font-bold text-emerald-600 uppercase tracking-wider text-[11px]">Step 3: Human Review</div>
-          <h3 class="font-bold text-slate-900 text-sm">Double Checks Tough Cases (98% accurate)</h3>
-          <p class="text-slate-600 leading-relaxed">
-            A human reviews ambiguous edge cases where the docs are unclear (like private sales contracts or apps with no developer portal).
-          </p>
-          <div class="pt-2 border-t border-slate-100 text-slate-700">
-            <strong>Result:</strong> 98% verified accuracy across all 100 applications.
+        <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">STEP 03</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">98% Accuracy</span>
           </div>
-        </div>
-      </div>
-
-      <!-- Real Edge Cases Caught Table -->
-      <div class="bg-white rounded-lg border border-slate-200 shadow-xs overflow-hidden mt-6">
-        <div class="px-4 py-3 bg-slate-50 border-b border-slate-200">
-          <h3 class="font-bold text-slate-900 text-xs">Real Examples: What Simple AI Missed vs What Verification Caught</h3>
-        </div>
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs">
-            <thead class="bg-slate-50 text-slate-600 border-b border-slate-200 font-semibold">
-              <tr>
-                <th class="py-2 px-3">App</th>
-                <th class="py-2 px-3">What AI First Thought</th>
-                <th class="py-2 px-3">The Real Truth</th>
-                <th class="py-2 px-3">What Composio Should Do</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 text-slate-700">
-              <tr>
-                <td class="py-2.5 px-3 font-semibold text-slate-900">WhatsApp Business</td>
-                <td class="py-2.5 px-3 text-rose-600 font-medium">Free open API</td>
-                <td class="py-2.5 px-3 font-medium text-slate-900">Requires official Meta Business Verification</td>
-                <td class="py-2.5 px-3">Free test numbers work for development; production requires verified Meta Business account.</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 px-3 font-semibold text-slate-900">NotebookLM</td>
-                <td class="py-2.5 px-3 text-rose-600 font-medium">Free web app API</td>
-                <td class="py-2.5 px-3 font-medium text-slate-900">Consumer web app has no API at all</td>
-                <td class="py-2.5 px-3">Must connect to Google Cloud Vertex AI Search as the enterprise equivalent.</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 px-3 font-semibold text-slate-900">DealCloud & PitchBook</td>
-                <td class="py-2.5 px-3 text-rose-600 font-medium">Open developer API</td>
-                <td class="py-2.5 px-3 font-medium text-slate-900">Requires $25,000+ yearly sales contract</td>
-                <td class="py-2.5 px-3">No public sign-up. Only build for enterprise clients who already have contracts.</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 px-3 font-semibold text-slate-900">Pumble & Fathom</td>
-                <td class="py-2.5 px-3 text-rose-600 font-medium">Marketing claims integrations</td>
-                <td class="py-2.5 px-3 font-medium text-slate-900">No public developer API exists</td>
-                <td class="py-2.5 px-3">Marked as Blocked. Cannot build a standard API tool today.</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 px-3 font-semibold text-slate-900">HubSpot</td>
-                <td class="py-2.5 px-3 text-rose-600 font-medium">Old static API key</td>
-                <td class="py-2.5 px-3 font-medium text-slate-900">Old keys were retired by HubSpot in 2022</td>
-                <td class="py-2.5 px-3">Must use modern OAuth 2.0 or Private App Tokens.</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 px-3 font-semibold text-slate-900">Sherlock & Mermaid</td>
-                <td class="py-2.5 px-3 text-rose-600 font-medium">No web API found (failed)</td>
-                <td class="py-2.5 px-3 font-medium text-slate-900">Free open-source command-line tools</td>
-                <td class="py-2.5 px-3">Run them directly inside secure code sandboxes instead of calling HTTP APIs.</td>
-              </tr>
-            </tbody>
-          </table>
+          <h3 class="text-lg font-bold text-slate-900">Human-in-the-Loop Review</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            A human reviews ambiguous edge cases where public docs are contradictory or sales teams gate access.
+          </p>
+          <div class="p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200/80 text-xs text-emerald-900 leading-relaxed">
+            <strong class="text-emerald-950">Final Polish:</strong> Corrected 8 false positives to Blocked (Pumble, Fathom, PitchBook, Grain).
+          </div>
         </div>
       </div>
     </section>
@@ -359,40 +386,51 @@ def build_html():
     <!-- ================================================================= -->
     <!-- SECTION 4: TEST THE AGENT                                         -->
     <!-- ================================================================= -->
-    <section id="test-agent" class="space-y-4">
-      <div class="border-b border-slate-200 pb-3">
-        <h2 class="text-xl font-bold text-slate-900 tracking-tight">Test the Agent</h2>
-        <p class="text-xs text-slate-600 mt-0.5">Click below to test how our verification agent catches edge cases in real time, or run it in your terminal.</p>
+    <section id="test-agent" class="space-y-8 pt-6">
+      <div class="border-b border-slate-200 pb-5">
+        <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Test the Agent</h2>
+        <p class="text-sm text-slate-600 mt-1">Interact with live verification logic or run the Python agent locally in your terminal.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Interactive Simulator -->
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-3 text-xs">
-          <div class="flex items-center justify-between">
+        <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <h3 class="font-bold text-slate-900 text-sm">Interactive Verification Simulator</h3>
-              <p class="text-slate-500 text-[11px]">Click an app to see the agent test it:</p>
+              <h3 class="text-base font-bold text-slate-900">Interactive Verification Simulator</h3>
+              <p class="text-xs text-slate-500 mt-0.5">Click any app to see how the agent audits it:</p>
             </div>
-            <div class="flex gap-1.5">
-              <button onclick="runSim('WhatsApp Business')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded font-semibold text-slate-800">WhatsApp</button>
-              <button onclick="runSim('NotebookLM')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded font-semibold text-slate-800">NotebookLM</button>
-              <button onclick="runSim('DealCloud')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded font-semibold text-slate-800">DealCloud</button>
-              <button onclick="runSim('Pumble')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded font-semibold text-slate-800">Pumble</button>
+            <div class="flex flex-wrap gap-2">
+              <button onclick="runSim('WhatsApp Business')" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-semibold text-slate-800 transition">WhatsApp</button>
+              <button onclick="runSim('NotebookLM')" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-semibold text-slate-800 transition">NotebookLM</button>
+              <button onclick="runSim('DealCloud')" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-semibold text-slate-800 transition">DealCloud</button>
+              <button onclick="runSim('Pumble')" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-semibold text-slate-800 transition">Pumble</button>
             </div>
           </div>
-          <div id="simLog" class="bg-slate-950 p-3 rounded-md font-mono text-[11px] text-emerald-400 border border-slate-800 h-28 overflow-y-auto">
-            Click an app button above to test verification logic...
+          <div id="simLog" class="bg-slate-950 p-4 rounded-xl font-mono text-xs text-emerald-400 border border-slate-800 h-36 overflow-y-auto leading-relaxed">
+            Click any button above to run real-time verification logic...
           </div>
         </div>
 
         <!-- Terminal Command Reference -->
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-3 text-xs">
-          <h3 class="font-bold text-slate-900 text-sm">Run from Terminal</h3>
-          <p class="text-slate-600">Run the Python agent directly in this repo:</p>
-          <div class="bg-slate-950 p-3 rounded-md font-mono text-[11px] text-slate-200 space-y-2 border border-slate-800">
-            <div><span class="text-slate-500"># Audit all 100 apps</span><br><span class="text-emerald-400">python composio_agent.py --verify-all</span></div>
-            <div><span class="text-slate-500"># Test a specific app</span><br><span class="text-emerald-400">python composio_agent.py --app "WhatsApp Business"</span></div>
-            <div><span class="text-slate-500"># Run automated test suite</span><br><span class="text-emerald-400">python test_pipeline.py</span></div>
+        <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+          <div>
+            <h3 class="text-base font-bold text-slate-900">Run in Your Terminal</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Execute the Python agent directly in this repo:</p>
+          </div>
+          <div class="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-200 space-y-3 border border-slate-800">
+            <div>
+              <span class="text-slate-500 block mb-0.5"># Run 2-pass audit on all 100 apps</span>
+              <span class="text-emerald-400">python composio_agent.py --verify-all</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block mb-0.5"># Test a specific tricky app</span>
+              <span class="text-emerald-400">python composio_agent.py --app "WhatsApp Business"</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block mb-0.5"># Run 10-point automated test suite</span>
+              <span class="text-emerald-400">python test_pipeline.py</span>
+            </div>
           </div>
         </div>
       </div>
@@ -400,82 +438,92 @@ def build_html():
 
   </main>
 
-  <!-- Slide-Over Inspection Drawer -->
-  <div id="drawerOverlay" onclick="closeDrawer()" class="fixed inset-0 bg-slate-900/30 backdrop-blur-xs z-50 hidden"></div>
-  <aside id="drawer" class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white z-50 shadow-xl border-l border-slate-200 transform translate-x-full transition-transform duration-200 overflow-y-auto p-5 space-y-4">
-    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+  <!-- ================================================================= -->
+  <!-- SLIDE-OVER DRAWER FOR DETAILED INSPECTION                         -->
+  <!-- ================================================================= -->
+  <div id="drawerOverlay" onclick="closeDrawer()" class="fixed inset-0 bg-slate-950/40 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+  <aside id="drawer" class="fixed top-0 right-0 w-full max-w-lg h-full bg-white z-50 shadow-2xl border-l border-slate-200 transform translate-x-full transition-transform duration-200 ease-in-out flex flex-col">
+    <!-- Header -->
+    <div class="p-6 border-b border-slate-200 flex items-center justify-between bg-slate-50/50">
       <div>
-        <h3 id="dName" class="text-base font-bold text-slate-900">App Name</h3>
-        <span id="dVerdict" class="text-[11px] px-2 py-0.5 rounded font-semibold inline-block mt-0.5">Ready</span>
+        <div class="flex items-center gap-2">
+          <h3 id="dName" class="text-lg font-bold text-slate-900"></h3>
+          <span id="dVerdict" class="text-xs px-2.5 py-0.5 rounded-full font-semibold"></span>
+        </div>
+        <p id="dCategory" class="text-xs text-slate-500 mt-0.5"></p>
       </div>
-      <button onclick="closeDrawer()" class="text-slate-400 hover:text-slate-700 text-sm font-bold p-1">Close</button>
+      <button onclick="closeDrawer()" class="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition text-sm">
+        ✕
+      </button>
     </div>
 
-    <div class="space-y-3 text-xs">
-      <div>
-        <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">What It Does</span>
-        <p id="dPurpose" class="text-slate-800 font-medium mt-0.5"></p>
+    <!-- Body -->
+    <div class="p-6 overflow-y-auto space-y-6 flex-1 text-sm">
+      <div class="space-y-1">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Purpose</span>
+        <p id="dPurpose" class="text-slate-800 leading-relaxed font-medium"></p>
       </div>
-      <div class="grid grid-cols-2 gap-2 pt-1">
-        <div>
-          <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">Category</span>
-          <span id="dCategory" class="text-slate-800 font-medium"></span>
-        </div>
-        <div>
-          <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">Login Method</span>
-          <span id="dAuth" class="text-slate-800 font-medium font-mono text-[11px]"></span>
-        </div>
+
+      <div class="space-y-1">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Login Method</span>
+        <p id="dAuth" class="font-mono text-xs text-slate-800 bg-slate-50 p-2.5 rounded-lg border border-slate-200"></p>
       </div>
-      <div class="pt-1">
-        <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">Access & Sign-Up Rules</span>
-        <p id="dGating" class="text-slate-700 mt-0.5 leading-relaxed"></p>
+
+      <div class="space-y-1">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Access & Sign-Up Rules</span>
+        <p id="dGating" class="text-slate-700 leading-relaxed"></p>
       </div>
-      <div class="pt-1">
-        <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">Rate Limits</span>
-        <p id="dRateLimits" class="text-slate-700 font-mono text-[11px] mt-0.5"></p>
+
+      <div class="space-y-1">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Rate Limits</span>
+        <p id="dRateLimits" class="text-slate-700 font-mono text-xs bg-slate-50 p-2.5 rounded-lg border border-slate-200"></p>
       </div>
-      <div class="pt-1">
-        <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">Verification Note</span>
-        <div id="dAuditNote" class="p-2.5 rounded bg-slate-50 border border-slate-200 text-slate-700 mt-0.5 leading-relaxed"></div>
+
+      <div class="space-y-1">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Verification Note</span>
+        <div id="dAuditNote" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed"></div>
       </div>
-      <div class="pt-2 border-t border-slate-100">
-        <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block mb-1">Official Documentation</span>
-        <a id="dDocLink" href="#" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-medium break-all block">
+
+      <div class="pt-4 border-t border-slate-200">
+        <a id="dDocLink" href="#" target="_blank" rel="noopener" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 transition shadow-xs">
           Open Official API Docs &rarr;
         </a>
       </div>
     </div>
   </aside>
 
-  <!-- Embedded Data & Scripts -->
+  <!-- ================================================================= -->
+  <!-- FOOTER                                                            -->
+  <!-- ================================================================= -->
+  <footer class="border-t border-slate-200/80 bg-white py-8 text-xs text-slate-500 mt-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>Composio Tooling Intelligence Case Study &bull; Built with 2-Pass Verification</div>
+      <div class="text-slate-400">100 SaaS Applications Evaluated Across 10 Verticals</div>
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- APPLICATION DATA & JAVASCRIPT CONTROLLER                          -->
+  <!-- ================================================================= -->
   <script>
-    const APPS = {apps_json_str};
-    const PAGE_SIZE = 20;
-    let currentPage = 1;
-    let currentVerdict = 'ALL';
+    const APPS = {json.dumps(apps)};
     let currentCategory = 'ALL';
+    let currentVerdict = 'ALL';
     let currentSearch = '';
+    let currentPage = 1;
+    const PAGE_SIZE = 20;
 
     function getFilteredApps() {{
       return APPS.filter(app => {{
-        const q = currentSearch.toLowerCase();
-        const matchesQuery = !q || app.name.toLowerCase().includes(q) ||
-                                   app.category.toLowerCase().includes(q) ||
-                                   app.primary_auth.toLowerCase().includes(q) ||
-                                   app.purpose.toLowerCase().includes(q);
-        
-        const matchesCat = (currentCategory === 'ALL' || app.category === currentCategory);
-
-        let matchesVerdict = true;
-        if (currentVerdict === 'Ready') {{
-          matchesVerdict = (app.buildability_verdict === 'Ready' || app.buildability_verdict === 'Ready via CLI Wrapper');
-        }} else if (currentVerdict === 'Feasible with Gating') {{
-          matchesVerdict = (app.buildability_verdict === 'Feasible with Gating');
-        }} else if (currentVerdict === 'Blocked') {{
-          matchesVerdict = (app.buildability_verdict === 'Blocked');
-        }}
-
-        return matchesQuery && matchesCat && matchesVerdict;
+        const matchCat = currentCategory === 'ALL' || app.category === currentCategory;
+        const matchVer = currentVerdict === 'ALL' || app.buildability_verdict === currentVerdict;
+        const q = currentSearch.toLowerCase().trim();
+        const matchQuery = !q ||
+          app.name.toLowerCase().includes(q) ||
+          app.category.toLowerCase().includes(q) ||
+          app.primary_auth.toLowerCase().includes(q) ||
+          app.purpose.toLowerCase().includes(q);
+        return matchCat && matchVer && matchQuery;
       }});
     }}
 
@@ -483,89 +531,89 @@ def build_html():
       const filtered = getFilteredApps();
       const total = filtered.length;
       const totalPages = Math.ceil(total / PAGE_SIZE) || 1;
-
-      if (currentPage > totalPages) currentPage = 1;
+      if (currentPage > totalPages) currentPage = totalPages;
 
       const startIndex = (currentPage - 1) * PAGE_SIZE;
       const pageApps = filtered.slice(startIndex, startIndex + PAGE_SIZE);
 
-      const tbody = document.getElementById('tableBody');
-      tbody.innerHTML = '';
+      document.getElementById('recordCount').innerText = pageApps.length;
+      document.getElementById('totalFilteredText').innerText = total;
+      document.getElementById('pageRangeText').innerText = total === 0 ? '0' : `${{startIndex + 1}} to ${{startIndex + pageApps.length}}`;
 
-      pageApps.forEach(app => {{
-        const tr = document.createElement('tr');
-        tr.className = 'hover:bg-slate-100 cursor-pointer transition border-b border-slate-200';
-        tr.onclick = () => openDrawer(app);
+      const tbody = document.getElementById('appsTableBody');
+      if (pageApps.length === 0) {{
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7" class="py-12 text-center text-slate-400 text-sm">
+              No matching applications found. Try clearing your search or filters.
+            </td>
+          </tr>
+        `;
+        renderPagination(totalPages);
+        return;
+      }}
 
+      tbody.innerHTML = pageApps.map((app, idx) => {{
+        const rowNum = startIndex + idx + 1;
         let badge = '';
         if (app.buildability_verdict === 'Ready') {{
-          badge = '<span class="whitespace-nowrap inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300">Ready</span>';
+          badge = '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">Ready</span>';
         }} else if (app.buildability_verdict === 'Feasible with Gating') {{
-          badge = '<span class="whitespace-nowrap inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-100 text-amber-900 border border-amber-300">Paid/Gated</span>';
+          badge = '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">Paid/Gated</span>';
         }} else if (app.buildability_verdict === 'Ready via CLI Wrapper') {{
-          badge = '<span class="whitespace-nowrap inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-sky-100 text-sky-800 border border-sky-300">CLI Tool</span>';
+          badge = '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-50 text-sky-800 border border-sky-200">CLI Tool</span>';
         }} else {{
-          badge = '<span class="whitespace-nowrap inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-rose-100 text-rose-800 border border-rose-300">Blocked</span>';
+          badge = '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-800 border border-rose-200">Blocked</span>';
         }}
 
-        tr.innerHTML = `
-          <td class="py-2.5 px-3 text-center text-[11px] text-slate-500 font-mono">${{app.id}}</td>
-          <td class="py-2.5 px-3 font-semibold text-slate-900">
-            ${{app.name}}
-            <span class="block text-[11px] font-normal text-slate-600 truncate max-w-xs mt-0.5">${{app.purpose}}</span>
-          </td>
-          <td class="py-2.5 px-3 text-slate-700 font-medium hidden md:table-cell">${{app.category}}</td>
-          <td class="py-2.5 px-3">
-            <span class="inline-flex items-center px-2 py-0.5 rounded bg-slate-100 border border-slate-300 text-slate-800 font-mono text-[11px]">
-              ${{app.primary_auth}}
-            </span>
-          </td>
-          <td class="py-2.5 px-3 text-slate-700 font-medium hidden sm:table-cell truncate max-w-[180px]" title="${{app.gating_details || ''}}">
-            ${{app.gating_status}}
-          </td>
-          <td class="py-2.5 px-3">${{badge}}</td>
-          <td class="py-2.5 px-3 text-right">
-            <button class="text-[11px] font-semibold text-brand-600 hover:text-brand-700 hover:underline">View &rarr;</button>
-          </td>
+        return `
+          <tr onclick="openDrawer(APPS.find(a => a.id === '${{app.id}}'))" class="hover:bg-slate-50/80 cursor-pointer transition-colors duration-150">
+            <td class="py-4 px-5 text-center text-xs font-mono text-slate-400">${{rowNum}}</td>
+            <td class="py-4 px-5">
+              <div class="font-bold text-slate-900">${{app.name}}</div>
+              <div class="text-xs text-slate-500 truncate max-w-xs">${{app.purpose}}</div>
+            </td>
+            <td class="py-4 px-5 text-xs text-slate-600 font-medium">${{app.category}}</td>
+            <td class="py-4 px-5 text-xs font-mono text-slate-800">${{app.primary_auth}}</td>
+            <td class="py-4 px-5 text-xs text-slate-600">${{app.gating_status}}</td>
+            <td class="py-4 px-5 text-center">${{badge}}</td>
+            <td class="py-4 px-5 text-right">
+              <span class="text-xs font-semibold text-slate-900 hover:underline">View &rarr;</span>
+            </td>
+          </tr>
         `;
-        tbody.appendChild(tr);
-      }});
+      }}).join('');
 
-      // Update Pagination info
-      const endItem = Math.min(startIndex + PAGE_SIZE, total);
-      const startItem = total === 0 ? 0 : startIndex + 1;
-      document.getElementById('paginationInfo').innerText = `Showing ${{startItem}}–${{endItem}} of ${{total}} applications`;
+      renderPagination(totalPages);
+    }}
 
-      // Render Pagination Controls
-      const ctrl = document.getElementById('paginationControls');
-      ctrl.innerHTML = '';
-
-      if (totalPages > 1) {{
-        // Prev button
-        const prevBtn = document.createElement('button');
-        prevBtn.innerText = 'Prev';
-        prevBtn.disabled = (currentPage === 1);
-        prevBtn.className = `px-2.5 py-1 rounded border text-xs font-medium ${{currentPage === 1 ? 'opacity-40 cursor-not-allowed border-slate-200 text-slate-400' : 'border-slate-300 hover:bg-slate-100 text-slate-700'}}`;
-        prevBtn.onclick = () => {{ if (currentPage > 1) {{ currentPage--; renderTable(); }} }};
-        ctrl.appendChild(prevBtn);
-
-        // Page buttons
-        for (let p = 1; p <= totalPages; p++) {{
-          const pBtn = document.createElement('button');
-          pBtn.innerText = p;
-          pBtn.className = `px-2.5 py-1 rounded text-xs font-medium border ${{p === currentPage ? 'bg-slate-900 text-white border-transparent font-bold' : 'border-slate-300 hover:bg-slate-100 text-slate-700'}}`;
-          pBtn.onclick = () => {{ currentPage = p; renderTable(); }};
-          ctrl.appendChild(pBtn);
-        }}
-
-        // Next button
-        const nextBtn = document.createElement('button');
-        nextBtn.innerText = 'Next';
-        nextBtn.disabled = (currentPage === totalPages);
-        nextBtn.className = `px-2.5 py-1 rounded border text-xs font-medium ${{currentPage === totalPages ? 'opacity-40 cursor-not-allowed border-slate-200 text-slate-400' : 'border-slate-300 hover:bg-slate-100 text-slate-700'}}`;
-        nextBtn.onclick = () => {{ if (currentPage < totalPages) {{ currentPage++; renderTable(); }} }};
-        ctrl.appendChild(nextBtn);
+    function renderPagination(totalPages) {{
+      const container = document.getElementById('paginationControls');
+      if (totalPages <= 1) {{
+        container.innerHTML = '';
+        return;
       }}
+
+      let html = '';
+      html += `<button onclick="goToPage(${{currentPage - 1}})" ${{currentPage === 1 ? 'disabled class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-300 cursor-not-allowed"' : 'class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 transition"'}}>Previous</button>`;
+
+      for (let p = 1; p <= totalPages; p++) {{
+        if (p === currentPage) {{
+          html += `<button class="px-3 py-1.5 rounded-lg bg-slate-900 text-white font-bold transition shadow-xs">${{p}}</button>`;
+        }} else {{
+          html += `<button onclick="goToPage(${{p}})" class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 transition">${{p}}</button>`;
+        }}
+      }}
+
+      html += `<button onclick="goToPage(${{currentPage + 1}})" ${{currentPage === totalPages ? 'disabled class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-300 cursor-not-allowed"' : 'class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 transition"'}}>Next</button>`;
+
+      container.innerHTML = html;
+    }}
+
+    function goToPage(p) {{
+      currentPage = p;
+      renderTable();
+      document.getElementById('apps-directory').scrollIntoView({{ behavior: 'smooth' }});
     }}
 
     function onSearchChange() {{
@@ -585,12 +633,13 @@ def build_html():
       currentPage = 1;
       ['ALL', 'Ready', 'Gated', 'Blocked'].forEach(id => {{
         const b = document.getElementById('pillVerdict' + id);
-        if (b) b.className = 'px-2.5 py-1 rounded text-slate-600 hover:text-slate-900';
+        if (b) b.className = 'px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition';
       }});
       const targetId = v === 'ALL' ? 'pillVerdictALL' : (v === 'Ready' ? 'pillVerdictReady' : (v === 'Feasible with Gating' ? 'pillVerdictGated' : 'pillVerdictBlocked'));
       const active = document.getElementById(targetId);
-      if (active) active.className = 'px-2.5 py-1 rounded bg-white text-slate-900 shadow-xs font-bold';
+      if (active) active.className = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-xs font-bold transition';
       renderTable();
+      document.getElementById('apps-directory').scrollIntoView({{ behavior: 'smooth' }});
     }}
 
     function resetAllFilters() {{
@@ -602,6 +651,7 @@ def build_html():
     }}
 
     function openDrawer(app) {{
+      if (!app) return;
       document.getElementById('dName').innerText = app.name;
       document.getElementById('dPurpose').innerText = app.purpose;
       document.getElementById('dCategory').innerText = app.category;
@@ -614,11 +664,11 @@ def build_html():
       const v = document.getElementById('dVerdict');
       v.innerText = app.buildability_verdict;
       if (app.buildability_verdict === 'Ready') {{
-        v.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-emerald-100 text-emerald-800';
+        v.className = 'text-xs px-2.5 py-0.5 rounded-full font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200';
       }} else if (app.buildability_verdict === 'Feasible with Gating') {{
-        v.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-amber-100 text-amber-900';
+        v.className = 'text-xs px-2.5 py-0.5 rounded-full font-semibold bg-amber-50 text-amber-800 border border-amber-200';
       }} else {{
-        v.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-rose-100 text-rose-800';
+        v.className = 'text-xs px-2.5 py-0.5 rounded-full font-semibold bg-rose-50 text-rose-800 border border-rose-200';
       }}
 
       document.getElementById('drawerOverlay').classList.remove('hidden');
@@ -637,7 +687,7 @@ def build_html():
       const p1Gating = (app.pass1_extracted && app.pass1_extracted.gating) ? app.pass1_extracted.gating : 'Self-serve';
       const p2Status = (app.pass2_verification && app.pass2_verification.status) ? app.pass2_verification.status : 'Verified';
       const note = (app.pass2_verification && app.pass2_verification.audit_note) ? app.pass2_verification.audit_note : 'Standard API toolkit.';
-      out.innerHTML = `> TESTING APP: ${{app.name.toUpperCase()}}...<br>[STEP 1: SCAN] Login: ${{app.primary_auth}} | Access: ${{p1Gating}}<br>[STEP 2: CHECK] Verification Status: ${{p2Status}}<br>[VERDICT] Result: ${{app.buildability_verdict}}<br>[NOTE] ${{note}}`;
+      out.innerHTML = `> AUDITING: ${{app.name.toUpperCase()}}...\\n[STEP 1: SCAN] Login: ${{app.primary_auth}} | Access: ${{p1Gating}}\\n[STEP 2: CHECK] Verification Status: ${{p2Status}}\\n[VERDICT] Result: ${{app.buildability_verdict}}\\n[NOTE] ${{note}}`;
     }}
 
     function exportJSON() {{
@@ -670,7 +720,7 @@ def build_html():
 
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_content)
-    print("Successfully built clean, simple, jargon-free index.html!")
+    print("Successfully built spacious, world-class index.html!")
 
 if __name__ == "__main__":
     build_html()
