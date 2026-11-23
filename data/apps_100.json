@@ -1138,7 +1138,7 @@
     "mcp_status": "Available (Composio native)",
     "buildability_verdict": "Feasible with Gating",
     "blocker_details": "Meta Business Verification & pre-approved message templates required for production messaging.",
-    "evidence_url": "https://developers.facebook.com/docs/whatsapp/cloud-api",
+    "evidence_url": "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started",
     "pass1_extracted": {
       "auth": "Bearer Token",
       "gating": "Self-serve",
