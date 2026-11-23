@@ -95,9 +95,9 @@ class TestComposioDatasetAndPipeline(unittest.TestCase):
         self.assertTrue(os.path.exists("index.html"), "index.html must exist.")
         with open("index.html", "r", encoding="utf-8") as f:
             html = f.read()
-        self.assertIn("Farin Attar", html)
-        self.assertIn("100-App Intelligence Grid", html)
-        self.assertIn("Live Verification Agent Terminal Simulator", html)
+        self.assertIn("Composio Tooling Research", html)
+        self.assertIn("100 Apps Directory", html)
+        self.assertIn("How the Research Agent Works", html)
         self.assertIn("WhatsApp Business", html)
         self.assertIn("DealCloud", html)
 

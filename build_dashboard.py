@@ -1,16 +1,11 @@
 """
-Executive Single-Page Case Study Dashboard Builder (index.html)
-Meets 100% of the Composio Take-Home Specification:
-1. Skimmable Findings (100-app matrix with 20-per-page pagination, search, filters, slide-over drawer)
-2. Macro Patterns (Plainly stated up top with headline metrics)
-3. The Agent (What was built: Pass 1 + Pass 2, and where a human was needed in Pass 3)
-4. The Verification (Honest hits and misses, 58% -> 92% -> 98% accuracy)
-5. The Proof (Live runnable trigger and in-browser interactive simulator)
-
-Strict Design Standards:
-- Pure Light Theme ONLY (Dark theme completely removed per user request)
-- Zero emojis (100% professional enterprise design)
-- Skimmable in under 2 minutes
+Clean, Simple Executive Dashboard Builder (index.html)
+Designed with plain, crystal-clear language:
+- No confusing jargon (explained simply so anyone understands in 2 minutes)
+- Author name and role removed from visible header
+- 4 clear sections: Overview, 100 Apps Directory, How the Agent Works, Try the Agent
+- 20 apps per page with pagination
+- Pure light theme, zero emojis
 """
 
 import json
@@ -30,7 +25,8 @@ def build_html():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Composio App Intelligence & Tooling Architecture | Farin Attar</title>
+  <meta name="author" content="Farin Attar">
+  <title>Composio • 100-App Tooling Research</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {{
@@ -43,10 +39,8 @@ def build_html():
           colors: {{
             brand: {{
               50: '#fff7ed',
-              100: '#ffedd5',
               500: '#f97316',
-              600: '#ea580c',
-              700: '#c2410c'
+              600: '#ea580c'
             }}
           }}
         }}
@@ -63,7 +57,7 @@ def build_html():
       color: #0f172a;
     }}
     .nav-link {{
-      color: #1e293b;
+      color: #334155;
       font-size: 0.8125rem;
       font-weight: 600;
       padding: 0.375rem 0.625rem;
@@ -78,31 +72,27 @@ def build_html():
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen antialiased font-sans">
 
-  <!-- Top Navigation Header -->
+  <!-- Top Navigation Header (Clean, minimal, no candidate name/role clutter) -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <!-- Logo & Candidate Title -->
+        <!-- Logo & Title -->
         <div class="flex items-center space-x-3">
-          <div class="w-8 h-8 rounded-md bg-slate-900 text-white font-bold text-sm flex items-center justify-center tracking-tighter">
+          <div class="w-8 h-8 rounded-md bg-slate-900 text-white font-bold text-sm flex items-center justify-center tracking-tight">
             CO
           </div>
-          <div>
-            <div class="flex items-center space-x-2">
-              <span class="font-bold text-slate-900 text-sm tracking-tight">Composio Tooling Intelligence</span>
-              <span class="text-[11px] px-2 py-0.5 rounded bg-slate-100 text-slate-800 font-bold border border-slate-300">Case Study</span>
-            </div>
-            <p class="text-xs text-slate-500 mt-0.5">Author: Farin Attar • AI Product Ops Intern Candidate</p>
+          <div class="flex items-center space-x-2">
+            <span class="font-bold text-slate-900 text-sm tracking-tight">Composio Tooling Research</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-semibold border border-slate-300">100 Apps</span>
           </div>
         </div>
 
-        <!-- Section Navigation Links -->
+        <!-- Simple Navigation Links -->
         <nav class="hidden md:flex items-center space-x-1">
-          <a href="#macro-patterns" class="nav-link">Macro Patterns</a>
-          <a href="#findings-matrix" class="nav-link">100-App Matrix</a>
-          <a href="#agent-architecture" class="nav-link">Agent & Human Loop</a>
-          <a href="#verification-accuracy" class="nav-link">Verification</a>
-          <a href="#runnable-proof" class="nav-link">Runnable Proof</a>
+          <a href="#overview" class="nav-link">Overview</a>
+          <a href="#apps-directory" class="nav-link">100 Apps Directory</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#test-agent" class="nav-link">Test the Agent</a>
         </nav>
 
         <!-- Action Buttons -->
@@ -118,76 +108,76 @@ def build_html():
     </div>
   </header>
 
-  <!-- Main Container -->
+  <!-- Main Content -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
 
     <!-- ================================================================= -->
-    <!-- SECTION 1: MACRO PATTERNS (UP TOP, PLAINLY STATED, THE HEADLINE) -->
+    <!-- SECTION 1: OVERVIEW & KEY FINDINGS                               -->
     <!-- ================================================================= -->
-    <section id="macro-patterns" class="space-y-4">
+    <section id="overview" class="space-y-4">
       <div class="border-b border-slate-200 pb-3">
-        <h2 class="text-xl font-bold text-slate-900 tracking-tight">Macro Patterns & Executive Summary</h2>
-        <p class="text-xs text-slate-500 mt-1">Cross-vertical evaluation of 100 enterprise, developer, SMB, and creator applications.</p>
+        <h1 class="text-xl font-bold text-slate-900 tracking-tight">Summary & Key Findings</h1>
+        <p class="text-xs text-slate-600 mt-1">We researched 100 popular software applications across 10 categories to see which ones can be turned into AI tools today.</p>
       </div>
 
-      <!-- 4 Core Headline Metric Cards -->
+      <!-- 4 Core Metric Cards -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-white p-4 rounded-lg border border-slate-200 border-l-4 border-l-emerald-500 shadow-xs">
-          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Ready to Build</div>
+          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Ready Today</div>
           <div class="text-2xl font-extrabold text-slate-900 mt-1">72%</div>
-          <p class="text-xs text-slate-600 mt-1">72 apps support immediate self-serve API access via OAuth2 or Bearer keys.</p>
+          <p class="text-xs text-slate-600 mt-1">72 apps have open APIs and instant sign-ups. Ready to build today.</p>
         </div>
         <div class="bg-white p-4 rounded-lg border border-slate-200 border-l-4 border-l-amber-500 shadow-xs">
-          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Feasible with Gating</div>
+          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Needs Paid Account</div>
           <div class="text-2xl font-extrabold text-slate-900 mt-1">17%</div>
-          <p class="text-xs text-slate-600 mt-1">17 apps require customer enterprise credentials or partner tier (BYOK model).</p>
+          <p class="text-xs text-slate-600 mt-1">17 apps require paid business plans. Customers bring their own keys.</p>
         </div>
         <div class="bg-white p-4 rounded-lg border border-slate-200 border-l-4 border-l-rose-500 shadow-xs">
-          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Blocked / No Public API</div>
+          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">No Public API</div>
           <div class="text-2xl font-extrabold text-slate-900 mt-1">9%</div>
-          <p class="text-xs text-slate-600 mt-1">9 apps lack public developer APIs (fanbasis, Pumble, Fathom, PitchBook, etc.).</p>
+          <p class="text-xs text-slate-600 mt-1">9 apps have no public developer API (like Pumble, Fathom, PitchBook).</p>
         </div>
         <div class="bg-white p-4 rounded-lg border border-slate-200 border-l-4 border-l-blue-600 shadow-xs">
-          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Verification Accuracy</div>
+          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Audit Accuracy</div>
           <div class="text-2xl font-extrabold text-slate-900 mt-1">98.0%</div>
-          <p class="text-xs text-slate-600 mt-1">58% raw extraction accuracy raised to 98% via 2-pass + cross-verification loop.</p>
+          <p class="text-xs text-slate-600 mt-1">Raw AI scans scored 58%. Our 2-pass verification raised it to 98%.</p>
         </div>
       </div>
 
-      <!-- Plainly Stated Headline Insights -->
+      <!-- 3 Key Takeaways in Simple Plain English -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs">
-          <h3 class="font-bold text-slate-900 text-sm mb-1.5">1. The 87% Auth Standardization</h3>
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-1.5">
+          <h3 class="font-bold text-slate-900 text-sm">1. Most apps (87%) use standard logins</h3>
           <p class="text-slate-600 leading-relaxed">
-            45% of surveyed apps use API Key/Bearer tokens and 42% use OAuth 2.0. Composio's native authentication broker covers 87 out of 100 applications with standard token refresh and scope handling without bespoke connector logic.
+            45 apps use API Keys and 42 apps use OAuth logins. Composio already handles both out of the box, meaning 87 out of 100 apps require no custom authentication code.
           </p>
         </div>
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs">
-          <h3 class="font-bold text-slate-900 text-sm mb-1.5">2. The Bring-Your-Own-Key (BYOK) Moat</h3>
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-1.5">
+          <h3 class="font-bold text-slate-900 text-sm">2. Enterprise logins are a big opportunity</h3>
           <p class="text-slate-600 leading-relaxed">
-            17% of targets (DealCloud, Ahrefs, Gladly, Amazon SP-API) are gated behind corporate licensing or partner reviews. Rather than blockers, these represent high-retention enterprise toolkits where customers supply their own provisioned keys.
+            17 apps (like DealCloud, Ahrefs, and Gladly) are locked behind corporate contracts. Customers who already pay for these tools can simply plug in their existing credentials.
           </p>
         </div>
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs">
-          <h3 class="font-bold text-slate-900 text-sm mb-1.5">3. 30 Greenfield MCP Opportunities</h3>
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-1.5">
+          <h3 class="font-bold text-slate-900 text-sm">3. 30 apps have no AI plugins yet</h3>
           <p class="text-slate-600 leading-relaxed">
-            While major developer platforms (GitHub, Sentry, Cloudflare) already have official Model Context Protocol servers, 30 SaaS applications (Twenty, Plain, Reducto, Ecwid, MrScraper) have zero MCP presence. Composio can establish early dominance here.
+            While big platforms (GitHub, Cloudflare) already have official AI plugins, 30 apps (like Twenty, Plain, and Reducto) have none. Composio can be the first to build tools for them.
           </p>
         </div>
       </div>
     </section>
 
     <!-- ================================================================= -->
-    <!-- SECTION 2: THE FINDINGS (CLEAN SKIMMABLE TABLE / MATRIX)          -->
+    <!-- SECTION 2: 100 APPS DIRECTORY                                     -->
     <!-- ================================================================= -->
-    <section id="findings-matrix" class="space-y-4">
+    <section id="apps-directory" class="space-y-4">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3">
         <div>
-          <h2 class="text-xl font-bold text-slate-900 tracking-tight">100-App Intelligence Grid</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Authoritative findings across 10 categories. Filter by verdict, category, or keyword.</p>
+          <h2 class="text-xl font-bold text-slate-900 tracking-tight">100 Apps Directory</h2>
+          <p class="text-xs text-slate-600 mt-0.5">Click any row to see authentication methods, access rules, and official documentation links.</p>
         </div>
         <div class="text-xs text-slate-500 font-medium">
-          Showing 20 applications per page
+          Showing 20 apps per page
         </div>
       </div>
 
@@ -195,32 +185,32 @@ def build_html():
       <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
         <!-- Search bar -->
         <div class="relative flex-1 max-w-sm">
-          <input type="text" id="searchInput" placeholder="Search app name, category, or auth..." oninput="onSearchChange()" class="w-full px-3 py-1.5 rounded-md border border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-500">
+          <input type="text" id="searchInput" placeholder="Search app, category, or login type..." oninput="onSearchChange()" class="w-full px-3 py-1.5 rounded-md border border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-500">
         </div>
 
-        <!-- Filter Badges & Dropdown -->
+        <!-- Filter Buttons & Dropdown -->
         <div class="flex flex-wrap items-center gap-2">
-          <!-- Quick Verdict Pills -->
+          <!-- Quick Status Pills -->
           <div class="inline-flex rounded-md border border-slate-200 bg-slate-100 p-0.5 font-medium">
             <button onclick="setFilterVerdict('ALL')" id="pillVerdictALL" class="px-2.5 py-1 rounded bg-white text-slate-900 shadow-xs font-bold">All (100)</button>
             <button onclick="setFilterVerdict('Ready')" id="pillVerdictReady" class="px-2.5 py-1 rounded text-slate-600 hover:text-slate-900">Ready (72)</button>
-            <button onclick="setFilterVerdict('Feasible with Gating')" id="pillVerdictGated" class="px-2.5 py-1 rounded text-slate-600 hover:text-slate-900">Gated (17)</button>
+            <button onclick="setFilterVerdict('Feasible with Gating')" id="pillVerdictGated" class="px-2.5 py-1 rounded text-slate-600 hover:text-slate-900">Paid/Gated (17)</button>
             <button onclick="setFilterVerdict('Blocked')" id="pillVerdictBlocked" class="px-2.5 py-1 rounded text-slate-600 hover:text-slate-900">Blocked (9)</button>
           </div>
 
           <!-- Category Select -->
           <select id="categorySelect" onchange="onCategoryChange()" class="py-1.5 px-2.5 rounded-md border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none">
-            <option value="ALL">All Categories</option>
+            <option value="ALL">All 10 Categories</option>
             <option value="CRM and Sales">1. CRM and Sales</option>
             <option value="Support and Helpdesk">2. Support and Helpdesk</option>
-            <option value="Communications and Messaging">3. Communications and Messaging</option>
-            <option value="Marketing, Ads, Email and Social">4. Marketing, Ads & Social</option>
+            <option value="Communications and Messaging">3. Communications & Messaging</option>
+            <option value="Marketing, Ads, Email and Social">4. Marketing & Social</option>
             <option value="Ecommerce">5. Ecommerce</option>
-            <option value="Data, SEO and Scraping">6. Data, SEO & Scraping</option>
-            <option value="Developer, Infra and Data platforms">7. Developer & Infra</option>
+            <option value="Data, SEO and Scraping">6. Data & Scraping</option>
+            <option value="Developer, Infra and Data platforms">7. Developer & Cloud</option>
             <option value="Productivity and Project Management">8. Productivity & PM</option>
             <option value="Finance and Fintech">9. Finance & Fintech</option>
-            <option value="AI, Research and Media-native">10. AI & Media-native</option>
+            <option value="AI, Research and Media-native">10. AI & Media</option>
           </select>
 
           <!-- Reset Filter -->
@@ -232,14 +222,14 @@ def build_html():
       <div class="bg-white rounded-lg border border-slate-200 shadow-xs overflow-hidden">
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs">
-            <thead class="bg-slate-50 text-slate-600 uppercase tracking-wider font-semibold border-b border-slate-200">
+            <thead class="bg-slate-50 text-slate-700 uppercase tracking-wider font-semibold border-b border-slate-200">
               <tr>
                 <th class="py-2.5 px-3 w-10 text-center">#</th>
                 <th class="py-2.5 px-3">Application</th>
                 <th class="py-2.5 px-3 hidden md:table-cell">Category</th>
-                <th class="py-2.5 px-3">Primary Auth</th>
-                <th class="py-2.5 px-3 hidden sm:table-cell">Gating Status</th>
-                <th class="py-2.5 px-3">Buildability</th>
+                <th class="py-2.5 px-3">Login Type</th>
+                <th class="py-2.5 px-3 hidden sm:table-cell">Access Rules</th>
+                <th class="py-2.5 px-3">Status</th>
                 <th class="py-2.5 px-3 text-right">Details</th>
               </tr>
             </thead>
@@ -262,152 +252,103 @@ def build_html():
     </section>
 
     <!-- ================================================================= -->
-    <!-- SECTION 3: THE AGENT (WHAT YOU BUILT, WHERE A HUMAN WAS NEEDED)   -->
+    <!-- SECTION 3: HOW THE AGENT WORKS                                    -->
     <!-- ================================================================= -->
-    <section id="agent-architecture" class="space-y-4">
+    <section id="how-it-works" class="space-y-4">
       <div class="border-b border-slate-200 pb-3">
-        <h2 class="text-xl font-bold text-slate-900 tracking-tight">The Agent Architecture & Human-in-the-Loop Workflow</h2>
-        <p class="text-xs text-slate-500 mt-0.5">Automated 2-pass verification pipeline augmented with human expert auditing.</p>
+        <h2 class="text-xl font-bold text-slate-900 tracking-tight">How the Research Agent Works</h2>
+        <p class="text-xs text-slate-600 mt-0.5">Why simple AI web scraping makes mistakes, and how our 3-step verification reached 98% accuracy.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-        <!-- Pass 1 -->
+        <!-- Step 1 -->
         <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-2">
-          <div class="font-bold text-slate-500 uppercase tracking-wider text-[11px]">Pass 1: Automated Extractor</div>
-          <h3 class="font-bold text-slate-900 text-sm">Surface-Level Web & Doc Crawl</h3>
+          <div class="font-bold text-slate-500 uppercase tracking-wider text-[11px]">Step 1: Automatic Scan</div>
+          <h3 class="font-bold text-slate-900 text-sm">Reads Official Docs (58% accurate)</h3>
           <p class="text-slate-600 leading-relaxed">
-            Crawls public developer documentation, OpenAPI specs, and auth headings. Extracts candidate auth method, REST/GraphQL endpoint coverage, and self-serve status.
+            The agent crawls public developer documentation and looks for API keys, endpoints, and sign-up links.
           </p>
-          <div class="pt-2 border-t border-slate-100 text-slate-600">
-            <strong>Limitation:</strong> 58.0% raw accuracy. Prone to false-positive "self-serve" classifications on apps with hidden partner gates or consumer web apps.
+          <div class="pt-2 border-t border-slate-100 text-slate-700">
+            <strong>The Catch:</strong> Misses hidden requirements like business verification, mandatory sales calls, or consumer apps with no API.
           </div>
         </div>
 
-        <!-- Pass 2 -->
+        <!-- Step 2 -->
         <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-2">
-          <div class="font-bold text-brand-600 uppercase tracking-wider text-[11px]">Pass 2: Adversarial Verifier</div>
-          <h3 class="font-bold text-slate-900 text-sm">Edge-Case Heuristic Red-Teaming</h3>
+          <div class="font-bold text-brand-600 uppercase tracking-wider text-[11px]">Step 2: Smart Rule Check</div>
+          <h3 class="font-bold text-slate-900 text-sm">Catches Hidden Traps (92% accurate)</h3>
           <p class="text-slate-600 leading-relaxed">
-            Cross-checks extracted claims against deterministic rules: Meta business verification requirements, consumer vs enterprise API divergences, and CLI wrapper execution paths.
+            A second agent checks each finding against tricky real-world rules (like Meta business verification or deprecated API keys).
           </p>
-          <div class="pt-2 border-t border-slate-100 text-slate-600">
-            <strong>Output:</strong> 92.0% automated accuracy. Automatically caught 42 edge cases including HubSpot key deprecations and WhatsApp verification.
+          <div class="pt-2 border-t border-slate-100 text-slate-700">
+            <strong>Result:</strong> Automatically caught and corrected 42 common mistakes (like WhatsApp and HubSpot).
           </div>
         </div>
 
-        <!-- Pass 3 -->
+        <!-- Step 3 -->
         <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-2">
-          <div class="font-bold text-emerald-600 uppercase tracking-wider text-[11px]">Pass 3: Where a Human Was Needed</div>
-          <h3 class="font-bold text-slate-900 text-sm">Expert Human Audit & Cross-Checking</h3>
+          <div class="font-bold text-emerald-600 uppercase tracking-wider text-[11px]">Step 3: Human Review</div>
+          <h3 class="font-bold text-slate-900 text-sm">Double Checks Tough Cases (98% accurate)</h3>
           <p class="text-slate-600 leading-relaxed">
-            Where automated agents remain ambiguous (such as Paygent's Japanese corporate underwriting, Waterfall.io's private B2B portal, or Pumble's absence of an API), human research resolves the verdict.
+            A human reviews ambiguous edge cases where the docs are unclear (like private sales contracts or apps with no developer portal).
           </p>
-          <div class="pt-2 border-t border-slate-100 text-slate-600">
-            <strong>Result:</strong> 98.0% benchmark accuracy. Closed the remaining 8 edge cases through independent Perplexity cross-validation.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================================= -->
-    <!-- SECTION 4: THE VERIFICATION (ACCURACY CHECK & HONEST HITS/MISSES) -->
-    <!-- ================================================================= -->
-    <section id="verification-accuracy" class="space-y-4">
-      <div class="border-b border-slate-200 pb-3">
-        <h2 class="text-xl font-bold text-slate-900 tracking-tight">The Verification: Honest Hits, Misses & Catches</h2>
-        <p class="text-xs text-slate-500 mt-0.5">Transparent accuracy funnel and documented corrections across all verification stages.</p>
-      </div>
-
-      <!-- Accuracy Funnel Horizontal Bar -->
-      <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-          <div>
-            <div class="flex justify-between font-semibold mb-1">
-              <span class="text-slate-600">Pass 1 Raw Extractor</span>
-              <span class="text-slate-900 font-bold">58.0% (58/100 correct)</span>
-            </div>
-            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-              <div class="bg-slate-400 h-full rounded-full" style="width: 58%"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between font-semibold mb-1">
-              <span class="text-slate-600">Pass 2 Heuristic Verifier</span>
-              <span class="text-brand-600 font-bold">92.0% (92/100 correct)</span>
-            </div>
-            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-              <div class="bg-brand-500 h-full rounded-full" style="width: 92%"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between font-semibold mb-1">
-              <span class="text-slate-600">Pass 3 Human & Cross-Check</span>
-              <span class="text-emerald-600 font-bold">98.0% (98/100 verified)</span>
-            </div>
-            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-              <div class="bg-emerald-500 h-full rounded-full" style="width: 98%"></div>
-            </div>
+          <div class="pt-2 border-t border-slate-100 text-slate-700">
+            <strong>Result:</strong> 98% verified accuracy across all 100 applications.
           </div>
         </div>
       </div>
 
-      <!-- Honest Table of Catches -->
-      <div class="bg-white rounded-lg border border-slate-200 shadow-xs overflow-hidden">
+      <!-- Real Edge Cases Caught Table -->
+      <div class="bg-white rounded-lg border border-slate-200 shadow-xs overflow-hidden mt-6">
         <div class="px-4 py-3 bg-slate-50 border-b border-slate-200">
-          <h3 class="font-bold text-slate-900 text-xs">Documented Edge Cases: What Pass 1 Missed vs What Pass 2 & 3 Caught</h3>
+          <h3 class="font-bold text-slate-900 text-xs">Real Examples: What Simple AI Missed vs What Verification Caught</h3>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs">
             <thead class="bg-slate-50 text-slate-600 border-b border-slate-200 font-semibold">
               <tr>
-                <th class="py-2 px-3">Application</th>
-                <th class="py-2 px-3">Pass 1 Naive Finding</th>
-                <th class="py-2 px-3">Verified Reality</th>
-                <th class="py-2 px-3">Resolution for Composio Toolkit</th>
+                <th class="py-2 px-3">App</th>
+                <th class="py-2 px-3">What AI First Thought</th>
+                <th class="py-2 px-3">The Real Truth</th>
+                <th class="py-2 px-3">What Composio Should Do</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-100 text-slate-700">
               <tr>
                 <td class="py-2.5 px-3 font-semibold text-slate-900">WhatsApp Business</td>
-                <td class="py-2.5 px-3 text-rose-600 font-medium">Self-serve Free REST</td>
-                <td class="py-2.5 px-3 font-medium text-slate-900">Meta Business Verification Gate</td>
-                <td class="py-2.5 px-3">Test numbers free; production requires verified Meta Business Manager and pre-approved templates outside 24h.</td>
+                <td class="py-2.5 px-3 text-rose-600 font-medium">Free open API</td>
+                <td class="py-2.5 px-3 font-medium text-slate-900">Requires official Meta Business Verification</td>
+                <td class="py-2.5 px-3">Free test numbers work for development; production requires verified Meta Business account.</td>
               </tr>
               <tr>
                 <td class="py-2.5 px-3 font-semibold text-slate-900">NotebookLM</td>
-                <td class="py-2.5 px-3 text-rose-600 font-medium">Free Web App API</td>
-                <td class="py-2.5 px-3 font-medium text-slate-900">Consumer App Has Zero Developer API</td>
-                <td class="py-2.5 px-3">Composio toolkit must target Google Cloud Vertex AI Search & Gemini Grounding API as the enterprise counterpart.</td>
+                <td class="py-2.5 px-3 text-rose-600 font-medium">Free web app API</td>
+                <td class="py-2.5 px-3 font-medium text-slate-900">Consumer web app has no API at all</td>
+                <td class="py-2.5 px-3">Must connect to Google Cloud Vertex AI Search as the enterprise equivalent.</td>
               </tr>
               <tr>
-                <td class="py-2.5 px-3 font-semibold text-slate-900">DealCloud (Intapp)</td>
-                <td class="py-2.5 px-3 text-rose-600 font-medium">Public REST API Docs</td>
-                <td class="py-2.5 px-3 font-medium text-slate-900">Enterprise Licensing & Manual Provisioning</td>
-                <td class="py-2.5 px-3">Requires signed Intapp client contract and tenant provisioning. Classified as Feasible with Gating (BYOK).</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 px-3 font-semibold text-slate-900">PitchBook</td>
-                <td class="py-2.5 px-3 text-rose-600 font-medium">Direct Data API Available</td>
-                <td class="py-2.5 px-3 font-medium text-slate-900">$25,000+ Annual Enterprise Contract Only</td>
-                <td class="py-2.5 px-3">Zero public self-serve sandbox. Marked Blocked for public toolkit; viable only under client-commissioned BYOK.</td>
+                <td class="py-2.5 px-3 font-semibold text-slate-900">DealCloud & PitchBook</td>
+                <td class="py-2.5 px-3 text-rose-600 font-medium">Open developer API</td>
+                <td class="py-2.5 px-3 font-medium text-slate-900">Requires $25,000+ yearly sales contract</td>
+                <td class="py-2.5 px-3">No public sign-up. Only build for enterprise clients who already have contracts.</td>
               </tr>
               <tr>
                 <td class="py-2.5 px-3 font-semibold text-slate-900">Pumble & Fathom</td>
-                <td class="py-2.5 px-3 text-rose-600 font-medium">Marketing Copy Implied API</td>
-                <td class="py-2.5 px-3 font-medium text-slate-900">Zero Public Developer API or Bot SDK</td>
-                <td class="py-2.5 px-3">Honest correction: marked Blocked. No published API surface exists today.</td>
+                <td class="py-2.5 px-3 text-rose-600 font-medium">Marketing claims integrations</td>
+                <td class="py-2.5 px-3 font-medium text-slate-900">No public developer API exists</td>
+                <td class="py-2.5 px-3">Marked as Blocked. Cannot build a standard API tool today.</td>
               </tr>
               <tr>
-                <td class="py-2.5 px-3 font-semibold text-slate-900">HubSpot & Airtable</td>
-                <td class="py-2.5 px-3 text-rose-600 font-medium">Static API Keys</td>
-                <td class="py-2.5 px-3 font-medium text-slate-900">Legacy Static Keys Formally Deprecated</td>
-                <td class="py-2.5 px-3">Corrected to OAuth 2.0 and Scoped Personal Tokens / Private App Tokens as mandated by vendors.</td>
+                <td class="py-2.5 px-3 font-semibold text-slate-900">HubSpot</td>
+                <td class="py-2.5 px-3 text-rose-600 font-medium">Old static API key</td>
+                <td class="py-2.5 px-3 font-medium text-slate-900">Old keys were retired by HubSpot in 2022</td>
+                <td class="py-2.5 px-3">Must use modern OAuth 2.0 or Private App Tokens.</td>
               </tr>
               <tr>
-                <td class="py-2.5 px-3 font-semibold text-slate-900">Sherlock & Mermaid CLI</td>
-                <td class="py-2.5 px-3 text-rose-600 font-medium">No HTTP Endpoints (Failed)</td>
-                <td class="py-2.5 px-3 font-medium text-slate-900">Open-Source Local CLI Utilities</td>
-                <td class="py-2.5 px-3">Marked Ready via CLI Wrapper. Composio executes via Docker sandbox / local process wrapper.</td>
+                <td class="py-2.5 px-3 font-semibold text-slate-900">Sherlock & Mermaid</td>
+                <td class="py-2.5 px-3 text-rose-600 font-medium">No web API found (failed)</td>
+                <td class="py-2.5 px-3 font-medium text-slate-900">Free open-source command-line tools</td>
+                <td class="py-2.5 px-3">Run them directly inside secure code sandboxes instead of calling HTTP APIs.</td>
               </tr>
             </tbody>
           </table>
@@ -416,42 +357,42 @@ def build_html():
     </section>
 
     <!-- ================================================================= -->
-    <!-- SECTION 5: THE PROOF (RUNNABLE TRIGGER & INTERACTIVE SIMULATOR)   -->
+    <!-- SECTION 4: TEST THE AGENT                                         -->
     <!-- ================================================================= -->
-    <section id="runnable-proof" class="space-y-4">
+    <section id="test-agent" class="space-y-4">
       <div class="border-b border-slate-200 pb-3">
-        <h2 class="text-xl font-bold text-slate-900 tracking-tight">The Proof: Runnable Verification Trigger & Simulator</h2>
-        <p class="text-xs text-slate-500 mt-0.5">Inspect the CLI pipeline commands or test live 2-pass verification logic interactively.</p>
+        <h2 class="text-xl font-bold text-slate-900 tracking-tight">Test the Agent</h2>
+        <p class="text-xs text-slate-600 mt-0.5">Click below to test how our verification agent catches edge cases in real time, or run it in your terminal.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Terminal Command Reference -->
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-3 text-xs">
-          <h3 class="font-bold text-slate-900 text-sm">CLI Commands in Repository</h3>
-          <p class="text-slate-600">Execute the 2-pass agent directly from terminal in this workspace:</p>
-          <div class="bg-slate-950 p-3 rounded-md font-mono text-[11px] text-slate-200 space-y-2 border border-slate-800">
-            <div><span class="text-slate-500"># Audit all 100 apps with verification report</span><br><span class="text-emerald-400">python composio_agent.py --verify-all</span></div>
-            <div><span class="text-slate-500"># Audit specific app & catch edge cases</span><br><span class="text-emerald-400">python composio_agent.py --app "WhatsApp Business"</span></div>
-            <div><span class="text-slate-500"># Run full unit test suite (10 tests)</span><br><span class="text-emerald-400">python test_pipeline.py</span></div>
-          </div>
-        </div>
-
-        <!-- In-Browser Interactive Simulator -->
+        <!-- Interactive Simulator -->
         <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-3 text-xs">
           <div class="flex items-center justify-between">
             <div>
-              <h3 class="font-bold text-slate-900 text-sm">Live Verification Agent Terminal Simulator</h3>
-              <p class="text-slate-500 text-[11px]">Run simulated 2-pass audits in browser:</p>
+              <h3 class="font-bold text-slate-900 text-sm">Interactive Verification Simulator</h3>
+              <p class="text-slate-500 text-[11px]">Click an app to see the agent test it:</p>
             </div>
             <div class="flex gap-1.5">
-              <button onclick="runSim('WhatsApp Business')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded font-medium text-slate-700">WhatsApp</button>
-              <button onclick="runSim('NotebookLM')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded font-medium text-slate-700">NotebookLM</button>
-              <button onclick="runSim('DealCloud')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded font-medium text-slate-700">DealCloud</button>
-              <button onclick="runSim('Pumble')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded font-medium text-slate-700">Pumble</button>
+              <button onclick="runSim('WhatsApp Business')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded font-semibold text-slate-800">WhatsApp</button>
+              <button onclick="runSim('NotebookLM')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded font-semibold text-slate-800">NotebookLM</button>
+              <button onclick="runSim('DealCloud')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded font-semibold text-slate-800">DealCloud</button>
+              <button onclick="runSim('Pumble')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded font-semibold text-slate-800">Pumble</button>
             </div>
           </div>
           <div id="simLog" class="bg-slate-950 p-3 rounded-md font-mono text-[11px] text-emerald-400 border border-slate-800 h-28 overflow-y-auto">
-            Click one of the buttons above to trigger live agent verification...
+            Click an app button above to test verification logic...
+          </div>
+        </div>
+
+        <!-- Terminal Command Reference -->
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-3 text-xs">
+          <h3 class="font-bold text-slate-900 text-sm">Run from Terminal</h3>
+          <p class="text-slate-600">Run the Python agent directly in this repo:</p>
+          <div class="bg-slate-950 p-3 rounded-md font-mono text-[11px] text-slate-200 space-y-2 border border-slate-800">
+            <div><span class="text-slate-500"># Audit all 100 apps</span><br><span class="text-emerald-400">python composio_agent.py --verify-all</span></div>
+            <div><span class="text-slate-500"># Test a specific app</span><br><span class="text-emerald-400">python composio_agent.py --app "WhatsApp Business"</span></div>
+            <div><span class="text-slate-500"># Run automated test suite</span><br><span class="text-emerald-400">python test_pipeline.py</span></div>
           </div>
         </div>
       </div>
@@ -472,7 +413,7 @@ def build_html():
 
     <div class="space-y-3 text-xs">
       <div>
-        <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">Purpose</span>
+        <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">What It Does</span>
         <p id="dPurpose" class="text-slate-800 font-medium mt-0.5"></p>
       </div>
       <div class="grid grid-cols-2 gap-2 pt-1">
@@ -481,12 +422,12 @@ def build_html():
           <span id="dCategory" class="text-slate-800 font-medium"></span>
         </div>
         <div>
-          <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">Primary Auth</span>
+          <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">Login Method</span>
           <span id="dAuth" class="text-slate-800 font-medium font-mono text-[11px]"></span>
         </div>
       </div>
       <div class="pt-1">
-        <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">Gating Details</span>
+        <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">Access & Sign-Up Rules</span>
         <p id="dGating" class="text-slate-700 mt-0.5 leading-relaxed"></p>
       </div>
       <div class="pt-1">
@@ -494,13 +435,13 @@ def build_html():
         <p id="dRateLimits" class="text-slate-700 font-mono text-[11px] mt-0.5"></p>
       </div>
       <div class="pt-1">
-        <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">Verification Audit Note</span>
+        <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block">Verification Note</span>
         <div id="dAuditNote" class="p-2.5 rounded bg-slate-50 border border-slate-200 text-slate-700 mt-0.5 leading-relaxed"></div>
       </div>
       <div class="pt-2 border-t border-slate-100">
-        <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block mb-1">Official Evidence Link</span>
+        <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px] block mb-1">Official Documentation</span>
         <a id="dDocLink" href="#" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-medium break-all block">
-          Official Documentation &rarr;
+          Open Official API Docs &rarr;
         </a>
       </div>
     </div>
@@ -560,7 +501,7 @@ def build_html():
         if (app.buildability_verdict === 'Ready') {{
           badge = '<span class="whitespace-nowrap inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300">Ready</span>';
         }} else if (app.buildability_verdict === 'Feasible with Gating') {{
-          badge = '<span class="whitespace-nowrap inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-100 text-amber-900 border border-amber-300">Gated (BYOK)</span>';
+          badge = '<span class="whitespace-nowrap inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-100 text-amber-900 border border-amber-300">Paid/Gated</span>';
         }} else if (app.buildability_verdict === 'Ready via CLI Wrapper') {{
           badge = '<span class="whitespace-nowrap inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-sky-100 text-sky-800 border border-sky-300">CLI Tool</span>';
         }} else {{
@@ -696,7 +637,7 @@ def build_html():
       const p1Gating = (app.pass1_extracted && app.pass1_extracted.gating) ? app.pass1_extracted.gating : 'Self-serve';
       const p2Status = (app.pass2_verification && app.pass2_verification.status) ? app.pass2_verification.status : 'Verified';
       const note = (app.pass2_verification && app.pass2_verification.audit_note) ? app.pass2_verification.audit_note : 'Standard API toolkit.';
-      out.innerHTML = `> RUNNING 2-PASS AUDIT: ${{app.name.toUpperCase()}}...<br>[PASS 1: EXTRACTION] Extracted Auth: ${{app.primary_auth}} | Gating: ${{p1Gating}}<br>[PASS 2: RED-TEAM] Status: ${{p2Status}} | Final Verdict: ${{app.buildability_verdict}}<br>[AUDIT NOTE] ${{note}}<br>[VERDICT] COMPOSIO READY: ${{app.buildability_verdict}}`;
+      out.innerHTML = `> TESTING APP: ${{app.name.toUpperCase()}}...<br>[STEP 1: SCAN] Login: ${{app.primary_auth}} | Access: ${{p1Gating}}<br>[STEP 2: CHECK] Verification Status: ${{p2Status}}<br>[VERDICT] Result: ${{app.buildability_verdict}}<br>[NOTE] ${{note}}`;
     }}
 
     function exportJSON() {{
@@ -720,12 +661,7 @@ def build_html():
       a.click();
     }}
 
-    // Pure Light Theme Initialization
     window.addEventListener('DOMContentLoaded', () => {{
-      try {{
-        localStorage.removeItem('composio_theme');
-        localStorage.removeItem('theme');
-      }} catch (e) {{}}
       renderTable();
     }});
   </script>
@@ -734,7 +670,7 @@ def build_html():
 
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_content)
-    print("Successfully built pure light-theme, clean index.html!")
+    print("Successfully built clean, simple, jargon-free index.html!")
 
 if __name__ == "__main__":
     build_html()
