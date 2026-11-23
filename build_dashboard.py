@@ -229,39 +229,30 @@ def build_html():
         </div>
       </div>
 
-      <!-- 3 Key Findings in Clean Editorial Style (Not cramped boxes) -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
-          <div class="text-xs font-bold text-slate-400 tracking-wider">INSIGHT 01</div>
-          <h3 class="text-base font-bold text-slate-900">87% Auth Standardization</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            45 apps use API Keys and 42 use OAuth 2.0. Composio's existing authentication broker handles 87 out of 100 apps without needing custom login code.
+      <!-- 3 Strategic Takeaways (Zero repetition, high-value findings) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-2.5">
+          <div class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider">Opportunity</div>
+          <h3 class="text-base font-bold text-slate-900">30 Apps Have No AI Tools Yet</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            While giants like GitHub and Cloudflare already have AI integrations, 30 popular apps (like Twenty CRM, Plain, and Reducto) have none. Composio can be the first to launch toolkits for them.
           </p>
-          <div class="pt-2 text-xs font-medium text-emerald-700">
-            &bull; Zero custom connector friction
-          </div>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
-          <div class="text-xs font-bold text-slate-400 tracking-wider">INSIGHT 02</div>
-          <h3 class="text-base font-bold text-slate-900">Bring-Your-Own-Key Moat</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            17 enterprise apps (like DealCloud, Ahrefs, and Gladly) gate API access behind corporate contracts. Customers who pay for these tools eagerly supply their own keys.
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-2.5">
+          <div class="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Engineering</div>
+          <h3 class="text-base font-bold text-slate-900">87 Apps Use Standard Logins</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            45 apps use standard API keys and 42 use standard OAuth. Composio already supports both out of the box, meaning 87 apps need zero custom authentication code.
           </p>
-          <div class="pt-2 text-xs font-medium text-amber-700">
-            &bull; High enterprise retention potential
-          </div>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
-          <div class="text-xs font-bold text-slate-400 tracking-wider">INSIGHT 03</div>
-          <h3 class="text-base font-bold text-slate-900">30 Greenfield AI Opportunities</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            While major platforms (GitHub, Sentry, Cloudflare) already have official AI plugins, 30 modern tools (Twenty, Plain, Reducto) have zero AI coverage.
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-2.5">
+          <div class="text-[11px] font-bold text-blue-700 uppercase tracking-wider">Quality Control</div>
+          <h3 class="text-base font-bold text-slate-900">AI Scrapers Miss 42 Edge Cases</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Basic AI scraping falsely claimed tools like WhatsApp and Pumble were easy to integrate. Our 2-pass verification caught all 42 hidden requirements and raised accuracy to 98%.
           </p>
-          <div class="pt-2 text-xs font-medium text-blue-700">
-            &bull; First-mover advantage for Composio
-          </div>
         </div>
       </div>
     </section>
