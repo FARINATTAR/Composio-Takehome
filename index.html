@@ -429,8 +429,8 @@
   <!-- ================================================================= -->
   <!-- SLIDE-OVER DRAWER FOR DETAILED INSPECTION                         -->
   <!-- ================================================================= -->
-  <div id="drawerOverlay" onclick="closeDrawer()" class="fixed inset-0 bg-slate-950/40 backdrop-blur-xs z-50 hidden transition-opacity"></div>
-  <aside id="drawer" class="fixed top-0 right-0 w-full max-w-lg h-full bg-white z-50 shadow-2xl border-l border-slate-200 transform translate-x-full transition-transform duration-200 ease-in-out flex flex-col">
+  <div id="drawerOverlay" onclick="closeDrawer()" class="fixed inset-0 bg-slate-950/40 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <aside id="drawer" style="transform: translateX(100%); transition: transform 0.25s ease-out;" class="fixed top-0 right-0 w-full max-w-lg h-full bg-white z-50 shadow-2xl border-l border-slate-200 flex flex-col">
     <!-- Header -->
     <div class="p-6 border-b border-slate-200 flex items-center justify-between bg-slate-50/50">
       <div>
@@ -440,7 +440,7 @@
         </div>
         <p id="dCategory" class="text-xs text-slate-500 mt-0.5"></p>
       </div>
-      <button onclick="closeDrawer()" class="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition text-sm">
+      <button onclick="closeDrawer()" class="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition text-base font-bold">
         ✕
       </button>
     </div>
@@ -555,7 +555,7 @@
         }
 
         return `
-          <tr onclick="openDrawer(APPS.find(a => a.id === '${app.id}'))" class="hover:bg-slate-50/80 cursor-pointer transition-colors duration-150">
+          <tr onclick="openDrawerById(${app.id})" class="hover:bg-slate-50/80 cursor-pointer transition-colors duration-150">
             <td class="py-4 px-5 text-center text-xs font-mono text-slate-400">${rowNum}</td>
             <td class="py-4 px-5">
               <div class="font-bold text-slate-900">${app.name}</div>
@@ -566,7 +566,7 @@
             <td class="py-4 px-5 text-xs text-slate-600">${app.gating_status}</td>
             <td class="py-4 px-5 text-center">${badge}</td>
             <td class="py-4 px-5 text-right">
-              <span class="text-xs font-semibold text-slate-900 hover:underline">View &rarr;</span>
+              <button onclick="event.stopPropagation(); openDrawerById(${app.id})" class="text-xs font-semibold text-slate-900 hover:text-brand-600 hover:underline">View &rarr;</button>
             </td>
           </tr>
         `;
@@ -638,16 +638,17 @@
       setFilterVerdict('ALL');
     }
 
-    function openDrawer(app) {
+    function openDrawerById(appId) {
+      const app = APPS.find(a => String(a.id) === String(appId));
       if (!app) return;
       document.getElementById('dName').innerText = app.name;
       document.getElementById('dPurpose').innerText = app.purpose;
       document.getElementById('dCategory').innerText = app.category;
-      document.getElementById('dAuth').innerText = app.primary_auth + ' (' + app.auth_methods.join(', ') + ')';
+      document.getElementById('dAuth').innerText = app.primary_auth + (app.auth_methods ? ' (' + app.auth_methods.join(', ') + ')' : '');
       document.getElementById('dGating').innerText = app.gating_status + (app.gating_details ? ' — ' + app.gating_details : '');
       document.getElementById('dRateLimits').innerText = app.rate_limits || 'Standard platform rate limits apply';
-      document.getElementById('dAuditNote').innerText = app.pass2_verification ? app.pass2_verification.audit_note : 'Standard API toolkit ready.';
-      document.getElementById('dDocLink').href = app.evidence_url;
+      document.getElementById('dAuditNote').innerText = (app.pass2_verification && app.pass2_verification.audit_note) ? app.pass2_verification.audit_note : 'Standard API toolkit ready.';
+      document.getElementById('dDocLink').href = app.evidence_url || '#';
 
       const v = document.getElementById('dVerdict');
       v.innerText = app.buildability_verdict;
@@ -660,12 +661,12 @@
       }
 
       document.getElementById('drawerOverlay').classList.remove('hidden');
-      document.getElementById('drawer').classList.remove('translate-x-full');
+      document.getElementById('drawer').style.transform = 'translateX(0)';
     }
 
     function closeDrawer() {
       document.getElementById('drawerOverlay').classList.add('hidden');
-      document.getElementById('drawer').classList.add('translate-x-full');
+      document.getElementById('drawer').style.transform = 'translateX(100%)';
     }
 
     function runSim(appName) {
