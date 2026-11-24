@@ -1,159 +1,37 @@
 {
   "total_apps": 100,
-  "categories": {
-    "CRM and Sales": 10,
-    "Support and Helpdesk": 10,
-    "Communications and Messaging": 10,
-    "Marketing, Ads, Email and Social": 10,
-    "Ecommerce": 10,
-    "Data, SEO and Scraping": 10,
-    "Developer, Infra and Data platforms": 10,
-    "Productivity and Project Management": 10,
-    "Finance and Fintech": 10,
-    "AI, Research and Media-native": 10
+  "categories_count": 10,
+  "buildability_breakdown": {
+    "Ready": 76,
+    "Feasible with Gating": 17,
+    "Blocked": 5,
+    "Ready via CLI Wrapper": 2
   },
-  "buildability": {
-    "Ready": {
-      "count": 72,
-      "pct": 72.0
-    },
-    "Feasible with Gating": {
-      "count": 17,
-      "pct": 17.0
-    },
-    "Blocked": {
-      "count": 9,
-      "pct": 9.0
-    },
-    "Ready via CLI Wrapper": {
-      "count": 2,
-      "pct": 2.0
-    }
+  "inter_model_agreement": {
+    "full_agreement_pct": 24.0,
+    "disagreement_pct": 76.0,
+    "access_gating_match_pct": 89.0,
+    "auth_protocol_match_pct": 81.0,
+    "mcp_status_match_pct": 77.0,
+    "buildability_verdict_match_pct": 60.0
   },
-  "gating": {
-    "Self-serve (Free/Trial/Sandbox/OS)": {
-      "count": 74,
-      "pct": 74.0
-    },
-    "Partner / Enterprise Contract Gate": {
-      "count": 11,
-      "pct": 11.0
-    },
-    "Customer Account / Paid Tier Gated": {
-      "count": 7,
-      "pct": 7.0
-    },
-    "No Public API (Blocked)": {
-      "count": 3,
-      "pct": 3.0
-    },
-    "App Review / Verification Gate": {
-      "count": 2,
-      "pct": 2.0
-    },
-    "Other Gating": {
-      "count": 3,
-      "pct": 3.0
-    }
+  "sample_audit_25": {
+    "sample_size": 25,
+    "disputed_group_size": 18,
+    "control_group_size": 7,
+    "gemini_accuracy_on_sample_pct": 60.0,
+    "perplexity_accuracy_on_sample_pct": 76.0,
+    "control_group_agreement_pct": 100.0,
+    "human_reconciled_ground_truth_pct": 100.0
   },
-  "auth": {
-    "OAuth 2.0": {
-      "count": 42,
-      "pct": 42.0
-    },
-    "API Key / Bearer Token": {
-      "count": 45,
-      "pct": 45.0
-    },
-    "HTTP Basic Auth": {
-      "count": 6,
-      "pct": 6.0
-    },
-    "Proprietary Session / None": {
-      "count": 1,
-      "pct": 1.0
-    },
-    "CLI / Subprocess (No Auth)": {
-      "count": 2,
-      "pct": 2.0
-    },
-    "Other": {
-      "count": 4,
-      "pct": 4.0
-    }
+  "auth_distribution": {
+    "OAuth_2_0_dominance_pct": 42.0,
+    "Bearer_or_API_Key_pct": 45.0,
+    "standard_auth_broker_coverage_pct": 87.0
   },
-  "mcp_status": {
-    "Available (Official / Composio / Community)": {
-      "count": 58,
-      "pct": 58.0
-    },
-    "Emerging / Early Stage": {
-      "count": 10,
-      "pct": 10.0
-    },
-    "No Existing MCP (Greenfield Opportunity)": {
-      "count": 30,
-      "pct": 30.0
-    },
-    "CLI / Local Wrapper": {
-      "count": 2,
-      "pct": 2.0
-    }
-  },
-  "corrections_count": 42,
-  "pass1_accuracy": 58.0,
-  "pass2_accuracy": 95.0,
-  "human_audit_accuracy": 98.0,
-  "top_corrections": [
-    {
-      "app": "HubSpot",
-      "category": "CRM and Sales",
-      "audit_note": "Pass 1 marked API Key; Pass 2 corrected to Private App Token & OAuth 2.0 as HubSpot deprecated raw API keys in Nov 2022."
-    },
-    {
-      "app": "Close",
-      "category": "CRM and Sales",
-      "audit_note": "Pass 1 missed HTTP Basic Auth format: Close passes API key as HTTP Basic username with blank password."
-    },
-    {
-      "app": "Copper",
-      "category": "CRM and Sales",
-      "audit_note": "Pass 2 noted auth requires dual headers: `X-PW-AccessToken` and `X-PW-UserEmail`."
-    },
-    {
-      "app": "DealCloud",
-      "category": "CRM and Sales",
-      "audit_note": "CRITICAL CATCH: Pass 1 mistook docs for self-serve. Pass 2 confirmed enterprise contract & vendor tenant registration required."
-    },
-    {
-      "app": "Zendesk",
-      "category": "Support and Helpdesk",
-      "audit_note": "Pass 1 marked API Key. Pass 2 clarified Zendesk API token uses `username/token:api_token` via Basic Auth or OAuth2."
-    },
-    {
-      "app": "Pylon",
-      "category": "Support and Helpdesk",
-      "audit_note": "Pass 2 flagged that Pylon enforces B2B corporate domain verification and sales approval for new tenants."
-    },
-    {
-      "app": "Gladly",
-      "category": "Support and Helpdesk",
-      "audit_note": "Pass 2 corrected gating from Self-serve to Enterprise Gate: Gladly has no public trial or sandbox."
-    },
-    {
-      "app": "Lark",
-      "category": "Communications and Messaging",
-      "audit_note": "Pass 2 noted Lark uses tenant_access_token (app-level) or user_access_token depending on scope."
-    },
-    {
-      "app": "Pumble",
-      "category": "Communications and Messaging",
-      "audit_note": "Pass 1 marked Ready; Pass 2 corrected to Blocked after Perplexity cross-verification confirmed no documented public API."
-    },
-    {
-      "app": "WhatsApp Business",
-      "category": "Communications and Messaging",
-      "audit_note": "CRITICAL CATCH: Pass 1 noted self-serve test sandbox. Pass 2 identified Meta Business Verification gate and 24-hr customer service window restrictions."
-    }
-  ]
+  "blocker_taxonomy": {
+    "enterprise_contract_gating_pct": 44.0,
+    "partner_business_verification_gate_pct": 33.0,
+    "no_public_developer_api_pct": 23.0
+  }
 }

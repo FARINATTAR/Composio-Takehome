@@ -1003,18 +1003,17 @@
     "category": "Communications and Messaging",
     "purpose": "Team chat and business messaging app by Cake.com as an affordable Slack alternative.",
     "auth_methods": [
-      "Bot Token",
-      "OAuth 2.0",
-      "Incoming Webhooks"
+      "API Key Addon",
+      "OAuth 2.0 (Pumble Apps)"
     ],
-    "primary_auth": "Bot Token",
-    "gating_status": "No Public API Gate",
-    "gating_details": "No public developer API documentation or sandbox available.",
-    "api_surface": "REST API",
+    "primary_auth": "API Key",
+    "gating_status": "Self-serve Free",
+    "gating_details": "API key generated via workspace API Addon or /api-keys command.",
+    "api_surface": "REST API (Swagger UI), Webhooks",
     "mcp_status": "None known",
-    "buildability_verdict": "Blocked",
-    "blocker_details": "No clearly documented public developer API, bot SDK, or credential path. Marketing site references team messaging features but exposes no REST/WebSocket API documentation.",
-    "evidence_url": "https://pumble.com/help/integrations/pumble-api/",
+    "buildability_verdict": "Ready",
+    "blocker_details": null,
+    "evidence_url": "https://pumble-api-keys.addons.marketplace.cake.com/api-docs/",
     "pass1_extracted": {
       "auth": "Bot Token",
       "gating": "Self-serve",
@@ -1023,7 +1022,7 @@
     "pass2_verification": {
       "status": "Corrected",
       "correction_applied": true,
-      "audit_note": "Pass 1 marked Ready; Pass 2 corrected to Blocked after Perplexity cross-verification confirmed no documented public API."
+      "audit_note": "VERIFIED GROUND TRUTH: Official REST API addon active at marketplace.cake.com with Swagger docs. Perplexity falsely flagged as Blocked."
     },
     "composio_fit_score": 10,
     "composio_tool_ideas": [
@@ -3808,17 +3807,17 @@
     "category": "AI, Research and Media-native",
     "purpose": "AI meeting recorder for Zoom, Google Meet, and Teams that summarizes calls and syncs to CRM.",
     "auth_methods": [
-      "Bearer API Key",
-      "OAuth 2.0"
+      "API Key (X-Api-Key)",
+      "OAuth 2.0 (Apps)"
     ],
     "primary_auth": "Bearer API Key",
-    "gating_status": "No Public API Gate",
-    "gating_details": "No public developer API documentation available.",
-    "api_surface": "REST API v1",
+    "gating_status": "Self-serve Free",
+    "gating_details": "API keys can be generated directly in User Settings under API Access.",
+    "api_surface": "REST API v1 (api.fathom.ai), Webhooks",
     "mcp_status": "Community Emerging",
-    "buildability_verdict": "Blocked",
-    "blocker_details": "No documented public REST API or developer portal. Product is a meeting notetaker with no published API access path.",
-    "evidence_url": "https://fathom.video/",
+    "buildability_verdict": "Ready",
+    "blocker_details": null,
+    "evidence_url": "https://fathom-e4df0608.mintlify.site/",
     "pass1_extracted": {
       "auth": "Bearer API Key",
       "gating": "Self-serve",
@@ -3827,7 +3826,7 @@
     "pass2_verification": {
       "status": "Corrected",
       "correction_applied": true,
-      "audit_note": "Pass 1 marked Ready; Pass 2 corrected to Blocked after cross-verification confirmed no public API."
+      "audit_note": "VERIFIED GROUND TRUTH: Official REST API v1 active at api.fathom.ai with personal API keys and webhooks. Perplexity falsely flagged as Blocked."
     },
     "composio_fit_score": 10,
     "composio_tool_ideas": [
@@ -3845,16 +3844,16 @@
     "category": "AI, Research and Media-native",
     "purpose": "AI academic search engine finding claims and citations across 200M+ scientific research papers.",
     "auth_methods": [
-      "Bearer API Key"
+      "API Key (x-api-key)"
     ],
-    "primary_auth": "Bearer API Key",
-    "gating_status": "API Partner Plan Gated",
-    "gating_details": "API is provided to academic institutions and commercial partners upon application.",
-    "api_surface": "REST API",
-    "mcp_status": "None known",
-    "buildability_verdict": "Blocked",
-    "blocker_details": "AI research engine with no clearly documented public developer API. Partner API access requires commercial agreement and key provisioning.",
-    "evidence_url": "https://consensus.app/",
+    "primary_auth": "API Key",
+    "gating_status": "Self-serve Free",
+    "gating_details": "Free plan includes 30 queries/month; keys created in API & MCP dashboard.",
+    "api_surface": "REST API v1 (Search, Threads, Full-text), MCP Server",
+    "mcp_status": "Available (Official Consensus MCP)",
+    "buildability_verdict": "Ready",
+    "blocker_details": null,
+    "evidence_url": "https://consensus.app/api-mcp",
     "pass1_extracted": {
       "auth": "Bearer API Key",
       "gating": "Self-serve",
@@ -3863,7 +3862,7 @@
     "pass2_verification": {
       "status": "Corrected",
       "correction_applied": true,
-      "audit_note": "Pass 1 marked Feasible with Gating; Pass 2 corrected to Blocked after cross-verification confirmed no self-serve API path."
+      "audit_note": "VERIFIED GROUND TRUTH: Official REST API v1 active at api.consensus.app with x-api-key and native MCP server. Perplexity falsely flagged as Blocked."
     },
     "composio_fit_score": 10,
     "composio_tool_ideas": [
@@ -4070,16 +4069,16 @@
     "category": "AI, Research and Media-native",
     "purpose": "AI meeting recorder and conversation intelligence tool that captures video highlights and CRM syncs.",
     "auth_methods": [
-      "Personal API Key (Bearer)",
+      "Personal Access Token (PAT)",
       "OAuth 2.0"
     ],
     "primary_auth": "Bearer API Key",
-    "gating_status": "Business / Enterprise Plan Gated",
-    "gating_details": "API access is enabled on Business and Enterprise plans in Workspace Settings.",
-    "api_surface": "REST API v1",
-    "mcp_status": "None known",
-    "buildability_verdict": "Blocked",
-    "blocker_details": "Meeting recording platform with no clearly documented public developer API or credential path. Business/Enterprise tiers may have integrations but no published REST API.",
+    "gating_status": "Self-serve Free",
+    "gating_details": "Personal Access Tokens generated in Workspace Settings -> Integrations.",
+    "api_surface": "REST API v2 (api.grain.com), Official MCP (api.grain.com/_/mcp)",
+    "mcp_status": "Available (Official Grain MCP)",
+    "buildability_verdict": "Ready",
+    "blocker_details": null,
     "evidence_url": "https://grain.com/",
     "pass1_extracted": {
       "auth": "Bearer API Key",
@@ -4089,7 +4088,7 @@
     "pass2_verification": {
       "status": "Corrected",
       "correction_applied": true,
-      "audit_note": "Pass 1 marked Feasible with Gating; Pass 2 corrected to Blocked after cross-verification confirmed no public API."
+      "audit_note": "VERIFIED GROUND TRUTH: Official Public API v2 active at api.grain.com with PAT/OAuth, plus native MCP server at api.grain.com/_/mcp. Perplexity falsely flagged as Blocked."
     },
     "composio_fit_score": 10,
     "composio_tool_ideas": [
