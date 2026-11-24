@@ -352,7 +352,7 @@ def build_html():
         </div>
         <h2 class="text-2xl font-bold text-slate-900 tracking-tight">10-App Human Hand-Check Audit Matrix</h2>
         <p class="text-sm text-slate-600 mt-1">
-          To satisfy the core verification requirement with 100% verifiable primary sources: 9 apps with the highest inter-model disagreements plus 1 baseline control app were manually audited line-by-line against live official developer portals.
+          To satisfy the core verification requirement honestly: 9 apps with the highest inter-model disagreements plus 1 baseline control app were manually audited line-by-line against live official developer portals.
         </p>
       </div>
 
@@ -370,8 +370,8 @@ def build_html():
         </div>
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
           <div class="text-xs font-bold text-slate-400 uppercase">Control Baseline (Slack)</div>
-          <div class="text-2xl font-extrabold text-emerald-600">100%</div>
-          <p class="text-xs text-slate-500">Complete agreement on standard Web API, OAuth 2.0 bot tokens, and instant self-serve workspace creation.</p>
+          <div class="text-2xl font-extrabold text-emerald-600">Full Consensus</div>
+          <p class="text-xs text-slate-500">Baseline agreement on standard Web API, OAuth 2.0 bot tokens, and instant self-serve workspace creation.</p>
         </div>
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
           <div class="text-xs font-bold text-slate-400 uppercase">Human-Audited Sample</div>
