@@ -249,7 +249,7 @@ def build_html():
           <div class="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Engineering Feasibility</div>
           <h3 class="text-base font-bold text-slate-900">87% Auth Protocol Standardization</h3>
           <p class="text-xs text-slate-600 leading-relaxed">
-            In our surveyed dataset, 45 apps use API Keys and 42 use OAuth 2.0. Composio's native authentication broker covers both protocols, requiring zero custom connector logic for 87 apps.
+            In our surveyed dataset, 45 apps use API Keys and 42 use OAuth 2.0. Composio's native authentication broker covers both standard protocols cleanly for the vast majority of apps.
           </p>
         </div>
 
@@ -257,7 +257,7 @@ def build_html():
           <div class="text-[11px] font-bold text-blue-700 uppercase tracking-wider">Audit Reliability</div>
           <h3 class="text-base font-bold text-slate-900">Why Single-Agent Scraping Fails</h3>
           <p class="text-xs text-slate-600 leading-relaxed">
-            Gemini achieved 60.0% accuracy on our 25-app test sample, while Perplexity reached 76.0%. Both models hallucinated in distinct patterns, proving human verification loops are critical.
+            On our 10-app sample of high-disagreement targets, Gemini achieved 50% accuracy and Perplexity reached 60%. Because 9 of 10 were specifically selected for inter-model conflicts, this highlights how unverified scraping fails on edge cases.
           </p>
         </div>
       </div>
@@ -469,7 +469,7 @@ def build_html():
         <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">STAGE 01</span>
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">Raw Extraction (60% Acc)</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">Stage 1: Raw Extraction (50-60% on Sample)</span>
           </div>
           <h3 class="text-lg font-bold text-slate-900">Automated Doc Crawl</h3>
           <p class="text-sm text-slate-600 leading-relaxed">
@@ -484,7 +484,7 @@ def build_html():
         <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">STAGE 02</span>
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-100 text-orange-800 border border-orange-200">Cross-Audit (76% Acc)</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-100 text-orange-800 border border-orange-200">Stage 2: Cross-Audit</span>
           </div>
           <h3 class="text-lg font-bold text-slate-900">Adversarial Verification</h3>
           <p class="text-sm text-slate-600 leading-relaxed">
@@ -626,7 +626,7 @@ def build_html():
   <!-- ================================================================= -->
   <footer class="border-t border-slate-200/80 bg-white py-8 text-xs text-slate-500 mt-20">
     <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>Composio Tooling Intelligence Case Study &bull; Built with Dual-Agent Audit & 25-App Human Verification Loop</div>
+      <div>Composio Tooling Intelligence Case Study &bull; Built with Dual-Agent Audit & 10-App Human Verification Loop</div>
       <div>
         <a href="https://github.com/FARINATTAR/Composio-Takehome" target="_blank" rel="noopener" class="text-slate-700 hover:underline font-semibold">
           GitHub Repository: FARINATTAR/Composio-Takehome
