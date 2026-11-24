@@ -530,19 +530,19 @@
                   <div class="text-[10px] text-slate-400 font-mono">developers.google.com</div>
                 </td>
                 <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – Access</td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">OAuth 2.0 (User Authorization / Service Account) + Developer Token</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">OAuth configured in Google Cloud project. Test Accounts: instant. Basic/Standard Access: requires Developer Token compliance review.</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Application Default Credentials (ADC) / OAuth 2.0 (stdio or Cloud Run Streamable HTTP)</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">Google Cloud project with Google Ads API enabled. Test Access: instant. Production: requires project approval. Google sunset developer tokens Sept 9, 2026.</td>
                 <td class="py-3 px-4 text-center">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-600">
-                    No / Community
+                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
+                    Yes (Official)
                   </span>
                 </td>
                 <td class="py-3 px-4 font-semibold text-slate-900">
-                  <div>Feasible with Gating</div>
-                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Both correct on gating requirement (OAuth 2.0 + compliance-reviewed Developer Token)</div>
+                  <div>Feasible with Gating (Cloud Project Access Tier & Official MCP)</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Both AI outdated on auth (both cited sunset developer tokens; missed official google-ads-mcp)</div>
                 </td>
                 <td class="py-3 px-4 text-right">
-                  <a href="https://developers.google.com/google-ads/api/docs/oauth/overview" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
+                  <a href="https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
                     Docs &rarr;
                   </a>
                 </td>

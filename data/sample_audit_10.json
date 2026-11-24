@@ -101,15 +101,15 @@
     "name": "Google Ads",
     "domain": "developers.google.com",
     "has_api": true,
-    "auth_type": "OAuth 2.0 (User Authorization / Service Account) + Developer Token",
-    "credential_access": "OAuth configured in Google Cloud project. Test Accounts: instant. Basic/Standard Access: requires Developer Token compliance review.",
-    "official_mcp": false,
-    "docs_url": "https://developers.google.com/google-ads/api/docs/oauth/overview",
+    "auth_type": "Application Default Credentials (ADC) / OAuth 2.0 (stdio or Cloud Run Streamable HTTP)",
+    "credential_access": "Google Cloud project with Google Ads API enabled. Test Access: instant. Production: requires project approval. Google sunset developer tokens Sept 9, 2026.",
+    "official_mcp": true,
+    "docs_url": "https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server",
     "perplexity_finding": "Gated (Developer Token approval)",
     "gemini_finding": "Gated (Developer Token)",
-    "verified_verdict": "Feasible with Gating",
-    "winner": "Both correct on gating requirement (OAuth 2.0 + compliance-reviewed Developer Token)",
-    "evidence_notes": "Official OAuth guide confirms OAuth 2.0 workflows. Multi-user flow required when managing 3rd party accounts; test accounts instant, live requires review."
+    "verified_verdict": "Feasible with Gating (Cloud Project Access Tier & Official MCP)",
+    "winner": "Both AI outdated on auth (both cited sunset developer tokens; missed official google-ads-mcp)",
+    "evidence_notes": "Official Google Ads Developer guide confirms official 'google-ads-mcp' package (pipx run google-ads-mcp) via stdio/Cloud Run. Google officially sunset developer tokens on Sept 9, 2026 in favor of Cloud Project access tiers."
   },
   {
     "id": 8,
