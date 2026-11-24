@@ -21,15 +21,15 @@
     "name": "Pumble",
     "domain": "pumble.com",
     "has_api": true,
-    "auth_type": "API Key (ApiKey header)",
-    "credential_access": "API Key Add-on installed via workspace Configure Apps; available on all plans (Owner/Admin/Member)",
-    "official_mcp": false,
-    "docs_url": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration/",
+    "auth_type": "API Key (ApiKey header) / Workspace App Token for MCP",
+    "credential_access": "API Key Add-on installed via workspace Configure Apps; Pumble MCP Server configured via Workspace Settings → Apps",
+    "official_mcp": true,
+    "docs_url": "https://pumble.com/help/integrations/automation-workflow-integrations/how-to-use-the-pumble-mcp-server/",
     "perplexity_finding": "Blocked (No Public API)",
     "gemini_finding": "Ready (Bot Token)",
     "verified_verdict": "Ready to Build",
-    "winner": "Gemini closer (Perplexity missed workspace API add-on integration)",
-    "evidence_notes": "Official Pumble Help Center confirms API key generation via API add-on available on all workspace tiers."
+    "winner": "Both AI failed MCP (Pumble officially launched native Pumble MCP Server)",
+    "evidence_notes": "Official Pumble Help Center documents native Pumble MCP Server at how-to-use-the-pumble-mcp-server, with 4-step setup via Create App for AI agents."
   },
   {
     "id": 3,
@@ -150,13 +150,13 @@
     "domain": "slack.com",
     "has_api": true,
     "auth_type": "OAuth 2.0 / Bot Token (xoxb-) / User Token (xoxp-)",
-    "credential_access": "Instant self-serve via api.slack.com/apps (Create App → Install to Workspace → Bot User OAuth Token).",
-    "official_mcp": false,
-    "docs_url": "https://api.slack.com/authentication",
+    "credential_access": "Instant self-serve via api.slack.com/apps; Slack MCP server natively enabled in Slack workspace / Enterprise org.",
+    "official_mcp": true,
+    "docs_url": "https://docs.slack.dev/ai/slack-mcp-server/",
     "perplexity_finding": "Ready (OAuth 2.0 / Bot Token)",
     "gemini_finding": "Ready (OAuth 2.0 / Bot Token)",
     "verified_verdict": "Ready to Build",
-    "winner": "Both correct (100% agreement on baseline Web API and self-serve Bot Tokens)",
-    "evidence_notes": "Official Slack API authentication docs confirm Bot Tokens (xoxb-) via OAuth 2.0. Standard community MCP exists; Slack relies on Slack CLI & Agents SDK."
+    "winner": "Both AI accurate on core API; human verification confirmed native Slack MCP Server & Slackbot MCP Client",
+    "evidence_notes": "Official Slack guide ('Guide to MCP in Slack' & docs.slack.dev/ai/slack-mcp-server) confirms Slack provides both official MCP Server (for Claude, Cursor, ChatGPT) and Slackbot MCP Client."
   }
 ]
