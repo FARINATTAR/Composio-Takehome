@@ -418,8 +418,8 @@ def build_html():
               <button onclick="runSim('Pumble')" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-semibold text-slate-800 transition">Pumble</button>
             </div>
           </div>
-          <div id="simLog" class="bg-slate-950 p-4 rounded-xl font-mono text-xs text-emerald-400 border border-slate-800 h-36 overflow-y-auto leading-relaxed">
-            Click any button above to run real-time verification logic...
+          <div id="simLog" class="bg-slate-950 p-4 rounded-xl font-mono text-xs border border-slate-800 min-h-[140px] overflow-y-auto leading-relaxed">
+            <span class="text-slate-500">Click any app button above to run real-time verification logic...</span>
           </div>
         </div>
 
@@ -698,8 +698,14 @@ def build_html():
       const out = document.getElementById('simLog');
       const p1Gating = (app.pass1_extracted && app.pass1_extracted.gating) ? app.pass1_extracted.gating : 'Self-serve';
       const p2Status = (app.pass2_verification && app.pass2_verification.status) ? app.pass2_verification.status : 'Verified';
-      const note = (app.pass2_verification && app.pass2_verification.audit_note) ? app.pass2_verification.audit_note : 'Standard API toolkit.';
-      out.innerHTML = `> AUDITING: ${{app.name.toUpperCase()}}...\\n[STEP 1: SCAN] Login: ${{app.primary_auth}} | Access: ${{p1Gating}}\\n[STEP 2: CHECK] Verification Status: ${{p2Status}}\\n[VERDICT] Result: ${{app.buildability_verdict}}\\n[NOTE] ${{note}}`;
+      const note = (app.pass2_verification && app.pass2_verification.audit_note) ? app.pass2_verification.audit_note : 'Standard API toolkit ready.';
+      out.innerHTML = `
+        <div class="text-emerald-400 font-bold mb-1.5">&gt; AUDITING: ${{app.name.toUpperCase()}}</div>
+        <div class="text-slate-300 mb-0.5"><span class="text-slate-500 font-semibold">[STEP 1: SCAN]</span> Login: <span class="text-white">${{app.primary_auth}}</span> &bull; Access: <span class="text-white">${{p1Gating}}</span></div>
+        <div class="text-slate-300 mb-0.5"><span class="text-amber-400 font-semibold">[STEP 2: CHECK]</span> Verification: <span class="text-amber-300 font-semibold">${{p2Status}}</span></div>
+        <div class="text-slate-300 mb-1"><span class="text-emerald-400 font-semibold">[VERDICT]</span> Result: <span class="text-emerald-300 font-bold">${{app.buildability_verdict}}</span></div>
+        <div class="text-slate-400 text-[11px] pt-1 border-t border-slate-800 leading-normal"><span class="text-slate-500 font-bold">[NOTE]</span> ${{note}}</div>
+      `;
     }}
 
     function exportJSON() {{
