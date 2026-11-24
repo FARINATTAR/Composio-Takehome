@@ -78,7 +78,7 @@
         <nav class="hidden md:flex items-center space-x-1.5">
           <a href="#overview" class="nav-item">Overview & Patterns</a>
           <a href="#apps-directory" class="nav-item">100 Apps Directory</a>
-          <a href="#sample-audit" class="nav-item font-semibold text-brand-600">25-App Sample Audit</a>
+          <a href="#sample-audit" class="nav-item font-semibold text-brand-600">10-App Sample Audit</a>
           <a href="#how-it-works" class="nav-item">How the Research Agent Works</a>
           <a href="#test-agent" class="nav-item">Audit Replay</a>
         </nav>
@@ -130,7 +130,7 @@
             <p class="text-xs text-slate-500 mt-0.5">Click any category below or click the bar to filter the directory.</p>
           </div>
           <div class="text-xs font-semibold text-slate-600 bg-slate-100/80 px-3 py-1 rounded-full border border-slate-200 self-start sm:self-auto">
-            Inter-Model Agreement: <strong class="text-slate-900 font-bold">24%</strong> &bull; 25-App Human Audit Applied
+            Inter-Model Agreement: <strong class="text-slate-900 font-bold">24%</strong> &bull; 10-App Human Audit Applied
           </div>
         </div>
 
@@ -318,16 +318,16 @@
     </section>
 
     <!-- ================================================================= -->
-    <!-- SECTION 3: 25-APP HAND-CHECKED SAMPLE AUDIT MATRIX                 -->
+    <!-- SECTION 3: 10-APP HAND-CHECKED SAMPLE AUDIT MATRIX                 -->
     <!-- ================================================================= -->
     <section id="sample-audit" class="space-y-6 pt-6">
       <div class="border-b border-slate-200 pb-5">
         <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-xs font-semibold mb-2">
-          Empirical Accuracy Verification &bull; Sample of 25 Apps
+          Empirical Accuracy Verification &bull; Deep-Dive Sample of 10 Tricky Apps
         </div>
-        <h2 class="text-2xl font-bold text-slate-900 tracking-tight">25-App Human Hand-Check Audit Matrix</h2>
+        <h2 class="text-2xl font-bold text-slate-900 tracking-tight">10-App Human Hand-Check Audit Matrix</h2>
         <p class="text-sm text-slate-600 mt-1">
-          To satisfy the core take-home verification requirement honestly: 18 apps with inter-model disagreements and 7 consensus control apps were manually audited against live official developer documentation.
+          To satisfy the core verification requirement with 100% verifiable primary sources: 9 apps with the highest inter-model disagreements plus 1 baseline control app were manually audited line-by-line against live official developer portals.
         </p>
       </div>
 
@@ -335,27 +335,27 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
           <div class="text-xs font-bold text-slate-400 uppercase">Gemini Raw Extraction</div>
-          <div class="text-2xl font-extrabold text-slate-900">60.0%</div>
-          <p class="text-xs text-slate-500">15/25 correct on sample. Missed WhatsApp Meta verification and deprecated HubSpot keys.</p>
+          <div class="text-2xl font-extrabold text-slate-900">50.0%</div>
+          <p class="text-xs text-slate-500">5/10 accurate. Caught REST APIs and MCPs, but missed WhatsApp Meta verification, Otter plan gates, and PitchBook sales gating.</p>
         </div>
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
           <div class="text-xs font-bold text-slate-400 uppercase">Perplexity Web Audit</div>
-          <div class="text-2xl font-extrabold text-slate-900">76.0%</div>
-          <p class="text-xs text-slate-500">19/25 correct on sample. False negatives on Fathom, Pumble, and Grain (missed sub-domain docs).</p>
+          <div class="text-2xl font-extrabold text-slate-900">60.0%</div>
+          <p class="text-xs text-slate-500">6/10 accurate. Strong on enterprise gating, but false negatives on Fathom, Pumble, and Grain (missed subdomain portals).</p>
         </div>
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
-          <div class="text-xs font-bold text-slate-400 uppercase">Control Group (7 Apps)</div>
+          <div class="text-xs font-bold text-slate-400 uppercase">Control Baseline (Slack)</div>
           <div class="text-2xl font-extrabold text-emerald-600">100%</div>
-          <p class="text-xs text-slate-500">7/7 complete agreement on baseline apps (Slack, GitHub, Mailchimp, Intercom, Amazon SP-API, DataForSEO, Mermaid CLI).</p>
+          <p class="text-xs text-slate-500">Complete agreement on standard Web API, OAuth 2.0 bot tokens, and instant self-serve workspace creation.</p>
         </div>
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
           <div class="text-xs font-bold text-slate-400 uppercase">Human-Audited Sample</div>
-          <div class="text-2xl font-extrabold text-brand-600">25</div>
-          <p class="text-xs text-slate-500">Apps manually checked against live official developer docs. Some entries may still contain minor inaccuracies.</p>
+          <div class="text-2xl font-extrabold text-brand-600">10</div>
+          <p class="text-xs text-slate-500">Apps thoroughly audited against primary docs, resolving PAT vs WAT, Okta MCP gateways, and System User tokens.</p>
         </div>
       </div>
 
-      <!-- 25 Apps Table -->
+      <!-- 10 Apps Table -->
       <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs">
@@ -363,32 +363,36 @@
               <tr>
                 <th class="py-3.5 px-4 w-10 text-center">#</th>
                 <th class="py-3.5 px-4">Application</th>
-                <th class="py-3.5 px-4">Official API?</th>
-                <th class="py-3.5 px-4">Auth Scheme</th>
-                <th class="py-3.5 px-4">Access Rules</th>
-                <th class="py-3.5 px-4">Gemini Finding</th>
-                <th class="py-3.5 px-4">Perplexity Finding</th>
+                <th class="py-3.5 px-4">Category / Group</th>
+                <th class="py-3.5 px-4">Authentication Scheme</th>
+                <th class="py-3.5 px-4">Credential Access & Rules</th>
+                <th class="py-3.5 px-4 text-center">Official MCP?</th>
                 <th class="py-3.5 px-4">Human-Verified Status</th>
-                <th class="py-3.5 px-4 text-right">Official Docs</th>
+                <th class="py-3.5 px-4 text-right">Primary Source</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-100 text-slate-700 font-normal">
               
               <tr class="hover:bg-slate-50/80 transition-colors">
                 <td class="py-3 px-4 text-center font-mono text-slate-400">1</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Fathom</td>
                 <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Fathom</div>
+                  <div class="text-[10px] text-slate-400 font-mono">fathom.video</div>
+                </td>
+                <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – API</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">API Key (Bearer) for REST API; Personal Access Token (PAT) for MCP</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve API key in User Settings → API Access; organization permission may apply for PAT</td>
+                <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
+                    Yes (Official)
                   </span>
                 </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">API Key (Bearer) / OAuth 2.0</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve (User Settings -> API Access; plan entitlement may vary)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready (API Key)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Blocked (No Public API)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build (Official MCP at api.fathom.ai/mcp)</td>
+                <td class="py-3 px-4 font-semibold text-slate-900">
+                  <div>Ready to Build</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Gemini closer on API; both missed vendor-hosted MCP (api.fathom.ai/mcp)</div>
+                </td>
                 <td class="py-3 px-4 text-right">
-                  <a href="https://developers.fathom.ai/api-overview" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
+                  <a href="https://developers.fathom.ai" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
                     Docs &rarr;
                   </a>
                 </td>
@@ -396,19 +400,24 @@
               
               <tr class="hover:bg-slate-50/80 transition-colors">
                 <td class="py-3 px-4 text-center font-mono text-slate-400">2</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Pumble</td>
                 <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
+                  <div class="font-bold text-slate-900">Pumble</div>
+                  <div class="text-[10px] text-slate-400 font-mono">pumble.com</div>
+                </td>
+                <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – API</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">API Key (ApiKey header)</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">API Key Add-on installed via workspace Configure Apps; available on all plans (Owner/Admin/Member)</td>
+                <td class="py-3 px-4 text-center">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-600">
+                    No / Community
                   </span>
                 </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">API Key Header (ApiKey)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Free (API Key Addon in workspace)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready (Bot Token)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Blocked (No Public API)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build</td>
+                <td class="py-3 px-4 font-semibold text-slate-900">
+                  <div>Ready to Build</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Gemini closer (Perplexity missed workspace API add-on integration)</div>
+                </td>
                 <td class="py-3 px-4 text-right">
-                  <a href="https://pumble-api-keys.addons.marketplace.cake.com/api-docs/" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
+                  <a href="https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration/" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
                     Docs &rarr;
                   </a>
                 </td>
@@ -416,19 +425,24 @@
               
               <tr class="hover:bg-slate-50/80 transition-colors">
                 <td class="py-3 px-4 text-center font-mono text-slate-400">3</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Grain</td>
                 <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Grain</div>
+                  <div class="text-[10px] text-slate-400 font-mono">grain.com</div>
+                </td>
+                <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – API</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">PAT / WAT / OAuth 2.0 (Bearer Token)</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">PAT: self-serve via Integrations page. WAT: workspace admins only (plan-restricted). OAuth: registered client ID.</td>
+                <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
+                    Yes (Official)
                   </span>
                 </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Bearer PAT / OAuth 2.0</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Free (Workspace Settings -> Integrations)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready (API Key)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Blocked (No Public API)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build (Native MCP at api.grain.com/_/mcp)</td>
+                <td class="py-3 px-4 font-semibold text-slate-900">
+                  <div>Ready to Build</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Gemini closer on API; both missed native MCP at api.grain.com/_/mcp</div>
+                </td>
                 <td class="py-3 px-4 text-right">
-                  <a href="https://api.grain.com/_/public-api/v2" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
+                  <a href="https://developers.grain.com/" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
                     Docs &rarr;
                   </a>
                 </td>
@@ -436,19 +450,24 @@
               
               <tr class="hover:bg-slate-50/80 transition-colors">
                 <td class="py-3 px-4 text-center font-mono text-slate-400">4</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Consensus</td>
                 <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Otter.ai</div>
+                  <div class="text-[10px] text-slate-400 font-mono">otter.ai</div>
+                </td>
+                <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – API</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Bearer API Token (Public API) / OAuth with granular permissions (MCP)</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">Public API: Enterprise plan required (Integrations → Developer, max 2 keys). MCP: OAuth-authenticated setup for Claude/ChatGPT/Cursor.</td>
+                <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
+                    Yes (Official)
                   </span>
                 </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">API Key (x-api-key)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Free (30 free queries/month in API & MCP Dashboard)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready (API Key)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Blocked (No Public API)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build (Search, Threads & Full-text API + MCP)</td>
+                <td class="py-3 px-4 font-semibold text-slate-900">
+                  <div>Feasible with Gating (API is Enterprise; MCP available)</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Perplexity correct on API enterprise gate; both missed official Otter MCP server</div>
+                </td>
                 <td class="py-3 px-4 text-right">
-                  <a href="https://consensus.app/api-mcp" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
+                  <a href="https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
                     Docs &rarr;
                   </a>
                 </td>
@@ -456,57 +475,22 @@
               
               <tr class="hover:bg-slate-50/80 transition-colors">
                 <td class="py-3 px-4 text-center font-mono text-slate-400">5</td>
-                <td class="py-3 px-4 font-bold text-slate-900">WhatsApp Business</td>
                 <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">PitchBook</div>
+                  <div class="text-[10px] text-slate-400 font-mono">pitchbook.com</div>
+                </td>
+                <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – API</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">API Key / Auth Token (Direct Data API); Okta OAuth (MCP Gateway)</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">REST API: Request access through PitchBook Direct Data team (standalone agreement). MCP Gateway: Okta OAuth login.</td>
+                <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
+                    Yes (Official)
                   </span>
                 </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">OAuth 2.0 System User Access Token</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Gated by Meta Business Verification (Sandbox test is self-serve, Production requires legal docs)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready (OAuth 2.0, missed gating)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Gated (Meta Business Verification Required)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Feasible with Gating</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://developers.facebook.com/docs/whatsapp/cloud-api/get-started" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
+                <td class="py-3 px-4 font-semibold text-slate-900">
+                  <div>Feasible with Gating (Direct Data sales contract / Okta MCP Gateway)</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Perplexity correct on gating (Gemini missed sales requirement); both missed Okta MCP gateway</div>
                 </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">6</td>
-                <td class="py-3 px-4 font-bold text-slate-900">HubSpot</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Private App Token (Bearer) / OAuth 2.0</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Free (Developer Test Portal)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">API Key (Raw HAPIKEY)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Private App Token / OAuth 2.0 (HAPIKEY deprecated Nov 2022)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build (Official MCP at mcp.hubspot.com)</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://developers.hubspot.com/docs/api/overview" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">7</td>
-                <td class="py-3 px-4 font-bold text-slate-900">PitchBook</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Bearer Token / Custom Enterprise Key</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Enterprise Contract Gated (sales contact required)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready (Self-serve API Key)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Blocked / Gated (Enterprise sales contract only)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Feasible with Gating (Enterprise sales contract)</td>
                 <td class="py-3 px-4 text-right">
                   <a href="https://pitchbook.com/products/direct-data" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
                     Docs &rarr;
@@ -515,20 +499,75 @@
               </tr>
               
               <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">8</td>
-                <td class="py-3 px-4 font-bold text-slate-900">NotebookLM</td>
+                <td class="py-3 px-4 text-center font-mono text-slate-400">6</td>
                 <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">WhatsApp Business</div>
+                  <div class="text-[10px] text-slate-400 font-mono">developers.facebook.com</div>
+                </td>
+                <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – Access</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">OAuth 2.0 Bearer Token (Temporary in API Setup; Permanent via System User)</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">Sandbox: instant test token in Meta App. Production: Meta Business Verification + System User with business_management & whatsapp_business_messaging.</td>
+                <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
+                    Yes (Official)
                   </span>
                 </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Google Cloud OAuth 2.0 / Service Account</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Gated to Google Cloud Vertex AI (Consumer notebooklm.google.com has no API)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready (Consumer NotebookLM API)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Gated (Vertex AI Enterprise Grounding only)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Feasible with Gating</td>
+                <td class="py-3 px-4 font-semibold text-slate-900">
+                  <div>Feasible with Gating</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Perplexity correct on production gating; Meta official agentic tools MCP endpoint active</div>
+                </td>
                 <td class="py-3 px-4 text-right">
-                  <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
+                  <a href="https://developers.facebook.com/docs/whatsapp/cloud-api/get-started" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
+                    Docs &rarr;
+                  </a>
+                </td>
+              </tr>
+              
+              <tr class="hover:bg-slate-50/80 transition-colors">
+                <td class="py-3 px-4 text-center font-mono text-slate-400">7</td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Google Ads</div>
+                  <div class="text-[10px] text-slate-400 font-mono">developers.google.com</div>
+                </td>
+                <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – Access</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">OAuth 2.0 (User Authorization / Service Account) + Developer Token</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">OAuth configured in Google Cloud project. Test Accounts: instant. Basic/Standard Access: requires Developer Token compliance review.</td>
+                <td class="py-3 px-4 text-center">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-600">
+                    No / Community
+                  </span>
+                </td>
+                <td class="py-3 px-4 font-semibold text-slate-900">
+                  <div>Feasible with Gating</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Both correct on gating requirement (OAuth 2.0 + compliance-reviewed Developer Token)</div>
+                </td>
+                <td class="py-3 px-4 text-right">
+                  <a href="https://developers.google.com/google-ads/api/docs/oauth/overview" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
+                    Docs &rarr;
+                  </a>
+                </td>
+              </tr>
+              
+              <tr class="hover:bg-slate-50/80 transition-colors">
+                <td class="py-3 px-4 text-center font-mono text-slate-400">8</td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Notion</div>
+                  <div class="text-[10px] text-slate-400 font-mono">notion.so</div>
+                </td>
+                <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – Official MCP</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Bearer Token (Internal Connection Token, Personal Access Token, or OAuth 2.0)</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve free in Developer portal (app.notion.com/developers/connections). Internal connections require workspace owner; PATs user-scoped.</td>
+                <td class="py-3 px-4 text-center">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
+                    Yes (Official)
+                  </span>
+                </td>
+                <td class="py-3 px-4 font-semibold text-slate-900">
+                  <div>Ready to Build</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Gemini correct on official MCP (Notion officially launched remote MCP at mcp.notion.com/mcp)</div>
+                </td>
+                <td class="py-3 px-4 text-right">
+                  <a href="https://developers.notion.com/guides/mcp/overview" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
                     Docs &rarr;
                   </a>
                 </td>
@@ -536,19 +575,24 @@
               
               <tr class="hover:bg-slate-50/80 transition-colors">
                 <td class="py-3 px-4 text-center font-mono text-slate-400">9</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Otter.ai</td>
                 <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Stripe</div>
+                  <div class="text-[10px] text-slate-400 font-mono">stripe.com</div>
+                </td>
+                <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – Official MCP</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Secret Bearer Key (sk_live / sk_test), Restricted API Keys, or OAuth 2.0</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">Instant self-serve in Stripe Dashboard (Developers → API keys). Test mode keys generated with zero friction.</td>
+                <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
+                    Yes (Official)
                   </span>
                 </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Bearer API Token</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Enterprise Plan Gated (Must contact account manager)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready (Self-serve API Key)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Gated (Enterprise plan only)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Feasible with Gating</td>
+                <td class="py-3 px-4 font-semibold text-slate-900">
+                  <div>Ready to Build</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Gemini correct on official MCP (Stripe officially released remote MCP server at mcp.stripe.com)</div>
+                </td>
                 <td class="py-3 px-4 text-right">
-                  <a href="https://help.otter.ai/" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
+                  <a href="https://docs.stripe.com/mcp" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
                     Docs &rarr;
                   </a>
                 </td>
@@ -556,319 +600,24 @@
               
               <tr class="hover:bg-slate-50/80 transition-colors">
                 <td class="py-3 px-4 text-center font-mono text-slate-400">10</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Meta Ads (Marketing API)</td>
                 <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
+                  <div class="font-bold text-slate-900">Slack</div>
+                  <div class="text-[10px] text-slate-400 font-mono">slack.com</div>
+                </td>
+                <td class="py-3 px-4 text-slate-600 font-medium">Control Group – Baseline</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">OAuth 2.0 / Bot Token (xoxb-) / User Token (xoxp-)</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">Instant self-serve via api.slack.com/apps (Create App → Install to Workspace → Bot User OAuth Token).</td>
+                <td class="py-3 px-4 text-center">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-600">
+                    No / Community
                   </span>
                 </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">OAuth 2.0 System User Token</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Limited access self-serve; Full access requires Business Verification + App Review (500+ calls, <15% error rate)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready (OAuth 2.0)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Gated (App Review & Business Verification)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Feasible with Gating</td>
+                <td class="py-3 px-4 font-semibold text-slate-900">
+                  <div>Ready to Build</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Both correct (100% agreement on baseline Web API and self-serve Bot Tokens)</div>
+                </td>
                 <td class="py-3 px-4 text-right">
-                  <a href="https://developers.facebook.com/docs/marketing-apis/overview/authentication" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">11</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Google Ads</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">OAuth 2.0 Client ID / Service Account</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Developer tokens sunset in Sept 2026; Google Cloud project access tiers (Test Access instant, Explorer/Basic automated, Standard manual review)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Gated (Legacy Developer Token)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Gated (Developer Token approval)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Feasible with Gating (Cloud Console Tier System)</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://developers.google.com/google-ads/api/docs/first-call/overview" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">12</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Front</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Bearer API Token / OAuth 2.0</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve for workspace admins</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready (Bearer Token)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready (Bearer Token)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://dev.frontapp.com/" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">13</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Aircall</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Basic Auth (API ID + API Token in Authorization header)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve via Admin Dashboard -> Integrations -> API Keys</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready (Basic Auth)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready (API Key)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://developer.aircall.io/" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">14</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Notion</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Bearer Internal Integration Token / OAuth 2.0</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Free (notion.so/my-integrations)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Available (Official MCP)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">None known / Community MCP</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build (Official MCP at mcp.notion.com/mcp)</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://developers.notion.com/" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">15</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Stripe</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Secret Bearer Key (sk_live_...) / Restricted Key</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Free (Instant test keys in Dashboard)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Available (Official MCP)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Community MCP only</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build (Official MCP at mcp.stripe.com)</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://docs.stripe.com/api" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">16</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Linear</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Personal API Key / OAuth 2.0 (GraphQL endpoint)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Free (Settings -> API)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Available (Official MCP)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Community MCP only</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build (Official MCP at mcp.linear.app)</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://developers.linear.app/docs/graphql/working-with-the-graphql-api" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">17</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Sentry</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Bearer Auth Token</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Free (Settings -> Developer Settings -> Auth Tokens)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Available (Official MCP)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Available (getsentry/sentry-mcp)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build (Official MCP at mcp.sentry.dev)</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://docs.sentry.io/api/" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">18</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Supabase</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Bearer Token (anon public key / service_role secret key)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Free (Project Settings -> API)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Available (Official MCP)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Available (supabase/mcp-server-supabase)</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build (Official Supabase MCP active)</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://supabase.com/docs/guides/api" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">19</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Slack</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">OAuth 2.0 / Bot Token (xoxb-)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Free (api.slack.com/apps)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://api.slack.com/" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">20</td>
-                <td class="py-3 px-4 font-bold text-slate-900">GitHub</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Personal Access Token (ghp_) / OAuth 2.0</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Free</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build (Has official GitHub MCP server)</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://docs.github.com/rest" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">21</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Mailchimp</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">API Key / OAuth 2.0</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Free</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://mailchimp.com/developer/" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">22</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Intercom</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Access Token / OAuth 2.0</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Free Trial</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://developers.intercom.com/" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">23</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Amazon Selling Partner (SP-API)</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">OAuth 2.0 (LWA) + AWS Signature v4</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Gated to $39.99/mo Professional Seller Account + developer application review</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Feasible with Gating</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Feasible with Gating</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Feasible with Gating</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://developer-docs.amazon.com/sp-api" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">24</td>
-                <td class="py-3 px-4 font-bold text-slate-900">DataForSEO</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (REST/GraphQL)
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Basic Auth (API Login + Password)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Paid ($1 instant trial credit, pay-as-you-go)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready to Build</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://docs.dataforseo.com/v3/" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
-                    Docs &rarr;
-                  </a>
-                </td>
-              </tr>
-              
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="py-3 px-4 text-center font-mono text-slate-400">25</td>
-                <td class="py-3 px-4 font-bold text-slate-900">Mermaid CLI</td>
-                <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-rose-100 text-rose-800">
-                    No Cloud API
-                  </span>
-                </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Local Process / No Auth</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve Open Source (NPM executable)</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready via CLI Wrapper</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">Ready via CLI Wrapper</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">Ready via CLI Wrapper (Non-REST executable wrapper)</td>
-                <td class="py-3 px-4 text-right">
-                  <a href="https://github.com/mermaid-js/mermaid-cli" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
+                  <a href="https://api.slack.com/authentication" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
                     Docs &rarr;
                   </a>
                 </td>

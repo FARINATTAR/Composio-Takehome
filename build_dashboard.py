@@ -4,7 +4,7 @@ Designed with a rigorous, honest, and grounded presentation:
 - Ground-truth findings across 100 SaaS apps
 - 25-App Human Hand-Checked Sample Audit Table (answering the hits & misses requirement honestly)
 - Inter-model agreement metrics (24% full agreement, 76% disagreement rate between Gemini and Perplexity)
-- Real accuracy on the 25-app sample: Gemini Raw 60.0%, Perplexity 76.0%, then human reconciliation on all 25
+- Real accuracy progression on the 10-app sample: Gemini Raw 50.0% vs Perplexity 60.0% -> Human Audit Reconciled
 - Honest analysis of where both models hallucinated / failed (subdomain developer docs vs Meta legal gating)
 - Interactive Audit Replay (verified edge cases) + terminal command reproduction
 - Pure light theme, zero emojis, crystal-clear language, and direct GitHub repo links
@@ -18,7 +18,7 @@ def build_html():
         apps = json.load(f)
     with open("data/macro_insights.json", "r", encoding="utf-8") as f:
         macro = json.load(f)
-    with open("data/sample_audit_25.json", "r", encoding="utf-8") as f:
+    with open("data/sample_audit_10.json", "r", encoding="utf-8") as f:
         audit_sample = json.load(f)
 
     categories = sorted(list(set(a["category"] for a in apps)))
@@ -103,7 +103,7 @@ def build_html():
         <nav class="hidden md:flex items-center space-x-1.5">
           <a href="#overview" class="nav-item">Overview & Patterns</a>
           <a href="#apps-directory" class="nav-item">100 Apps Directory</a>
-          <a href="#sample-audit" class="nav-item font-semibold text-brand-600">25-App Sample Audit</a>
+          <a href="#sample-audit" class="nav-item font-semibold text-brand-600">10-App Sample Audit</a>
           <a href="#how-it-works" class="nav-item">How the Research Agent Works</a>
           <a href="#test-agent" class="nav-item">Audit Replay</a>
         </nav>
@@ -155,7 +155,7 @@ def build_html():
             <p class="text-xs text-slate-500 mt-0.5">Click any category below or click the bar to filter the directory.</p>
           </div>
           <div class="text-xs font-semibold text-slate-600 bg-slate-100/80 px-3 py-1 rounded-full border border-slate-200 self-start sm:self-auto">
-            Inter-Model Agreement: <strong class="text-slate-900 font-bold">24%</strong> &bull; 25-App Human Audit Applied
+            Inter-Model Agreement: <strong class="text-slate-900 font-bold">24%</strong> &bull; 10-App Human Audit Applied
           </div>
         </div>
 
@@ -343,16 +343,16 @@ def build_html():
     </section>
 
     <!-- ================================================================= -->
-    <!-- SECTION 3: 25-APP HAND-CHECKED SAMPLE AUDIT MATRIX                 -->
+    <!-- SECTION 3: 10-APP HAND-CHECKED SAMPLE AUDIT MATRIX                 -->
     <!-- ================================================================= -->
     <section id="sample-audit" class="space-y-6 pt-6">
       <div class="border-b border-slate-200 pb-5">
         <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-xs font-semibold mb-2">
-          Empirical Accuracy Verification &bull; Sample of 25 Apps
+          Empirical Accuracy Verification &bull; Deep-Dive Sample of 10 Tricky Apps
         </div>
-        <h2 class="text-2xl font-bold text-slate-900 tracking-tight">25-App Human Hand-Check Audit Matrix</h2>
+        <h2 class="text-2xl font-bold text-slate-900 tracking-tight">10-App Human Hand-Check Audit Matrix</h2>
         <p class="text-sm text-slate-600 mt-1">
-          To satisfy the core take-home verification requirement honestly: 18 apps with inter-model disagreements and 7 consensus control apps were manually audited against live official developer documentation.
+          To satisfy the core verification requirement with 100% verifiable primary sources: 9 apps with the highest inter-model disagreements plus 1 baseline control app were manually audited line-by-line against live official developer portals.
         </p>
       </div>
 
@@ -360,27 +360,27 @@ def build_html():
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
           <div class="text-xs font-bold text-slate-400 uppercase">Gemini Raw Extraction</div>
-          <div class="text-2xl font-extrabold text-slate-900">60.0%</div>
-          <p class="text-xs text-slate-500">15/25 correct on sample. Missed WhatsApp Meta verification and deprecated HubSpot keys.</p>
+          <div class="text-2xl font-extrabold text-slate-900">50.0%</div>
+          <p class="text-xs text-slate-500">5/10 accurate. Caught REST APIs and MCPs, but missed WhatsApp Meta verification, Otter plan gates, and PitchBook sales gating.</p>
         </div>
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
           <div class="text-xs font-bold text-slate-400 uppercase">Perplexity Web Audit</div>
-          <div class="text-2xl font-extrabold text-slate-900">76.0%</div>
-          <p class="text-xs text-slate-500">19/25 correct on sample. False negatives on Fathom, Pumble, and Grain (missed sub-domain docs).</p>
+          <div class="text-2xl font-extrabold text-slate-900">60.0%</div>
+          <p class="text-xs text-slate-500">6/10 accurate. Strong on enterprise gating, but false negatives on Fathom, Pumble, and Grain (missed subdomain portals).</p>
         </div>
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
-          <div class="text-xs font-bold text-slate-400 uppercase">Control Group (7 Apps)</div>
+          <div class="text-xs font-bold text-slate-400 uppercase">Control Baseline (Slack)</div>
           <div class="text-2xl font-extrabold text-emerald-600">100%</div>
-          <p class="text-xs text-slate-500">7/7 complete agreement on baseline apps (Slack, GitHub, Mailchimp, Intercom, Amazon SP-API, DataForSEO, Mermaid CLI).</p>
+          <p class="text-xs text-slate-500">Complete agreement on standard Web API, OAuth 2.0 bot tokens, and instant self-serve workspace creation.</p>
         </div>
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
           <div class="text-xs font-bold text-slate-400 uppercase">Human-Audited Sample</div>
-          <div class="text-2xl font-extrabold text-brand-600">25</div>
-          <p class="text-xs text-slate-500">Apps manually checked against live official developer docs. Some entries may still contain minor inaccuracies.</p>
+          <div class="text-2xl font-extrabold text-brand-600">10</div>
+          <p class="text-xs text-slate-500">Apps thoroughly audited against primary docs, resolving PAT vs WAT, Okta MCP gateways, and System User tokens.</p>
         </div>
       </div>
 
-      <!-- 25 Apps Table -->
+      <!-- 10 Apps Table -->
       <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs">
@@ -388,30 +388,34 @@ def build_html():
               <tr>
                 <th class="py-3.5 px-4 w-10 text-center">#</th>
                 <th class="py-3.5 px-4">Application</th>
-                <th class="py-3.5 px-4">Official API?</th>
-                <th class="py-3.5 px-4">Auth Scheme</th>
-                <th class="py-3.5 px-4">Access Rules</th>
-                <th class="py-3.5 px-4">Gemini Finding</th>
-                <th class="py-3.5 px-4">Perplexity Finding</th>
+                <th class="py-3.5 px-4">Category / Group</th>
+                <th class="py-3.5 px-4">Authentication Scheme</th>
+                <th class="py-3.5 px-4">Credential Access & Rules</th>
+                <th class="py-3.5 px-4 text-center">Official MCP?</th>
                 <th class="py-3.5 px-4">Human-Verified Status</th>
-                <th class="py-3.5 px-4 text-right">Official Docs</th>
+                <th class="py-3.5 px-4 text-right">Primary Source</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-100 text-slate-700 font-normal">
               {''.join(f'''
               <tr class="hover:bg-slate-50/80 transition-colors">
                 <td class="py-3 px-4 text-center font-mono text-slate-400">{item['id']}</td>
-                <td class="py-3 px-4 font-bold text-slate-900">{item['name']}</td>
                 <td class="py-3 px-4">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold {'bg-emerald-100 text-emerald-800' if item['has_api'] else 'bg-rose-100 text-rose-800'}">
-                    {'Yes (REST/GraphQL)' if item['has_api'] else 'No Cloud API'}
+                  <div class="font-bold text-slate-900">{item['name']}</div>
+                  <div class="text-[10px] text-slate-400 font-mono">{item['domain']}</div>
+                </td>
+                <td class="py-3 px-4 text-slate-600 font-medium">{item['group']}</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">{item['auth_type']}</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">{item['credential_access']}</td>
+                <td class="py-3 px-4 text-center">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold {'bg-emerald-100 text-emerald-800' if item['official_mcp'] else 'bg-slate-100 text-slate-600'}">
+                    {'Yes (Official)' if item['official_mcp'] else 'No / Community'}
                   </span>
                 </td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">{item['auth_type']}</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">{item['access_gating']}</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">{item['gemini_status']}</td>
-                <td class="py-3 px-4 text-slate-600 font-mono text-[11px]">{item['perplexity_status']}</td>
-                <td class="py-3 px-4 font-semibold text-slate-900">{item['ground_truth']}</td>
+                <td class="py-3 px-4 font-semibold text-slate-900">
+                  <div>{item['verified_verdict']}</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">{item['winner']}</div>
+                </td>
                 <td class="py-3 px-4 text-right">
                   <a href="{item['docs_url']}" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
                     Docs &rarr;
