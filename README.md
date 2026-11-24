@@ -1,144 +1,95 @@
-# Composio App Buildability & Tooling Intelligence Engine
-### AI Product Ops Intern Take-Home Assignment | Author: Farin Attar
+# Composio Tooling Intelligence: 100-App SaaS Research & Verification Study
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Test Suite](https://img.shields.io/badge/tests-10%20passing-brightgreen.svg)](test_pipeline.py)
-[![Dataset](https://img.shields.io/badge/apps%20covered-100%20apps-orange.svg)](data/apps_100.json)
-[![Dashboard](https://img.shields.io/badge/dashboard-single--page%20HTML-purple.svg)](index.html)
-[![GitHub Repo](https://img.shields.io/badge/github-FARINATTAR%2FComposio--Takehome-black.svg)](https://github.com/FARINATTAR/Composio-Takehome)
+> **Objective:** Evaluate authentication patterns, gating friction, and official MCP/API feasibility across 100 popular SaaS applications to determine readiness for agentic automation in Composio.
 
 ---
 
 ## Executive Summary
 
-Composio connects autonomous AI agents to real-world software applications by converting SaaS APIs into executable tools. Before investing engineering resources into developing an integration toolkit, product teams must systematically resolve four critical technical questions:
-1. **Authentication Topology:** Is the service OAuth2, API Key, Basic Auth, or Session-based?
-2. **Access Gating & Onboarding:** Is sandbox access instant and self-serve, or gated behind enterprise sales contracts, partner NDAs, paid tiers, or platform compliance reviews?
-3. **API Surface & Breadth:** Does a documented public REST/GraphQL endpoint exist, and are there existing Model Context Protocol (MCP) servers?
-4. **Buildability Verdict:** Can an agent toolkit be deployed immediately, what are the primary blockers, and how should end-users authenticate?
+We conducted a dual-agent research study evaluating 100 SaaS applications across 10 core verticals. Rather than trusting raw model outputs, findings were subjected to adversarial verification and a line-by-line human audit across 10 high-disagreement applications against official developer documentation.
 
-This repository contains an end-to-end research intelligence system built for Composio:
-- **`data/apps_100.json`**: Authoritative dataset of **100 apps across 10 categories**, meticulously audited with authentic documentation URLs and verified ground-truth metadata.
-- **`data/sample_audit_25.json`**: Empirical hand-check verification matrix of **25 sampled apps** (18 disputed apps + 7 consensus control apps) reconciling conflicting agent extractions against live official docs.
-- **`composio_agent.py`**: A 2-pass Python agent pipeline that extracts API capabilities (Pass 1) and cross-checks edge cases (Pass 2) to catch enterprise walls, CLI wrappers, and auth deprecations.
-- **`index.html`**: A production-grade, single-page executive case study dashboard with pure light theme, 25-app sample audit matrix, interactive multi-filtering, audit log replay, and instant CSV/JSON exports.
-- **`test_pipeline.py`**: Automated 10-point unit test suite verifying schema completeness, edge-case catch rules, and Composio tool synthesis.
+### Key Macro Findings
+
+* **76% Ready to Build:** 76 out of 100 applications provide open REST/GraphQL APIs with self-serve credential creation.
+* **17% Enterprise / Gated:** 17 applications require customer enterprise contracts, sales underwriting, or platform review (BYOK enterprise moat).
+* **5% Genuinely Blocked:** 5 applications lack any usable public cloud APIs (e.g., PitchBook, Waterfall.io, fanbasis).
+* **2% CLI Wrappers:** Tools without cloud APIs that can execute locally via terminal binaries (e.g., Mermaid CLI).
+* **87% Protocol Standardization:** 87 apps rely on standard Bearer API Keys (45) or OAuth 2.0 (42), requiring zero custom connector logic for Composio.
+* **Inter-Model Disagreement:** Gemini and Perplexity disagreed on at least one critical dimension across **76 of 100 apps**, showing that unverified automated scraping produces material inaccuracies.
 
 ---
 
-## Macro Patterns & Headline Strategic Insights
+## 10-App Human Hand-Check Audit Matrix
 
-From analyzing 100 enterprise, SMB, developer, and creator applications across 10 distinct verticals, several macro structural patterns emerge:
+To evaluate the empirical accuracy of automated agents, 9 high-disagreement applications and 1 consensus baseline (Slack) were audited directly against vendor primary sources:
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                        100-APP MACRO OVERVIEW                          │
-├───────────────────────────────┬────────────────────────────────────────┤
-│ Buildability Verdicts         │ 76% Ready to Build                     │
-│                               │ 17% Feasible with Gating (BYOK Moat)   │
-│                               │  2% Ready via CLI Wrapper              │
-│                               │  5% Blocked (No Public API / Closed)   │
-├───────────────────────────────┼────────────────────────────────────────┤
-│ Authentication Distribution   │ 45% API Key / Bearer Token             │
-│                               │ 42% OAuth 2.0 (Auth Code / PKCE)       │
-│                               │  6% HTTP Basic Auth                    │
-│                               │  2% CLI Execution (Subprocess / Docker)│
-│                               │  5% Other / Custom Headers             │
-├───────────────────────────────┼────────────────────────────────────────┤
-│ Developer Gating Distribution │ 76% Self-Serve (Free / Trial / Sandbox)│
-│                               │ 12% Enterprise Contract / Sales Gate   │
-│                               │  5% No Public API (Blocked)            │
-│                               │  5% Platform App Review / Verification │
-│                               │  2% CLI Local Process Execution        │
-├───────────────────────────────┼────────────────────────────────────────┤
-│ Inter-Model Agreement         │ 24% Full Agreement across all 5 fields │
-│                               │ 76% Disagreement on >= 1 field         │
-├───────────────────────────────┼────────────────────────────────────────┤
-│ 25-App Sample Hand-Check      │ Gemini Raw Extraction Accuracy: 60.0%  │
-│                               │ Perplexity Secondary Accuracy: 76.0%   │
-│                               │ Control Group Baseline: 100% (7/7)     │
-│                               │ Reconciled Ground Truth: 100% (25/25)  │
-└───────────────────────────────┴────────────────────────────────────────┘
-```
+| # | Application | Domain | Official API | Official MCP? | Human-Verified Verdict | Audit Confidence | Primary Source |
+|---|---|---|:---:|:---:|---|---|---|
+| 1 | **Fathom** | fathom.video | Yes | Yes | **Ready to Build** | High *(dev vs support URL noted)* | [developers.fathom.ai](https://developers.fathom.ai) |
+| 2 | **Pumble** | pumble.com | Yes | Yes | **Ready to Build** | High *(Help center verified)* | [pumble.com/help](https://pumble.com/help/integrations/automation-workflow-integrations/how-to-use-the-pumble-mcp-server/) |
+| 3 | **Grain** | grain.com | Yes | Yes | **Ready to Build** | High *(PAT for MCP verified)* | [developers.grain.com](https://developers.grain.com/) |
+| 4 | **Otter.ai** | otter.ai | Yes | Yes | **Gated (API) / MCP Available** | High *(10 req/s limit verified)* | [help.otter.ai](https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API) |
+| 5 | **PitchBook** | pitchbook.com | Yes | No | **Unverified (Do Not Build)** | Unverified *(Requires direct docs)* | [pitchbook.com](https://pitchbook.com/products/direct-data) |
+| 6 | **WhatsApp Business** | facebook.com | Yes | Yes | **Ready with Access Controls** | High *(System user flow verified)* | [developers.facebook.com](https://developers.facebook.com/docs/whatsapp/cloud-api/get-started) |
+| 7 | **Google Ads** | google.com | Yes | Yes | **Ready with Access Controls** | High *(Token sunset verified)* | [developers.google.com](https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server) |
+| 8 | **Notion** | notion.so | Yes | Yes | **Ready to Build** | High *(mcp.notion.com verified)* | [developers.notion.com](https://developers.notion.com/guides/mcp/get-started-with-mcp) |
+| 9 | **Stripe** | stripe.com | Yes | Yes | **Ready to Build** | High *(mcp.stripe.com verified)* | [docs.stripe.com/mcp](https://docs.stripe.com/mcp) |
+| 10 | **Slack** | slack.com | Yes | Yes | **Ready to Build** | High *(Admin approval noted)* | [docs.slack.dev](https://docs.slack.dev/ai/slack-mcp-server/) |
 
-### Key Strategic Insights for Composio Product Ops:
-1. **The 87% Auth Protocol Standardization:** 87% of all surveyed apps rely strictly on standard OAuth 2.0 (42%) or Bearer Token / API Key (45%) authentication. Composio’s managed auth broker natively solves token refresh, secret storage, and permission scoping for nearly 9 out of 10 SaaS targets with zero custom connector logic.
-2. **Dominant Blocker Taxonomy:** Among the 24 non-ready apps:
-   - **44%** are gated behind enterprise corporate licensing (DealCloud, PitchBook, Gladly, Ahrefs, Amazon SP-API). These are high-retention Bring-Your-Own-Key (BYOK) toolkits where users supply their corporate credentials.
-   - **33%** require formal partner/business compliance reviews (Meta Business Verification, Google Cloud approval).
-   - Only **23%** (5 apps: fanbasis, Waterfall.io, Paygent Connect, iPayX, PitchBook enterprise paywall) have zero public developer APIs.
-3. **The Greenfield AI Tooling Opportunity:** While major developer platforms (GitHub, Sentry, Cloudflare, Supabase) have official MCP servers, 30 major modern SaaS tools (Twenty CRM, Plain, MrScraper, Ecwid, Reducto) have zero existing MCP presence. Composio has an immediate first-mover advantage to be their default AI tool broker.
+### Empirical Agent Performance on Sample
+* **Gemini Raw Extraction:** `50.0%` (5/10 accurate) — Caught open REST APIs and MCP releases, but missed WhatsApp Meta verification, Otter plan limits, and PitchBook sales gating.
+* **Perplexity Web Audit:** `60.0%` (6/10 accurate) — Strong on compliance gating, but produced false negatives on Fathom, Pumble, and Grain due to subdomain documentation structures.
+* **Control Baseline (Slack):** Full consensus on core Web API and OAuth 2.0 bot token architecture.
 
 ---
 
-## Verification & Accuracy: Honest Hits and Misses
+## Where Agents Failed: Systematic Error Analysis
 
-In adherence to the core assignment prompt (*"accuracy check on a sample, hits and misses shown honestly"*), we evaluated inter-model discrepancies between Gemini and Perplexity across all 100 apps, followed by a manual human hand-check of 25 sampled applications against live documentation:
-
-### Empirical 25-App Sample Audit Results
-- **Sample Selection:** 18 apps where models disagreed on auth, gating, or MCP status + 7 consensus control apps.
-- **Gemini Raw Extraction Accuracy:** **60.0%** (15/25 correct).
-- **Perplexity Web Search Accuracy:** **76.0%** (19/25 correct).
-- **Control Group Consensus:** **100%** (7/7 correct on Slack, GitHub, Mailchimp, Intercom, Amazon SP-API, DataForSEO, Mermaid CLI).
-- **Final Reconciled Ground Truth:** **100%** (25/25 confirmed via direct endpoint and live doc URLs).
-
-### Where Agents Hallucinated (Honest Failure Analysis):
-1. **Perplexity False Negatives on Subdomains:**
-   - Perplexity incorrectly classified **Fathom, Pumble, Grain, and Consensus** as "Blocked / No Public API".
-   - *Root cause:* Their developer documentation portals are hosted on separate subdomains (`api.fathom.ai`, `marketplace.cake.com`, `api.grain.com`). Live hand-checking verified that all 4 provide active public REST endpoints and API key generation.
-2. **Gemini False Positives on Legal & Deprecation Gates:**
-   - Gemini claimed **WhatsApp Business** was instant self-serve, failing to detect Meta's mandatory legal Business Verification requirement.
-   - Gemini extracted legacy `API Key` for **HubSpot**, missing that HubSpot completely deprecated raw API keys in November 2022 in favor of Private App tokens.
-3. **Nuanced Ground Truth (Google Ads):**
-   - Both models referred to legacy developer token approvals; live documentation confirmed Google officially sunset developer tokens in September 2026, transitioning to Google Cloud project access tiers.
+1. **Systematic MCP Undercounting:** Both agents initially missed that Fathom, Pumble, Notion, Stripe, and Google Ads all provide official, vendor-hosted MCP servers.
+2. **Subdomain False Negatives:** Perplexity marked tools like Pumble and Grain as "Blocked" because developer docs reside on subdomains (`api.grain.com`, `help.pumble.com`).
+3. **Outdated Auth & Sunset Features:** Both models cited legacy Google Ads Developer Tokens, failing to catch that Google officially sunset them on September 9, 2026, in favor of Cloud Project access tiers.
 
 ---
 
-## Quickstart & How to Run in 3 Steps
+## Repository Structure
 
-### Step 1: Clone the Repository
-```bash
-git clone https://github.com/FARINATTAR/Composio-Takehome.git
-cd Composio-Takehome
+```
+├── data/
+│   ├── apps_100.json                  # Complete 100-app dataset across 10 verticals
+│   ├── macro_insights.json            # Aggregated statistics and breakdown counts
+│   └── sample_audit_10.json           # 10-app deep-dive human verification audit
+├── build_dashboard.py                 # Generates the self-contained executive case study
+├── composio_agent.py                  # 2-pass Python research agent and spec generator
+├── test_pipeline.py                   # Automated unit test suite (10 test cases)
+├── verified_10_apps_audit.csv         # Full spreadsheet export with official documentation URLs
+├── verified_10_apps_audit_corrected.xlsx # Formatted Excel audit with confidence ratings
+├── index.html                         # Self-contained single-page executive case study
+└── README.md                          # Project documentation
 ```
 
-### Step 2: Run the Automated Unit Test Suite
+---
+
+## Quickstart & Verification
+
+### 1. Run Automated Unit Tests (10 Passed)
+Verify schema compliance, buildability counts, and cross-verification logic:
 ```bash
 python test_pipeline.py
 ```
-*Executes all 10 unit tests validating dataset schema integrity, edge-case catches (WhatsApp, DealCloud, NotebookLM, fanbasis, Sherlock), and Composio action specification synthesis.*
 
-### Step 3: Launch the Executive Case Study Dashboard
-Double click `index.html` or open in any web browser:
-- **Windows:** `Start-Process index.html`
-- **macOS:** `open index.html`
-- **Linux:** `xdg-open index.html`
-
-#### Run 2-Pass Pipeline CLI:
+### 2. Run the 2-Pass Research Agent
+Inspect verification and tool specification generation for tricky targets:
 ```bash
-# Verify all 100 apps through the agent pipeline
-python composio_agent.py --verify-all
-
-# Audit a specific edge case
+# Audit specific target with gating controls
 python composio_agent.py --app "WhatsApp Business"
 
-# Generate Composio Action specification
-python composio_agent.py --export-spec "Shopify"
+# Audit standard self-serve application
+python composio_agent.py --app "Fathom"
+
+# Output summary stats across all 100 apps
+python composio_agent.py --stats
 ```
 
----
-
-## Repository Artifacts
-- `index.html`: Self-contained, single-page case study with 25-app sample audit matrix, 100-app directory with 20/page pagination, drawer inspector, and audit log replay.
-- `data/apps_100.json`: 100 SaaS applications across 10 categories with auth protocols, access rules, doc links, and verification notes.
-- `data/sample_audit_25.json`: 25-app human verification sample reconciling inter-model discrepancies with live doc proof.
-- `data/macro_insights.json`: Structured macroeconomic findings and distribution metrics.
-- `composio_agent.py`: 2-pass Python research pipeline with adversarial red-teaming rules.
-- `test_pipeline.py`: Automated 10-point unit test suite.
-
----
-
-## Author
-**Farin Attar**  
-*Candidate for AI Product Ops Intern — Composio*  
-*Repository: [https://github.com/FARINATTAR/Composio-Takehome](https://github.com/FARINATTAR/Composio-Takehome)*
+### 3. Open the Interactive Dashboard
+Open `index.html` in any modern web browser or visit the live deployment:
+👉 **[Live Case Study](https://farinattar.github.io/Composio-Takehome/)**
