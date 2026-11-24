@@ -4,7 +4,7 @@ Designed with a rigorous, honest, and grounded presentation:
 - Ground-truth findings across 100 SaaS apps
 - 25-App Human Hand-Checked Sample Audit Table (answering the hits & misses requirement honestly)
 - Inter-model agreement metrics (24% full agreement, 76% disagreement rate between Gemini and Perplexity)
-- Real accuracy progression on the 25-app sample: Gemini Raw 60.0% -> Perplexity 76.0% -> Human Ground Truth 100%
+- Real accuracy on the 25-app sample: Gemini Raw 60.0%, Perplexity 76.0%, then human reconciliation on all 25
 - Honest analysis of where both models hallucinated / failed (subdomain developer docs vs Meta legal gating)
 - Interactive Audit Replay (verified edge cases) + terminal command reproduction
 - Pure light theme, zero emojis, crystal-clear language, and direct GitHub repo links
@@ -151,11 +151,11 @@ def build_html():
       <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs space-y-5">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
-            <h2 class="text-base font-bold text-slate-900">Buildability Breakdown (100 Apps Ground Truth)</h2>
+            <h2 class="text-base font-bold text-slate-900">Buildability Breakdown (100 Apps)</h2>
             <p class="text-xs text-slate-500 mt-0.5">Click any category below or click the bar to filter the directory.</p>
           </div>
           <div class="text-xs font-semibold text-slate-600 bg-slate-100/80 px-3 py-1 rounded-full border border-slate-200 self-start sm:self-auto">
-            Inter-Model Agreement: <strong class="text-slate-900 font-bold">24%</strong> &bull; Human Reconciled: <strong class="text-emerald-700 font-bold">100%</strong>
+            Inter-Model Agreement: <strong class="text-slate-900 font-bold">24%</strong> &bull; 25-App Human Audit Applied
           </div>
         </div>
 
@@ -343,7 +343,7 @@ def build_html():
     </section>
 
     <!-- ================================================================= -->
-    <!-- SECTION 3: 25-APP HAND-CHECKED SAMPLE AUDIT MATRIX (GROUND TRUTH)  -->
+    <!-- SECTION 3: 25-APP HAND-CHECKED SAMPLE AUDIT MATRIX                 -->
     <!-- ================================================================= -->
     <section id="sample-audit" class="space-y-6 pt-6">
       <div class="border-b border-slate-200 pb-5">
@@ -374,9 +374,9 @@ def build_html():
           <p class="text-xs text-slate-500">7/7 complete agreement on baseline apps (Slack, GitHub, Mailchimp, Intercom, Amazon SP-API, DataForSEO, Mermaid CLI).</p>
         </div>
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
-          <div class="text-xs font-bold text-slate-400 uppercase">Reconciled Ground Truth</div>
-          <div class="text-2xl font-extrabold text-brand-600">100%</div>
-          <p class="text-xs text-slate-500">All 25 apps verified with live official developer URLs and direct endpoint inspection.</p>
+          <div class="text-xs font-bold text-slate-400 uppercase">Human-Audited Sample</div>
+          <div class="text-2xl font-extrabold text-brand-600">25</div>
+          <p class="text-xs text-slate-500">Apps manually checked against live official developer docs. Some entries may still contain minor inaccuracies.</p>
         </div>
       </div>
 
@@ -393,7 +393,7 @@ def build_html():
                 <th class="py-3.5 px-4">Access Rules</th>
                 <th class="py-3.5 px-4">Gemini Finding</th>
                 <th class="py-3.5 px-4">Perplexity Finding</th>
-                <th class="py-3.5 px-4">Reconciled Ground Truth</th>
+                <th class="py-3.5 px-4">Human-Verified Status</th>
                 <th class="py-3.5 px-4 text-right">Official Docs</th>
               </tr>
             </thead>
@@ -489,14 +489,14 @@ def build_html():
         <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">STAGE 03</span>
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">Reconciliation (100% Acc)</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">Human Reconciliation</span>
           </div>
           <h3 class="text-lg font-bold text-slate-900">Human Hand-Check Loop</h3>
           <p class="text-sm text-slate-600 leading-relaxed">
             A human product ops reviewer manually opens live documentation for ambiguous edge cases to reconcile conflicting agent outputs.
           </p>
           <div class="p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200/80 text-xs text-emerald-900 leading-relaxed">
-            <strong class="text-emerald-950">Ground Truth:</strong> Restored Fathom, Pumble, and Grain to Ready after verifying live endpoints on subdomains.
+            <strong class="text-emerald-950">Outcome:</strong> Restored Fathom, Pumble, and Grain to Ready after verifying live endpoints on subdomains.
           </div>
         </div>
       </div>
@@ -815,7 +815,7 @@ def build_html():
         <div class="text-emerald-400 font-bold mb-1.5">&gt; REPLAY AUDIT LOG: ${{app.name.toUpperCase()}}</div>
         <div class="text-slate-300 mb-0.5"><span class="text-slate-500 font-semibold">[STAGE 1: RAW EXTRACTION]</span> Login: <span class="text-white">${{app.primary_auth}}</span> &bull; Access: <span class="text-white">${{p1Gating}}</span></div>
         <div class="text-slate-300 mb-0.5"><span class="text-amber-400 font-semibold">[STAGE 2: ADVERSARIAL AUDIT]</span> Status: <span class="text-amber-300 font-semibold">${{p2Status}}</span></div>
-        <div class="text-slate-300 mb-1"><span class="text-emerald-400 font-semibold">[STAGE 3: GROUND TRUTH]</span> Verdict: <span class="text-emerald-300 font-bold">${{app.buildability_verdict}}</span></div>
+        <div class="text-slate-300 mb-1"><span class="text-emerald-400 font-semibold">[STAGE 3: HUMAN CHECK]</span> Verdict: <span class="text-emerald-300 font-bold">${{app.buildability_verdict}}</span></div>
         <div class="text-slate-400 text-[11px] pt-1 border-t border-slate-800 leading-normal"><span class="text-slate-500 font-bold">[AUDIT NOTE]</span> ${{note}}</div>
       `;
     }}
