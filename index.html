@@ -380,8 +380,8 @@
                   <div class="text-[10px] text-slate-400 font-mono">fathom.video</div>
                 </td>
                 <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – API</td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">API Key (Bearer) for REST API; Personal Access Token (PAT) for MCP</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve API key in User Settings → API Access; organization permission may apply for PAT</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">REST: API Key (Bearer). MCP: Personal Access Token (PAT).</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve API key in User Settings → API Access. Note: Developer docs list https://api.fathom.ai/mcp, while current Help Center lists https://api.fathom.dev/mcp (re-verify endpoint at connection time).</td>
                 <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
                     Yes (Official)
@@ -389,7 +389,7 @@
                 </td>
                 <td class="py-3 px-4 font-semibold text-slate-900">
                   <div>Ready to Build</div>
-                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Gemini closer on API; both missed vendor-hosted MCP (api.fathom.ai/mcp)</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Gemini closer on API; both missed vendor-hosted MCP</div>
                 </td>
                 <td class="py-3 px-4 text-right">
                   <a href="https://developers.fathom.ai" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
@@ -405,8 +405,8 @@
                   <div class="text-[10px] text-slate-400 font-mono">pumble.com</div>
                 </td>
                 <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – API</td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">API Key (ApiKey header) / Workspace App Token for MCP</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">API Key Add-on installed via workspace Configure Apps; Pumble MCP Server configured via Workspace Settings → Apps</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">REST: API Key (ApiKey header). MCP: App key (x-app-token) + user or bot token.</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">REST API key via workspace Configure Apps (all plans). Native MCP setup configured via Workspace Settings → Apps.</td>
                 <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
                     Yes (Official)
@@ -430,8 +430,8 @@
                   <div class="text-[10px] text-slate-400 font-mono">grain.com</div>
                 </td>
                 <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – API</td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">PAT / WAT / OAuth 2.0 (Bearer Token)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">PAT: self-serve via Integrations page. WAT: workspace admins only (plan-restricted). OAuth: registered client ID.</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">REST: Bearer Token. MCP: Personal Access Token (PAT).</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">PAT: self-serve via integrations page for MCP. Other token/OAuth scopes require workspace-specific client verification.</td>
                 <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
                     Yes (Official)
@@ -455,16 +455,16 @@
                   <div class="text-[10px] text-slate-400 font-mono">otter.ai</div>
                 </td>
                 <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – API</td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Bearer API Token (Public API) / OAuth with granular permissions (MCP)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Public API: Enterprise plan required (Integrations → Developer, max 2 keys). MCP: OAuth-authenticated setup for Claude/ChatGPT/Cursor.</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">REST: Bearer Token (Enterprise only). MCP: In-product connection (no public API key).</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">Public REST API is Enterprise-plan gated (10 req/sec limit). Official MCP is available via in-product setup for AI clients (no standalone public API key).</td>
                 <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
                     Yes (Official)
                   </span>
                 </td>
                 <td class="py-3 px-4 font-semibold text-slate-900">
-                  <div>Feasible with Gating (API is Enterprise; MCP available)</div>
-                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Perplexity correct on API enterprise gate; both missed official Otter MCP server</div>
+                  <div>Gated for REST API / Official MCP Available</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Perplexity correct on REST API enterprise gate; both missed official Otter MCP server</div>
                 </td>
                 <td class="py-3 px-4 text-right">
                   <a href="https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
@@ -480,16 +480,16 @@
                   <div class="text-[10px] text-slate-400 font-mono">pitchbook.com</div>
                 </td>
                 <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – API</td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">API Key / Auth Token (Direct Data API); Okta OAuth (MCP Gateway)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">REST API: Request access through PitchBook Direct Data team (standalone agreement). MCP Gateway: Okta OAuth login.</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">REST: Custom Auth / Token (Direct Data). MCP: Unverified.</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">Direct Data API requires sales underwriting / standalone contract. MCP gateway and Okta endpoints lack public primary documentation.</td>
                 <td class="py-3 px-4 text-center">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
-                    Yes (Official)
+                  <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-600">
+                    No / Community
                   </span>
                 </td>
                 <td class="py-3 px-4 font-semibold text-slate-900">
-                  <div>Feasible with Gating (Direct Data sales contract / Okta MCP Gateway)</div>
-                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Perplexity correct on gating (Gemini missed sales requirement); both missed Okta MCP gateway</div>
+                  <div>Unverified — Do Not Build Against Yet</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Perplexity closer on sales contract gating; Gemini hallucinated self-serve access</div>
                 </td>
                 <td class="py-3 px-4 text-right">
                   <a href="https://pitchbook.com/products/direct-data" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
@@ -505,16 +505,16 @@
                   <div class="text-[10px] text-slate-400 font-mono">developers.facebook.com</div>
                 </td>
                 <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – Access</td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">OAuth 2.0 Bearer Token (Temporary in API Setup; Permanent via System User)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Sandbox: instant test token in Meta App. Production: Meta Business Verification + System User with business_management & whatsapp_business_messaging.</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Bearer access token via OAuth authorization flow (System User for permanent production).</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">Sandbox: instant temporary token in Meta App. Production: Permanent access requires System User with business_management and whatsapp_business_messaging permissions; business verification may apply.</td>
                 <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
                     Yes (Official)
                   </span>
                 </td>
                 <td class="py-3 px-4 font-semibold text-slate-900">
-                  <div>Feasible with Gating</div>
-                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Perplexity correct on production gating; Meta official agentic tools MCP endpoint active</div>
+                  <div>Ready with Access Controls</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Perplexity closer on production controls; official WhatsApp MCP active at mcp.facebook.com/whatsapp_business_tools</div>
                 </td>
                 <td class="py-3 px-4 text-right">
                   <a href="https://developers.facebook.com/docs/whatsapp/cloud-api/get-started" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
@@ -530,16 +530,16 @@
                   <div class="text-[10px] text-slate-400 font-mono">developers.google.com</div>
                 </td>
                 <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – Access</td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Application Default Credentials (ADC) / OAuth 2.0 (stdio or Cloud Run Streamable HTTP)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Google Cloud project with Google Ads API enabled. Test Access: instant. Production: requires project approval. Google sunset developer tokens Sept 9, 2026.</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Application Default Credentials (ADC) / OAuth 2.0 (stdio or Cloud Run HTTP).</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">Google Cloud project with Google Ads API enabled. Test access: instant. Production: Cloud project approval tier. Google sunset developer tokens Sept 9, 2026.</td>
                 <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
                     Yes (Official)
                   </span>
                 </td>
                 <td class="py-3 px-4 font-semibold text-slate-900">
-                  <div>Feasible with Gating (Cloud Project Access Tier & Official MCP)</div>
-                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Both AI outdated on auth (both cited sunset developer tokens; missed official google-ads-mcp)</div>
+                  <div>Ready with Access Controls</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Both AI cited sunset developer tokens; human audit confirmed official google-ads-mcp package and Cloud access tiers</div>
                 </td>
                 <td class="py-3 px-4 text-right">
                   <a href="https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
@@ -555,8 +555,8 @@
                   <div class="text-[10px] text-slate-400 font-mono">notion.so</div>
                 </td>
                 <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – Official MCP</td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Bearer Token (Internal Connection Token, Personal Access Token, or OAuth 2.0)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve free in Developer portal (app.notion.com/developers/connections). Internal connections require workspace owner; PATs user-scoped.</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">REST: Bearer Token (Internal connection or PAT). MCP: OAuth authorization & MCP tokens.</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">Self-serve in Developer portal (app.notion.com/developers/connections). Hosted remote MCP server at mcp.notion.com/mcp supports OAuth.</td>
                 <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
                     Yes (Official)
@@ -564,10 +564,10 @@
                 </td>
                 <td class="py-3 px-4 font-semibold text-slate-900">
                   <div>Ready to Build</div>
-                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Gemini correct on official MCP (Notion officially launched remote MCP at mcp.notion.com/mcp)</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Gemini correct on official MCP; Perplexity falsely claimed community-only</div>
                 </td>
                 <td class="py-3 px-4 text-right">
-                  <a href="https://developers.notion.com/guides/mcp/overview" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
+                  <a href="https://developers.notion.com/guides/mcp/get-started-with-mcp" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
                     Docs &rarr;
                   </a>
                 </td>
@@ -580,8 +580,8 @@
                   <div class="text-[10px] text-slate-400 font-mono">stripe.com</div>
                 </td>
                 <td class="py-3 px-4 text-slate-600 font-medium">Disagreement – Official MCP</td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">Secret Bearer Key (sk_live / sk_test), Restricted API Keys, or OAuth 2.0</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Instant self-serve in Stripe Dashboard (Developers → API keys). Test mode keys generated with zero friction.</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">REST: Secret Key (sk_live/test) / Restricted Keys. MCP: OAuth authorization flow.</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">REST: instant self-serve keys in Stripe Dashboard. MCP: official server at mcp.stripe.com connects via OAuth account authorization (CLI setup via stripe agent setup).</td>
                 <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
                     Yes (Official)
@@ -589,7 +589,7 @@
                 </td>
                 <td class="py-3 px-4 font-semibold text-slate-900">
                   <div>Ready to Build</div>
-                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Gemini correct on official MCP (Stripe officially released remote MCP server at mcp.stripe.com)</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Gemini correct on official MCP existence; Perplexity missed vendor-hosted endpoint</div>
                 </td>
                 <td class="py-3 px-4 text-right">
                   <a href="https://docs.stripe.com/mcp" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
@@ -605,8 +605,8 @@
                   <div class="text-[10px] text-slate-400 font-mono">slack.com</div>
                 </td>
                 <td class="py-3 px-4 text-slate-600 font-medium">Control Group – Baseline</td>
-                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">OAuth 2.0 / Bot Token (xoxb-) / User Token (xoxp-)</td>
-                <td class="py-3 px-4 text-slate-600 max-w-xs">Instant self-serve via api.slack.com/apps; Slack MCP server natively enabled in Slack workspace / Enterprise org.</td>
+                <td class="py-3 px-4 font-mono text-[11px] text-slate-800">REST: OAuth 2.0 / Bot Token (xoxb-). MCP: OAuth authorization flow.</td>
+                <td class="py-3 px-4 text-slate-600 max-w-xs">REST API: self-serve via api.slack.com/apps. Official remote MCP at https://mcp.slack.com/mcp may require workspace-admin approval depending on org settings.</td>
                 <td class="py-3 px-4 text-center">
                   <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">
                     Yes (Official)
@@ -614,7 +614,7 @@
                 </td>
                 <td class="py-3 px-4 font-semibold text-slate-900">
                   <div>Ready to Build</div>
-                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Both AI accurate on core API; human verification confirmed native Slack MCP Server & Slackbot MCP Client</div>
+                  <div class="text-[10px] font-normal text-slate-500 mt-0.5">Both AI accurate on core REST API; human audit confirmed official remote MCP at mcp.slack.com/mcp</div>
                 </td>
                 <td class="py-3 px-4 text-right">
                   <a href="https://docs.slack.dev/ai/slack-mcp-server/" target="_blank" rel="noopener" class="text-brand-600 hover:underline font-semibold whitespace-nowrap">
