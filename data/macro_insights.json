@@ -33,5 +33,7 @@
     "enterprise_contract_gating_pct": 44.0,
     "partner_business_verification_gate_pct": 33.0,
     "no_public_developer_api_pct": 23.0
-  }
+  },
+  "mcp_ready_count": 61,
+  "sample_audit_note": "Cross-audited: 6 MCP fields corrected. 61 apps now confirmed with official vendor MCP servers."
 }

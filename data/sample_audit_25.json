@@ -4,14 +4,14 @@
     "name": "Fathom",
     "domain": "fathom.video",
     "has_api": true,
-    "auth_type": "Bearer API Key (X-Api-Key) / OAuth 2.0",
-    "access_gating": "Self-serve Free (User Settings -> API Access)",
-    "official_mcp": false,
-    "docs_url": "https://fathom-e4df0608.mintlify.site/",
+    "auth_type": "API Key (Bearer) / OAuth 2.0",
+    "access_gating": "Self-serve (User Settings -> API Access; plan entitlement may vary)",
+    "official_mcp": true,
+    "docs_url": "https://developers.fathom.ai/api-overview",
     "gemini_status": "Ready (API Key)",
     "perplexity_status": "Blocked (No Public API)",
-    "ground_truth": "Ready to Build",
-    "winner": "Gemini Correct (Perplexity missed sub-domain api.fathom.ai)"
+    "ground_truth": "Ready to Build (Official MCP at api.fathom.ai/mcp)",
+    "winner": "Both Partially Correct (Gemini got API right; both missed official MCP)"
   },
   {
     "id": 2,
@@ -76,12 +76,12 @@
     "has_api": true,
     "auth_type": "Private App Token (Bearer) / OAuth 2.0",
     "access_gating": "Self-serve Free (Developer Test Portal)",
-    "official_mcp": false,
+    "official_mcp": true,
     "docs_url": "https://developers.hubspot.com/docs/api/overview",
     "gemini_status": "API Key (Raw HAPIKEY)",
     "perplexity_status": "Private App Token / OAuth 2.0 (HAPIKEY deprecated Nov 2022)",
-    "ground_truth": "Ready to Build",
-    "winner": "Perplexity Correct (Gemini extracted deprecated 2021 knowledge)"
+    "ground_truth": "Ready to Build (Official MCP at mcp.hubspot.com)",
+    "winner": "Perplexity Correct on auth (deprecated HAPIKEY); both missed official MCP"
   },
   {
     "id": 7,
@@ -89,13 +89,13 @@
     "domain": "pitchbook.com",
     "has_api": true,
     "auth_type": "Bearer Token / Custom Enterprise Key",
-    "access_gating": "Enterprise Contract Gated ($25,000+/year, sales underwriting only)",
+    "access_gating": "Enterprise Contract Gated (sales contact required)",
     "official_mcp": false,
     "docs_url": "https://pitchbook.com/products/direct-data",
     "gemini_status": "Ready (Self-serve API Key)",
     "perplexity_status": "Blocked / Gated (Enterprise sales contract only)",
-    "ground_truth": "Feasible with Gating (High-value BYOK)",
-    "winner": "Perplexity Correct (Gemini missed the $25k enterprise paywall)"
+    "ground_truth": "Feasible with Gating (Enterprise sales contract)",
+    "winner": "Perplexity Correct (Gemini missed enterprise paywall)"
   },
   {
     "id": 8,
@@ -188,12 +188,12 @@
     "has_api": true,
     "auth_type": "Bearer Internal Integration Token / OAuth 2.0",
     "access_gating": "Self-serve Free (notion.so/my-integrations)",
-    "official_mcp": false,
+    "official_mcp": true,
     "docs_url": "https://developers.notion.com/",
     "gemini_status": "Available (Official MCP)",
     "perplexity_status": "None known / Community MCP",
-    "ground_truth": "Ready to Build (No official Notion MCP yet; community MCPs only)",
-    "winner": "Perplexity Correct (Gemini hallucinated official MCP existence)"
+    "ground_truth": "Ready to Build (Official MCP at mcp.notion.com/mcp)",
+    "winner": "Gemini Correct on MCP existence (Notion launched official MCP server)"
   },
   {
     "id": 15,
@@ -202,12 +202,12 @@
     "has_api": true,
     "auth_type": "Secret Bearer Key (sk_live_...) / Restricted Key",
     "access_gating": "Self-serve Free (Instant test keys in Dashboard)",
-    "official_mcp": false,
+    "official_mcp": true,
     "docs_url": "https://docs.stripe.com/api",
     "gemini_status": "Available (Official MCP)",
     "perplexity_status": "Community MCP only",
-    "ground_truth": "Ready to Build (Stripe Agent Toolkit exists, but no official MCP server)",
-    "winner": "Perplexity Correct (Distinguished Agent Toolkit from native MCP)"
+    "ground_truth": "Ready to Build (Official MCP at mcp.stripe.com)",
+    "winner": "Gemini Correct on MCP existence (Stripe launched official MCP at docs.stripe.com/mcp)"
   },
   {
     "id": 16,
@@ -216,12 +216,12 @@
     "has_api": true,
     "auth_type": "Personal API Key / OAuth 2.0 (GraphQL endpoint)",
     "access_gating": "Self-serve Free (Settings -> API)",
-    "official_mcp": false,
+    "official_mcp": true,
     "docs_url": "https://developers.linear.app/docs/graphql/working-with-the-graphql-api",
     "gemini_status": "Available (Official MCP)",
     "perplexity_status": "Community MCP only",
-    "ground_truth": "Ready to Build (Official MCP in private beta, community active)",
-    "winner": "Perplexity Correct (Strict definition of public official MCP)"
+    "ground_truth": "Ready to Build (Official MCP at mcp.linear.app)",
+    "winner": "Gemini Correct on MCP existence (Linear launched official MCP server)"
   },
   {
     "id": 17,
@@ -234,7 +234,7 @@
     "docs_url": "https://docs.sentry.io/api/",
     "gemini_status": "Available (Official MCP)",
     "perplexity_status": "Available (getsentry/sentry-mcp)",
-    "ground_truth": "Ready to Build (Official Sentry MCP published on GitHub)",
+    "ground_truth": "Ready to Build (Official MCP at mcp.sentry.dev)",
     "winner": "Both Correct"
   },
   {

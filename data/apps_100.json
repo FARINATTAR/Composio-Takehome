@@ -42,7 +42,8 @@
       "https://developer.salesforce.com/docs/einstein/genai/guide/mcp-overview.html",
       "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/"
     ],
-    "mcp_evidence_url": "https://developer.salesforce.com/docs/einstein/genai/guide/mcp-overview.html"
+    "mcp_evidence_url": "https://developer.salesforce.com/docs/einstein/genai/guide/mcp-overview.html",
+    "mcp_ready": true
   },
   {
     "id": 2,
@@ -58,7 +59,7 @@
     "gating_status": "Self-serve Free",
     "gating_details": "Free developer accounts provide test portals and immediate Private App token creation.",
     "api_surface": "REST API v3, Webhooks",
-    "mcp_status": "Available (Official Composio & MCP servers)",
+    "mcp_status": "Available (Official MCP at mcp.hubspot.com)",
     "buildability_verdict": "Ready",
     "blocker_details": null,
     "evidence_url": "https://developers.hubspot.com/docs/api/overview",
@@ -84,7 +85,8 @@
     "evidence_quote": "HubSpot developer docs describe private-app access tokens and OAuth 2.0 authorization for API access.",
     "additional_evidence_urls": [
       "https://developers.hubspot.com/docs/api/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 3,
@@ -127,7 +129,8 @@
     "additional_evidence_urls": [
       "https://developers.pipedrive.com/docs/api/v1/",
       "https://developers.pipedrive.com/docs/api/v1/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 4,
@@ -170,7 +173,8 @@
     "additional_evidence_urls": [
       "https://developers.attio.com/",
       "https://developers.attio.com/docs/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 5,
@@ -211,7 +215,8 @@
     "evidence_quote": "Twenty documents a developer API and API-key-based authentication for its CRM platform.",
     "additional_evidence_urls": [
       "https://docs.twenty.com/developer/"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 6,
@@ -253,7 +258,8 @@
     "additional_evidence_urls": [
       "https://developers.podio.com/",
       "https://developers.podio.com/authentication"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 7,
@@ -295,7 +301,8 @@
     "additional_evidence_urls": [
       "https://www.zoho.com/crm/developer/docs/api/",
       "https://www.zoho.com/crm/developer/docs/api/v2/authentication/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 8,
@@ -337,7 +344,8 @@
     "evidence_quote": "Close documents API-key authentication and a REST API for CRM resources.",
     "additional_evidence_urls": [
       "https://developer.close.com/#authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 9,
@@ -379,7 +387,8 @@
     "evidence_quote": "Copper documents OAuth 2.0 and API-key authentication for its developer API.",
     "additional_evidence_urls": [
       "https://developer.copper.com/authentication.html"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 10,
@@ -416,7 +425,8 @@
       "fetch_investor_profile"
     ],
     "confidence": "low",
-    "evidence_quote": "DealCloud's API documentation portal describes its platform APIs and integration requirements."
+    "evidence_quote": "DealCloud's API documentation portal describes its platform APIs and integration requirements.",
+    "mcp_ready": false
   },
   {
     "id": 11,
@@ -458,7 +468,8 @@
     "evidence_quote": "Zendesk documents API-token, basic, and OAuth authentication for its REST API.",
     "additional_evidence_urls": [
       "https://developer.zendesk.com/documentation/api-basics/authentication/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 12,
@@ -501,7 +512,8 @@
     "additional_evidence_urls": [
       "https://developers.intercom.com/docs/rest-apis",
       "https://developers.intercom.com/docs/building-an-oauth-app"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 13,
@@ -543,7 +555,8 @@
     "evidence_quote": "Freshdesk documents API-key/basic authentication and OAuth for its REST API.",
     "additional_evidence_urls": [
       "https://developers.freshdesk.com/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 14,
@@ -555,7 +568,7 @@
       "JSON Web Token (JWT API Key)",
       "OAuth 2.0"
     ],
-    "primary_auth": "OAuth 2.0",
+    "primary_auth": "Bearer API Token / OAuth 2.0",
     "gating_status": "Self-serve Trial / Plan Gated",
     "gating_details": "Requires Growth plan or active trial; API tokens created in developer portal.",
     "api_surface": "REST API Core",
@@ -586,7 +599,8 @@
     "additional_evidence_urls": [
       "https://dev.frontapp.com/",
       "https://dev.frontapp.com/docs/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 15,
@@ -622,7 +636,8 @@
       "update_pylon_ticket"
     ],
     "confidence": "low",
-    "evidence_quote": "Pylon provides developer documentation for its customer-support platform and API."
+    "evidence_quote": "Pylon provides developer documentation for its customer-support platform and API.",
+    "mcp_ready": false
   },
   {
     "id": 16,
@@ -661,7 +676,8 @@
     "evidence_quote": "LiveAgent documents an API and API-key access for helpdesk resources.",
     "additional_evidence_urls": [
       "https://support.liveagent.com/187621-API-Overview"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 17,
@@ -701,7 +717,8 @@
     "evidence_quote": "Plain provides developer documentation for its support-platform API.",
     "additional_evidence_urls": [
       "https://docs.plain.com/"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 18,
@@ -742,7 +759,8 @@
     "evidence_quote": "Help Scout documents API-key and OAuth authentication for its Mailbox API.",
     "additional_evidence_urls": [
       "https://developer.helpscout.com/mailbox-api/authentication/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 19,
@@ -785,7 +803,8 @@
     "additional_evidence_urls": [
       "https://developers.gorgias.com/",
       "https://developers.gorgias.com/reference/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 20,
@@ -824,7 +843,8 @@
     "evidence_quote": "Gladly provides developer and integration documentation for its customer-service platform.",
     "additional_evidence_urls": [
       "https://docs.gladly.com/"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 21,
@@ -868,7 +888,8 @@
       "https://api.slack.com/authentication",
       "https://api.slack.com/apis"
     ],
-    "mcp_evidence_url": "https://api.slack.com/mcp"
+    "mcp_evidence_url": "https://api.slack.com/mcp",
+    "mcp_ready": true
   },
   {
     "id": 22,
@@ -910,7 +931,8 @@
     "evidence_quote": "Twilio documents API keys, account credentials, and REST APIs for communications products.",
     "additional_evidence_urls": [
       "https://www.twilio.com/docs/iam/credentials/api-keys"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 23,
@@ -952,7 +974,8 @@
     "additional_evidence_urls": [
       "https://www.zoho.com/cliq/help/developer/",
       "https://www.zoho.com/cliq/help/restapi/api/"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 24,
@@ -994,7 +1017,8 @@
     "additional_evidence_urls": [
       "https://open.larksuite.com/document/",
       "https://open.larksuite.com/document/server-docs/authentication-management/access-token"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 25,
@@ -1034,7 +1058,8 @@
     "evidence_quote": "Pumble's public site describes team messaging but does not clearly expose a developer API portal.",
     "additional_evidence_urls": [
       "https://pumble.com/"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 26,
@@ -1077,7 +1102,8 @@
     "additional_evidence_urls": [
       "https://discord.com/developers/docs",
       "https://discord.com/developers/docs/topics/oauth2"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 27,
@@ -1119,7 +1145,8 @@
     "evidence_quote": "Telegram documents bot-token authentication for the Bot API and app credentials for MTProto.",
     "additional_evidence_urls": [
       "https://core.telegram.org/api/obtaining_api_id"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 28,
@@ -1160,7 +1187,8 @@
     "additional_evidence_urls": [
       "https://developers.facebook.com/docs/whatsapp",
       "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 29,
@@ -1202,7 +1230,8 @@
     "additional_evidence_urls": [
       "https://developer.aircall.io/",
       "https://developer.aircall.io/docs/authentication"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 30,
@@ -1245,7 +1274,8 @@
     "additional_evidence_urls": [
       "https://developer.vonage.com/en/documentation",
       "https://developer.vonage.com/en/authentication"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 31,
@@ -1287,7 +1317,8 @@
     "additional_evidence_urls": [
       "https://developers.google.com/google-ads/api/docs/start",
       "https://developers.google.com/google-ads/api/docs/oauth/overview"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 32,
@@ -1330,7 +1361,8 @@
     "additional_evidence_urls": [
       "https://developers.facebook.com/docs/marketing-apis",
       "https://developers.facebook.com/docs/marketing-api/authorization"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 33,
@@ -1371,7 +1403,8 @@
     "additional_evidence_urls": [
       "https://learn.microsoft.com/en-us/linkedin/marketing/",
       "https://learn.microsoft.com/en-us/linkedin/marketing/authentication"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 34,
@@ -1412,7 +1445,8 @@
     "evidence_quote": "GoHighLevel's integration documentation describes API access and OAuth-based authorization for its platform.",
     "additional_evidence_urls": [
       "https://highlevel.stoplight.io/docs/integrations/6c9c1a1b1b1c4-go-high-level-api"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 35,
@@ -1454,7 +1488,8 @@
     "evidence_quote": "Mailchimp documents API keys, OAuth, and a Marketing REST API.",
     "additional_evidence_urls": [
       "https://mailchimp.com/developer/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 36,
@@ -1496,7 +1531,8 @@
     "evidence_quote": "Klaviyo documents private API keys, OAuth, revisions, and REST API endpoints.",
     "additional_evidence_urls": [
       "https://developers.klaviyo.com/en/reference/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 37,
@@ -1536,7 +1572,8 @@
     "evidence_quote": "systeme.io provides API documentation and API-key authentication for its marketing platform.",
     "additional_evidence_urls": [
       "https://systeme.io/api"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 38,
@@ -1577,7 +1614,8 @@
     "evidence_quote": "Pinterest documents OAuth 2.0 and REST API endpoints for creators, catalogs, and ads.",
     "additional_evidence_urls": [
       "https://developers.pinterest.com/docs/getting-started/"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 39,
@@ -1618,7 +1656,8 @@
     "evidence_quote": "Meta documents Threads API onboarding, OAuth authorization, and publishing endpoints.",
     "additional_evidence_urls": [
       "https://developers.facebook.com/docs/threads/get-started"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 40,
@@ -1660,7 +1699,8 @@
     "additional_evidence_urls": [
       "https://www.twilio.com/docs/sendgrid/api-reference",
       "https://www.twilio.com/docs/sendgrid/ui/account-and-settings/api-keys"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 41,
@@ -1702,7 +1742,8 @@
     "evidence_quote": "Shopify documents OAuth, access tokens, Admin GraphQL API, and app installation requirements.",
     "additional_evidence_urls": [
       "https://shopify.dev/docs/apps/build/authentication-authorization"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 42,
@@ -1743,7 +1784,8 @@
     "evidence_quote": "WooCommerce documents REST API keys, basic authentication, and OAuth 1.0a support.",
     "additional_evidence_urls": [
       "https://woocommerce.com/document/woocommerce-rest-api/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 43,
@@ -1785,7 +1827,8 @@
     "evidence_quote": "BigCommerce documents API accounts, OAuth, and REST management APIs.",
     "additional_evidence_urls": [
       "https://developer.bigcommerce.com/docs/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 44,
@@ -1825,7 +1868,8 @@
     "evidence_quote": "Salesforce Commerce Cloud developer documentation describes tenant-scoped APIs and authentication mechanisms.",
     "additional_evidence_urls": [
       "https://developer.salesforce.com/docs/commerce"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 45,
@@ -1867,7 +1911,8 @@
     "additional_evidence_urls": [
       "https://developer.adobe.com/commerce/webapi/rest/",
       "https://developer.adobe.com/commerce/webapi/get-started/authentication/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 46,
@@ -1909,7 +1954,8 @@
     "additional_evidence_urls": [
       "https://developers.squarespace.com/",
       "https://developers.squarespace.com/authentication"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 47,
@@ -1950,7 +1996,8 @@
     "additional_evidence_urls": [
       "https://api-docs.ecwid.com/",
       "https://api-docs.ecwid.com/reference/authorization"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 48,
@@ -1991,7 +2038,8 @@
     "evidence_quote": "Gumroad documents OAuth-based authentication and a REST API for creator commerce data.",
     "additional_evidence_urls": [
       "https://gumroad.com/api#authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 49,
@@ -2033,7 +2081,8 @@
     "additional_evidence_urls": [
       "https://developer-docs.amazon.com/sp-api/",
       "https://developer-docs.amazon.com/sp-api/docs/registering-as-a-developer"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 50,
@@ -2067,7 +2116,8 @@
       "browser_scrape_experience_listings (fallback only)"
     ],
     "confidence": "low",
-    "evidence_quote": "Fanbasis's public site describes creator commerce but does not clearly expose developer API documentation."
+    "evidence_quote": "Fanbasis's public site describes creator commerce but does not clearly expose developer API documentation.",
+    "mcp_ready": false
   },
   {
     "id": 51,
@@ -2108,7 +2158,8 @@
     "additional_evidence_urls": [
       "https://docs.dataforseo.com/",
       "https://docs.dataforseo.com/v2/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 52,
@@ -2144,7 +2195,8 @@
       "get_competitor_organic_keywords"
     ],
     "confidence": "low",
-    "evidence_quote": "SE Ranking provides API documentation and API-key access for SEO data."
+    "evidence_quote": "SE Ranking provides API documentation and API-key access for SEO data.",
+    "mcp_ready": false
   },
   {
     "id": 53,
@@ -2186,7 +2238,8 @@
     "additional_evidence_urls": [
       "https://ahrefs.com/api",
       "https://docs.ahrefs.com/reference/authentication"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 54,
@@ -2225,7 +2278,8 @@
     "evidence_quote": "MrScraper provides developer documentation for its scraping API.",
     "additional_evidence_urls": [
       "https://docs.mrscraper.com/"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 55,
@@ -2266,7 +2320,8 @@
     "evidence_quote": "Apify documents personal API tokens and REST endpoints for actors, runs, and storage.",
     "additional_evidence_urls": [
       "https://docs.apify.com/api/v2#/reference/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 56,
@@ -2307,7 +2362,8 @@
     "evidence_quote": "Firecrawl documents API keys and REST endpoints for crawling and extraction.",
     "additional_evidence_urls": [
       "https://docs.firecrawl.dev/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 57,
@@ -2347,7 +2403,8 @@
     "evidence_quote": "Bright Data documents APIs, credentials, and product-specific access for web-data services.",
     "additional_evidence_urls": [
       "https://docs.brightdata.com/api-reference/overview"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 58,
@@ -2383,7 +2440,8 @@
     ],
     "rate_limits": "Depends on target sites and local execution; not documented by Sherlock.",
     "confidence": "medium",
-    "evidence_quote": "Sherlock is an open-source CLI project for locating usernames across social networks."
+    "evidence_quote": "Sherlock is an open-source CLI project for locating usernames across social networks.",
+    "mcp_ready": false
   },
   {
     "id": 59,
@@ -2419,7 +2477,8 @@
       "waterfall_phone_lookup"
     ],
     "confidence": "low",
-    "evidence_quote": "Waterfall's public site describes contact and company intelligence but does not clearly expose developer API documentation."
+    "evidence_quote": "Waterfall's public site describes contact and company intelligence but does not clearly expose developer API documentation.",
+    "mcp_ready": false
   },
   {
     "id": 60,
@@ -2459,7 +2518,8 @@
     "evidence_quote": "Clay provides developer documentation for its data-enrichment and GTM platform.",
     "additional_evidence_urls": [
       "https://docs.clay.com/"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 61,
@@ -2504,7 +2564,8 @@
       "https://docs.github.com/en/authentication",
       "https://github.com/github/github-mcp-server"
     ],
-    "mcp_evidence_url": "https://github.com/github/github-mcp-server"
+    "mcp_evidence_url": "https://github.com/github/github-mcp-server",
+    "mcp_ready": true
   },
   {
     "id": 62,
@@ -2546,7 +2607,8 @@
     "evidence_quote": "Vercel documents API tokens, OAuth, and a REST API for platform resources.",
     "additional_evidence_urls": [
       "https://vercel.com/docs/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 63,
@@ -2588,7 +2650,8 @@
     "evidence_quote": "Netlify documents personal access tokens, OAuth, and a REST API.",
     "additional_evidence_urls": [
       "https://docs.netlify.com/api/authentication/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 64,
@@ -2630,7 +2693,8 @@
     "evidence_quote": "Cloudflare documents API tokens, permissions, and a broad REST API.",
     "additional_evidence_urls": [
       "https://developers.cloudflare.com/fundamentals/api/get-started/create-token/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 65,
@@ -2673,7 +2737,8 @@
     "additional_evidence_urls": [
       "https://supabase.com/docs/guides/api",
       "https://supabase.com/docs/guides/database/api"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 66,
@@ -2715,7 +2780,8 @@
     "additional_evidence_urls": [
       "https://neo4j.com/docs/http-api/current/",
       "https://neo4j.com/docs/api/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 67,
@@ -2758,7 +2824,8 @@
     "additional_evidence_urls": [
       "https://docs.snowflake.com/en/developer-guide/api-reference/",
       "https://docs.snowflake.com/en/user-guide/key-pair-auth"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 68,
@@ -2801,7 +2868,8 @@
     "additional_evidence_urls": [
       "https://www.mongodb.com/docs/atlas/api/",
       "https://www.mongodb.com/docs/atlas/configure-api-access/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 69,
@@ -2842,7 +2910,8 @@
     "evidence_quote": "Datadog documents API/application keys and a broad REST API.",
     "additional_evidence_urls": [
       "https://docs.datadoghq.com/account_management/api-key/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 70,
@@ -2858,7 +2927,7 @@
     "gating_status": "Self-serve Free",
     "gating_details": "Free Developer plan allows creating User Auth Tokens immediately in Account > API > User Tokens.",
     "api_surface": "REST API v0",
-    "mcp_status": "Available (Official Sentry MCP)",
+    "mcp_status": "Available (Official MCP at mcp.sentry.dev)",
     "buildability_verdict": "Ready",
     "blocker_details": null,
     "evidence_url": "https://docs.sentry.io/api/",
@@ -2884,7 +2953,8 @@
     "evidence_quote": "Sentry documents auth tokens, OAuth, and a REST API for issue and project management.",
     "additional_evidence_urls": [
       "https://docs.sentry.io/account/auth-tokens/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 71,
@@ -2900,7 +2970,7 @@
     "gating_status": "Self-serve Free",
     "gating_details": "Free accounts have unlimited access to My Integrations portal and instant internal token creation.",
     "api_surface": "REST API (2022-06-28 revisioned)",
-    "mcp_status": "Available (Official & Composio top-tier)",
+    "mcp_status": "Available (Official MCP at mcp.notion.com/mcp)",
     "buildability_verdict": "Ready",
     "blocker_details": null,
     "evidence_url": "https://developers.notion.com/reference/intro",
@@ -2927,7 +2997,8 @@
     "additional_evidence_urls": [
       "https://developers.notion.com/reference/introduction",
       "https://developers.notion.com/reference/create-token"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 72,
@@ -2969,7 +3040,8 @@
     "evidence_quote": "Airtable documents personal access tokens, OAuth, and a REST API for bases and records.",
     "additional_evidence_urls": [
       "https://airtable.com/developers/web/api/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 73,
@@ -2985,7 +3057,7 @@
     "gating_status": "Self-serve Free",
     "gating_details": "Free plan allows generating personal API keys in Account > Security & Access.",
     "api_surface": "GraphQL API",
-    "mcp_status": "Available (Official Linear MCP)",
+    "mcp_status": "Available (Official MCP at mcp.linear.app)",
     "buildability_verdict": "Ready",
     "blocker_details": null,
     "evidence_url": "https://developers.linear.app/docs/graphql/working-with-the-graphql-api",
@@ -3011,7 +3083,8 @@
     "evidence_quote": "Linear documents API keys, OAuth, and a GraphQL API.",
     "additional_evidence_urls": [
       "https://developers.linear.app/docs/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 74,
@@ -3053,7 +3126,8 @@
     "evidence_quote": "Atlassian documents API tokens, OAuth, and REST endpoints for Jira Cloud.",
     "additional_evidence_urls": [
       "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/#authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 75,
@@ -3096,7 +3170,8 @@
     "additional_evidence_urls": [
       "https://developers.asana.com/docs/overview",
       "https://developers.asana.com/docs/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 76,
@@ -3139,7 +3214,8 @@
     "additional_evidence_urls": [
       "https://developer.monday.com/api-reference/",
       "https://developer.monday.com/api-reference/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 77,
@@ -3182,7 +3258,8 @@
     "additional_evidence_urls": [
       "https://developer.clickup.com/",
       "https://developer.clickup.com/reference/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 78,
@@ -3223,7 +3300,8 @@
     "evidence_quote": "Coda documents API tokens, OAuth, and REST endpoints for docs and tables.",
     "additional_evidence_urls": [
       "https://coda.io/developers/apis/v1#authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 79,
@@ -3265,7 +3343,8 @@
     "evidence_quote": "Smartsheet documents API access tokens, OAuth, and REST endpoints for work-management resources.",
     "additional_evidence_urls": [
       "https://smartsheet.redoc.ly/tag/authentication"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 80,
@@ -3308,7 +3387,8 @@
     "additional_evidence_urls": [
       "https://help.getharvest.com/api-v2/",
       "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 81,
@@ -3325,7 +3405,7 @@
     "gating_status": "Self-serve Instant Sandbox",
     "gating_details": "Instant zero-credit-card sandbox account with immediate test mode API key provisioning.",
     "api_surface": "REST API (Versioned by date)",
-    "mcp_status": "Available (Official Stripe MCP & Composio)",
+    "mcp_status": "Available (Official MCP at mcp.stripe.com)",
     "buildability_verdict": "Ready",
     "blocker_details": null,
     "evidence_url": "https://docs.stripe.com/api",
@@ -3352,7 +3432,8 @@
     "additional_evidence_urls": [
       "https://stripe.com/docs/api",
       "https://stripe.com/docs/keys"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 82,
@@ -3394,7 +3475,8 @@
     "evidence_quote": "Plaid documents client credentials, access tokens, sandbox access, and production onboarding requirements.",
     "additional_evidence_urls": [
       "https://plaid.com/docs/authentication/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 83,
@@ -3435,7 +3517,8 @@
     "evidence_quote": "Binance documents API-key/HMAC authentication, trading permissions, and rate limits.",
     "additional_evidence_urls": [
       "https://binance-docs.github.io/apidocs/spot/en/#general-api-information"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 84,
@@ -3475,7 +3558,8 @@
     "evidence_quote": "The provided product name does not resolve unambiguously to a clearly documented public developer platform.",
     "additional_evidence_urls": [
       "https://paygent.com/"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 85,
@@ -3514,7 +3598,8 @@
     "evidence_quote": "The provided documentation URL does not establish a verifiable public developer API in the available research context.",
     "additional_evidence_urls": [
       "https://ipayx.ai/docs"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 86,
@@ -3556,7 +3641,8 @@
     "additional_evidence_urls": [
       "https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization",
       "https://developer.intuit.com/app/developer/qbo/docs/api/accounting"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 87,
@@ -3598,7 +3684,8 @@
     "additional_evidence_urls": [
       "https://developer.xero.com/documentation/api/",
       "https://developer.xero.com/documentation/oauth2/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 88,
@@ -3641,7 +3728,8 @@
     "additional_evidence_urls": [
       "https://developer.brex.com/",
       "https://developer.brex.com/docs/authentication/"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 89,
@@ -3683,7 +3771,8 @@
     "additional_evidence_urls": [
       "https://docs.ramp.com/",
       "https://docs.ramp.com/developer-api/reference/authentication"
-    ]
+    ],
+    "mcp_ready": true
   },
   {
     "id": 90,
@@ -3695,7 +3784,7 @@
       "API Token / Basic Auth"
     ],
     "primary_auth": "API Token",
-    "gating_status": "Enterprise Contract Gate ($25k+)",
+    "gating_status": "Enterprise Contract Gated (sales contact required)",
     "gating_details": "Direct Data API requires a dedicated enterprise sales contract and institutional data license.",
     "api_surface": "PitchBook Direct Data REST API",
     "mcp_status": "None (Proprietary)",
@@ -3722,7 +3811,8 @@
     "evidence_quote": "PitchBook's public site describes research subscriptions rather than a self-serve developer API portal.",
     "additional_evidence_urls": [
       "https://pitchbook.com/"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 91,
@@ -3762,7 +3852,8 @@
     "additional_evidence_urls": [
       "https://cloud.google.com/gemini",
       "https://cloud.google.com/vertex-ai/docs/generative-ai/overview"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 92,
@@ -3798,7 +3889,8 @@
       "list_speech_recordings"
     ],
     "confidence": "low",
-    "evidence_quote": "Otter provides help-center documentation for integrations and meeting workflows; public API details require verification."
+    "evidence_quote": "Otter provides help-center documentation for integrations and meeting workflows; public API details require verification.",
+    "mcp_ready": false
   },
   {
     "id": 93,
@@ -3810,11 +3902,11 @@
       "API Key (X-Api-Key)",
       "OAuth 2.0 (Apps)"
     ],
-    "primary_auth": "Bearer API Key",
+    "primary_auth": "API Key (Bearer) / OAuth 2.0",
     "gating_status": "Self-serve Free",
     "gating_details": "API keys can be generated directly in User Settings under API Access.",
     "api_surface": "REST API v1 (api.fathom.ai), Webhooks",
-    "mcp_status": "Community Emerging",
+    "mcp_status": "Available (Official MCP at api.fathom.ai/mcp)",
     "buildability_verdict": "Ready",
     "blocker_details": null,
     "evidence_url": "https://fathom-e4df0608.mintlify.site/",
@@ -3835,7 +3927,8 @@
       "fetch_meeting_action_items"
     ],
     "confidence": "low",
-    "evidence_quote": "Fathom's public site describes meeting notes but does not clearly expose developer API documentation."
+    "evidence_quote": "Fathom's public site describes meeting notes but does not clearly expose developer API documentation.",
+    "mcp_ready": true
   },
   {
     "id": 94,
@@ -3871,7 +3964,8 @@
       "extract_paper_claim"
     ],
     "confidence": "low",
-    "evidence_quote": "Consensus's public site describes research search but does not clearly expose developer API documentation."
+    "evidence_quote": "Consensus's public site describes research search but does not clearly expose developer API documentation.",
+    "mcp_ready": true
   },
   {
     "id": 95,
@@ -3907,7 +4001,8 @@
       "get_document_markdown"
     ],
     "confidence": "medium",
-    "evidence_quote": "Reducto provides developer documentation for its document-parsing API."
+    "evidence_quote": "Reducto provides developer documentation for its document-parsing API.",
+    "mcp_ready": true
   },
   {
     "id": 96,
@@ -3949,7 +4044,8 @@
       "https://docs.devin.ai/",
       "https://docs.devin.ai/work-with-devin/mcp-server"
     ],
-    "mcp_evidence_url": "https://docs.devin.ai/work-with-devin/mcp-server"
+    "mcp_evidence_url": "https://docs.devin.ai/work-with-devin/mcp-server",
+    "mcp_ready": true
   },
   {
     "id": 97,
@@ -3988,7 +4084,8 @@
     "evidence_quote": "Higgsfield provides CLI documentation for accessing its AI content-generation capabilities.",
     "additional_evidence_urls": [
       "https://higgsfield.ai/cli"
-    ]
+    ],
+    "mcp_ready": false
   },
   {
     "id": 98,
@@ -4024,7 +4121,8 @@
       "validate_mermaid_syntax"
     ],
     "confidence": "high",
-    "evidence_quote": "Mermaid CLI is an open-source command-line renderer for Mermaid diagrams."
+    "evidence_quote": "Mermaid CLI is an open-source command-line renderer for Mermaid diagrams.",
+    "mcp_ready": false
   },
   {
     "id": 99,
@@ -4060,7 +4158,8 @@
       "search_transcript_timestamp"
     ],
     "confidence": "low",
-    "evidence_quote": "TranscriptAPI provides a commercial API for YouTube transcript retrieval."
+    "evidence_quote": "TranscriptAPI provides a commercial API for YouTube transcript retrieval.",
+    "mcp_ready": true
   },
   {
     "id": 100,
@@ -4097,6 +4196,7 @@
       "list_workspace_recordings"
     ],
     "confidence": "low",
-    "evidence_quote": "Grain's public site describes meeting intelligence but does not clearly expose developer API documentation."
+    "evidence_quote": "Grain's public site describes meeting intelligence but does not clearly expose developer API documentation.",
+    "mcp_ready": true
   }
 ]

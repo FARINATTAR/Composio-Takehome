@@ -426,18 +426,24 @@ def build_html():
 
       <!-- Honest Misses Breakdown -->
       <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
-        <h3 class="text-base font-bold text-slate-900">Where Agents Failed: Analysis of Disagreements & Hallucinations</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-600 leading-relaxed">
+        <h3 class="text-base font-bold text-slate-900">Where Agents Failed: Honest Analysis of Errors Found</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-600 leading-relaxed">
           <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
-            <h4 class="font-bold text-slate-900 text-sm">1. Perplexity False Negatives on Subdomains</h4>
+            <h4 class="font-bold text-slate-900 text-sm">1. Systematic MCP Undercounting</h4>
             <p>
-              Perplexity falsely classified <strong>Fathom, Pumble, Grain, and Consensus</strong> as "Blocked / No Public API" because their documentation portals reside on sub-domains (<code>api.fathom.ai</code>, <code>marketplace.cake.com</code>, <code>api.grain.com</code>). Hand-checking verified they all provide active REST APIs and API key generation.
+              Both models originally missed that <strong>Fathom, HubSpot, Notion, Stripe, Linear, and Sentry</strong> all host official vendor MCP servers. Initial extraction marked them "No" or community-only. Cross-audit corrected all 6.
             </p>
           </div>
           <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
-            <h4 class="font-bold text-slate-900 text-sm">2. Gemini Hallucinations on Legal & Deprecation Gates</h4>
+            <h4 class="font-bold text-slate-900 text-sm">2. Perplexity False Negatives on APIs</h4>
             <p>
-              Gemini claimed <strong>WhatsApp Business</strong> was instant self-serve (missing Meta's mandatory legal Business Verification) and extracted raw <code>API Key</code> for <strong>HubSpot</strong> (missing that HubSpot deprecated raw API keys in Nov 2022 in favor of Private App tokens).
+              Perplexity falsely classified <strong>Fathom, Pumble, Grain, and Consensus</strong> as "Blocked" because their documentation portals reside on sub-domains (<code>api.fathom.ai</code>, <code>marketplace.cake.com</code>). Verified active REST endpoints exist.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <h4 class="font-bold text-slate-900 text-sm">3. Gemini Hallucinations on Gating</h4>
+            <p>
+              Gemini claimed <strong>WhatsApp Business</strong> was instant self-serve (missing Meta's mandatory Business Verification) and extracted deprecated <code>HAPIKEY</code> for <strong>HubSpot</strong> (deprecated Nov 2022).
             </p>
           </div>
         </div>
